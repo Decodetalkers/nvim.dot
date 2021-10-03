@@ -1,0 +1,48 @@
+{
+    "languageserver": {
+        "kotlin": {
+            "command": "/home/cht/lsp/kotlin/bin/kotlin-language-server",
+            "filetypes": ["kotlin"]
+        },
+        "ocaml-lsp": {
+            "command": "opam",
+            "args": ["config", "exec", "--", "ocamllsp"],
+            "filetypes": ["ocaml", "reason"]
+        },
+        "dart": {
+            "command": "dart",
+            "args": [
+                "/home/cht/Flutter/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot",
+                "--lsp",
+                "--client-id",
+                "vim",
+                "--client-version",
+                "coc.nvim"
+            ],
+            "filetypes": ["dart"],
+            "trace.server": "verbose"
+        },
+        "vala": {
+            "command": "vala-language-server",
+            "filetypes": ["vala", "genie"]
+        },
+        "fsharp":{
+          "command": "fsharp-language-server",
+          "filetypes": ["fsharp"]
+        },
+
+        "svlangserver": {
+            "command": "svlangserver",
+            "filetypes": ["systemverilog"],
+            "settings": {
+                "systemverilog.includeIndexing": ["**/*.{sv,svh}"],
+                "systemverilog.excludeIndexing": ["test/**/*.sv*"],
+                "systemverilog.defines": [],
+                "systemverilog.launchConfiguration": "/tools/verilator -sv -Wall --lint-only",
+                "systemverilog.formatCommand": "/tools/verible-verilog-format"
+            }
+        }
+    },
+    "python.analysis.useLibraryCodeForTypes": false,
+    "java.format.settings.url": "/home/cht/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+}
