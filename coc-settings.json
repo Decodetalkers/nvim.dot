@@ -26,14 +26,9 @@
             "command": "vala-language-server",
             "filetypes": ["vala", "genie"]
         },
-        "fsharp":{
-          "command": "fsharp-language-server",
-          "filetypes": ["fsharp"]
-        },
-
         "svlangserver": {
             "command": "svlangserver",
-            "filetypes": ["systemverilog"],
+            "filetypes": ["systemverilog","scala"],
             "settings": {
                 "systemverilog.includeIndexing": ["**/*.{sv,svh}"],
                 "systemverilog.excludeIndexing": ["test/**/*.sv*"],
