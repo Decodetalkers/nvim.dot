@@ -62,7 +62,6 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim',{'branch':'release'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'morhetz/gruvbox'
 "Plug 'peterhoeg/vim-qml'
 Plug 'cespare/vim-toml'
 Plug 'alaviss/nim.nvim'
@@ -98,9 +97,22 @@ syntax on
 "here is added
 set updatetime=500
 
+if has("termguicolors")
+    " fix bug for vim
+    set t_8f=^[[38;2;%lu;%lu;%lum
+    set t_8b=^[[48;2;%lu;%lu;%lum
+
+    " enable true color
+    set termguicolors
+endif
+
 set cursorline
+hi Normal guibg=#1b1e27
 hi Pmenu ctermfg=223 ctermbg=239 guifg=#ebdbb2 guibg=#504945
-hi CursorLine cterm=bold  ctermbg=DarkGrey
+hi CursorLine cterm=bold  guibg=#333333
+hi Visual cterm=bold  guibg=#444444
+" warning block
+hi CocFadeOut cterm=bold  guibg=#777777
 "hi CursorLine cterm=NONE ctermbg=59
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
 autocmd BufWritePost,BufNewFile,BufWritePre,BufRead *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
