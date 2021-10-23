@@ -112,7 +112,7 @@ set background=dark " for the dark version
 
 set cursorline
 hi Normal guibg=#1b1e27
-hi Pmenu ctermfg=223 ctermbg=239 guifg=#ebdbb2 guibg=#504945
+"hi Pmenu ctermfg=223 ctermbg=239 guifg=#ebdbb2 guibg=#504945
 hi CursorLine cterm=bold  guibg=#333333
 "hi Visual cterm=bold  guibg=#444444
 " warning block
