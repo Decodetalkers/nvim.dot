@@ -116,7 +116,7 @@ hi Pmenu ctermfg=223 ctermbg=239 guifg=#ebdbb2 guibg=#504945
 hi CursorLine cterm=bold  guibg=#333333
 "hi Visual cterm=bold  guibg=#444444
 " warning block
-"hi CocFadeOut cterm=bold  guibg=#777777
+hi CocFadeOut cterm=bold  guibg=#666666
 "hi CursorLine cterm=NONE ctermbg=59
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
 autocmd BufWritePost,BufNewFile,BufWritePre,BufRead *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
