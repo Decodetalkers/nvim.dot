@@ -79,45 +79,34 @@ call plug#end()
 
 set noshowmatch
 set completeopt=longest,menuone,preview
-"let g:syntastic_cs_checkers = ['code_checker']
-"let g:go_fmt_command = "goimports" " 格式化将默认的 gofmt 替换
-"let g:go_autodetect_gopath = 1
-"let g:go_list_type = "quickfix"
-"let g:go_version_warning = 1
-"let g:go_highlight_types = 1
-"let g:go_highlight_fields = 1
-"let g:go_highlight_functions = 1
-"let g:go_highlight_function_calls = 1
-"let g:go_highlight_operators = 1
-"let g:go_highlight_extra_types = 1
-"let g:go_highlight_methods = 1
-"let g:go_highlight_generate_tags = 1
-"let g:godef_split=2
-"let python_highlight_all=1
 
-
-"here is added
 set updatetime=500
 
+" if the terminal can support the true color
 if has("termguicolors")
     " fix bug for vim
     set t_8f=^[[38;2;%lu;%lu;%lum
     set t_8b=^[[48;2;%lu;%lu;%lum
-
     " enable true color
     set termguicolors
+    colorscheme one
+    set background=dark " for the dark version
+    set cursorline
+    " only if the termianl support the true color, set the CursorLine, else 
+    " as the terminal color
+    hi Normal guibg=#1b1e27
+    hi CursorLine cterm=bold  guibg=#333333
+    "hi Visual cterm=bold  guibg=#444444
+    " warning block
+    hi CocFadeOut cterm=bold  guibg=#666666
+else
+    " then set the Pmenu to make the terminal beautiful
+    hi Pmenu ctermfg=223 ctermbg=239 guifg=#ebdbb2 guibg=#504945
 endif
-colorscheme one
-set background=dark " for the dark version
+
 " set background=light " for the light version
 
-set cursorline
-hi Normal guibg=#1b1e27
-"hi Pmenu ctermfg=223 ctermbg=239 guifg=#ebdbb2 guibg=#504945
-hi CursorLine cterm=bold  guibg=#333333
-"hi Visual cterm=bold  guibg=#444444
-" warning block
-hi CocFadeOut cterm=bold  guibg=#666666
+
 "hi CursorLine cterm=NONE ctermbg=59
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
 autocmd BufWritePost,BufNewFile,BufWritePre,BufRead *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
