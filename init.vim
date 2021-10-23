@@ -14,6 +14,7 @@ set mouse=a "To enable the mouse
 set hlsearch  "Search highlight
 set wrap "换行显示
 syntax enable  "Syntax highlighting
+syntax on
 set nocompatible
 filetype off
 call plug#begin('~/.vim/bundle')
@@ -44,7 +45,7 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'jamescarr/snipmate-nodejs'
 "Plug 'myhere/vim-nodejs-complete'
 "Plug 'guileen/vim-node'
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 "Plug 'WolfgangMehner/perl-support'
 "Plug 'thosakwe/vim-flutter'
 Plug 'natebosch/vim-lsc'
@@ -78,22 +79,22 @@ call plug#end()
 
 set noshowmatch
 set completeopt=longest,menuone,preview
-let g:syntastic_cs_checkers = ['code_checker']
-let g:go_fmt_command = "goimports" " 格式化将默认的 gofmt 替换
-let g:go_autodetect_gopath = 1
-let g:go_list_type = "quickfix"
-let g:go_version_warning = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_generate_tags = 1
-let g:godef_split=2
-let python_highlight_all=1
-syntax on
+"let g:syntastic_cs_checkers = ['code_checker']
+"let g:go_fmt_command = "goimports" " 格式化将默认的 gofmt 替换
+"let g:go_autodetect_gopath = 1
+"let g:go_list_type = "quickfix"
+"let g:go_version_warning = 1
+"let g:go_highlight_types = 1
+"let g:go_highlight_fields = 1
+"let g:go_highlight_functions = 1
+"let g:go_highlight_function_calls = 1
+"let g:go_highlight_operators = 1
+"let g:go_highlight_extra_types = 1
+"let g:go_highlight_methods = 1
+"let g:go_highlight_generate_tags = 1
+"let g:godef_split=2
+"let python_highlight_all=1
+
 
 "here is added
 set updatetime=500
