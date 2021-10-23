@@ -72,6 +72,7 @@ Plug 'kovisoft/slimv'
 "Plug 'arrufat/vala.vim'
 Plug 'sheerun/vim-polyglot'
 "Plug 'ruifig/vim-vs'
+Plug 'rak/vim-one'
 call plug#end()
 
 
@@ -105,6 +106,9 @@ if has("termguicolors")
     " enable true color
     set termguicolors
 endif
+colorscheme one
+set background=dark " for the dark version
+" set background=light " for the light version
 
 set cursorline
 hi Normal guibg=#1b1e27
