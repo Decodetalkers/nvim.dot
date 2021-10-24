@@ -28,7 +28,7 @@
         },
         "svlangserver": {
             "command": "svlangserver",
-            "filetypes": ["systemverilog","scala"],
+            "filetypes": ["systemverilog", "scala"],
             "settings": {
                 "systemverilog.includeIndexing": ["**/*.{sv,svh}"],
                 "systemverilog.excludeIndexing": ["test/**/*.sv*"],
@@ -36,6 +36,12 @@
                 "systemverilog.launchConfiguration": "/tools/verilator -sv -Wall --lint-only",
                 "systemverilog.formatCommand": "/tools/verible-verilog-format"
             }
+        },
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+            "filetypes": ["haskell", "lhaskell"]
         }
     },
     "python.analysis.useLibraryCodeForTypes": false,
