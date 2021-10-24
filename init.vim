@@ -28,7 +28,7 @@ Plug 'godlygeek/tabular'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'humiaozuzu/dot-vimrc'
 Plug 'preservim/nerdtree'
-Plug 'Lokaltog/vim-powerline'
+"Plug 'Lokaltog/vim-powerline'
 Plug 'tpope/vim-dispatch'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/tagbar'
@@ -49,21 +49,15 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'vlime/vlime', {'rtp': 'vim/'}
 Plug 'kovisoft/slimv'
 Plug 'sheerun/vim-polyglot'
-Plug 'rak/vim-one'
+Plug 'rakr/vim-one'
 call plug#end()
-
 "hi CursorLine cterm=NONE ctermbg=59
-
 "colorscheme gruvbox
 "set background=dark
 set foldmethod=syntax
 "set foldmethod=manual
-
 let g:vimspector_enable_mappings = 'HUMAN'
 set showcmd
-
-
-
 source $HOME/.config/nvim/theme.vim
 source $HOME/.config/nvim/function.vim
 source $HOME/.config/nvim/tagbar.vim

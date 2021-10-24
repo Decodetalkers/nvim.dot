@@ -21,6 +21,9 @@ if has("termguicolors")
     " warning block
     hi CocFadeOut cterm=bold  guibg=#666666
 else
+    " if not have the color , I should open it buy my self
+    syntax enable
+    syntax on
     " then set the Pmenu to make the terminal beautiful
     hi Pmenu ctermfg=223 ctermbg=239 guifg=#ebdbb2 guibg=#504945
 endif
