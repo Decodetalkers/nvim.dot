@@ -53,18 +53,17 @@ Plug 'rak/vim-one'
 call plug#end()
 
 "hi CursorLine cterm=NONE ctermbg=59
-autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
-autocmd BufWritePost,BufNewFile,BufWritePre,BufRead *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
+
 "colorscheme gruvbox
 "set background=dark
 set foldmethod=syntax
 "set foldmethod=manual
-autocmd!   BufNewFile,BufRead *    setlocal nofoldenable
+
 let g:vimspector_enable_mappings = 'HUMAN'
 set showcmd
 
-let g:rust_use_custom_ctags_defs = 1  " if using rust.vim
-let g:tagbar_type_dart = { 'ctagsbin': '~/.pub-cache/bin/dart_ctags' }
+
 
 source $HOME/.config/nvim/theme.vim
 source $HOME/.config/nvim/function.vim
+source $HOME/.config/nvim/tagbar.vim
