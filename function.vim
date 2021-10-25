@@ -46,3 +46,6 @@ for tool in s:opam_packages
     call s:opam_configuration[tool]()
   endif
 endfor
+
+" auto enable blamer
+let g:blamer_enabled = 1

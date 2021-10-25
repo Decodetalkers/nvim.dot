@@ -56,6 +56,8 @@ Plug 'kovisoft/slimv'
 Plug 'sheerun/vim-polyglot'
 " the theme
 Plug 'rakr/vim-one'
+" show more message for git
+Plug 'APZelos/blamer.nvim'
 call plug#end()
 "hi CursorLine cterm=NONE ctermbg=59
 "colorscheme gruvbox
