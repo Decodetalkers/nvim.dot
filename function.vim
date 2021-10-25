@@ -1,5 +1,5 @@
 func! Settab()
-    if &filetype == 'json' || &filetype == 'cpp' || &filetype == 'dart' || &filetype == 'javascript'
+    if &filetype == 'json' || &filetype == 'cpp' || &filetype == 'dart' || &filetype == 'javascript' || &filetype == 'xml'
         set ts=2
         set tabstop=2 "TAB equivalent space length
         set shiftwidth=2

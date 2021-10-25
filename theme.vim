@@ -32,7 +32,7 @@ set laststatus=2 "1为关闭底部状态栏 2为开启"
 set t_Co=256     "终端开启256色支持"
 set encoding=utf-8
 set langmenu=zh_CN.UTF-8
-nmap ff :bn<cr> "设置tab键映射"
+
 
 " if not in tty, then use powerline font 
 if $TERM != 'linux'

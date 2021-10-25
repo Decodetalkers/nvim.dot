@@ -60,3 +60,4 @@ set showcmd
 source $HOME/.config/nvim/theme.vim
 source $HOME/.config/nvim/function.vim
 source $HOME/.config/nvim/tagbar.vim
+source $HOME/.config/nvim/key.vim
