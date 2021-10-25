@@ -18,7 +18,7 @@ set nocompatible
 filetype off
 call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-fugitive'
-Plug 'Shougo/neocomplete.vim'
+"Plug 'Shougo/neocomplete.vim'
 Plug 'chrisbra/csv.vim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
@@ -27,19 +27,25 @@ Plug 'ncm2/ncm2-ultisnips'
 Plug 'godlygeek/tabular'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'humiaozuzu/dot-vimrc'
+" nerdtree as you known
 Plug 'preservim/nerdtree'
-Plug 'tpope/vim-dispatch'
+"Plug 'tpope/vim-dispatch'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'preservim/tagbar'
+" airline and its themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'natebosch/vim-lsc'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
+" used to highlight qt project
 Plug 'vim-scripts/cpp.vim'
+" snippets 
 Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" I need it to code
 Plug 'neoclide/coc.nvim',{'branch':'release'}
+" preview markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'cespare/vim-toml'
 Plug 'alaviss/nim.nvim'
@@ -48,6 +54,7 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'vlime/vlime', {'rtp': 'vim/'}
 Plug 'kovisoft/slimv'
 Plug 'sheerun/vim-polyglot'
+" the theme
 Plug 'rakr/vim-one'
 call plug#end()
 "hi CursorLine cterm=NONE ctermbg=59
