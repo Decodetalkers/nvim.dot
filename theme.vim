@@ -40,3 +40,5 @@ if $TERM != 'linux'
     let g:airline_powerline_fonts = 1
 endif
 set showtabline=2
+
+let g:Hexokinase_highlighters = ['backgroundfull']
