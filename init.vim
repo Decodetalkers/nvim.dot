@@ -58,6 +58,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'rakr/vim-one'
 " show more message for git
 Plug 'APZelos/blamer.nvim'
+" show colors
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 call plug#end()
 "hi CursorLine cterm=NONE ctermbg=59
 "colorscheme gruvbox
