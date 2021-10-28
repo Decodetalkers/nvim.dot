@@ -4,4 +4,6 @@ nmap ff :bn<cr>
 if !has('nvim')
     execute "set <M-f>=\ef"
 endif
-nmap <M-f> :CocCommand explorer<cr>
+if has('nvim')
+    nmap <M-f> :CocCommand explorer<cr>
+endif
