@@ -42,6 +42,7 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/cpp.vim'
 " snippets 
 Plug 'honza/vim-snippets'
+" for search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " I need it to code
 Plug 'neoclide/coc.nvim',{'branch':'release'}
@@ -51,8 +52,12 @@ Plug 'cespare/vim-toml'
 Plug 'alaviss/nim.nvim'
 Plug 'puremourning/vimspector'
 Plug 'maksimr/vim-jsbeautify'
-Plug 'vlime/vlime', {'rtp': 'vim/'}
-Plug 'kovisoft/slimv'
+" it use to be lisp ,but cannot work
+"Plug 'vlime/vlime', {'rtp': 'vim/'}
+" lisp also
+" Plug 'kovisoft/slimv'
+" 
+" It is used to detect lanaguages
 Plug 'sheerun/vim-polyglot'
 " the theme
 Plug 'rakr/vim-one'
