@@ -65,6 +65,7 @@ Plug 'rakr/vim-one'
 Plug 'APZelos/blamer.nvim'
 " show colors
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 "hi CursorLine cterm=NONE ctermbg=59
 "colorscheme gruvbox
