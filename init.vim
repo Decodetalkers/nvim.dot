@@ -78,8 +78,9 @@ set foldmethod=syntax
 "set foldmethod=manual
 let g:vimspector_enable_mappings = 'HUMAN'
 set showcmd
+
+autocmd!   BufNewFile,BufRead *    setlocal nofoldenable
 source $HOME/.config/nvim/theme.vim
 source $HOME/.config/nvim/function.vim
-source $HOME/.config/nvim/tagbar.vim
 source $HOME/.config/nvim/key.vim
 source $HOME/.config/nvim/undo.vim
