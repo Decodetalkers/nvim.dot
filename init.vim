@@ -27,6 +27,7 @@ Plug 'ncm2/ncm2-ultisnips'
 Plug 'godlygeek/tabular'
 " Now I use lsp, not need tagbar anymore
 Plug 'liuchengxu/vista.vim'
+Plug 'preservim/tagbar'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'humiaozuzu/dot-vimrc'
 " nerdtree as you known
