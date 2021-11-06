@@ -77,6 +77,8 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'lukas-reineke/indent-blankline.nvim'
 " Undo tree
 Plug 'simnalamburt/vim-mundo'
+Plug 'rbong/vim-flog'
+
 
 call plug#end()
 "hi CursorLine cterm=NONE ctermbg=59
