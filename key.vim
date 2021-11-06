@@ -8,3 +8,4 @@ endif
 nmap <M-f> :CocCommand explorer<cr>
 nmap <M-d> :Vista<cr>
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <C-]> <Plug>(coc-definition)
