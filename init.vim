@@ -67,6 +67,9 @@ Plug 'APZelos/blamer.nvim'
 " show colors
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'lukas-reineke/indent-blankline.nvim'
+" Undo tree
+Plug 'simnalamburt/vim-mundo'
+
 call plug#end()
 "hi CursorLine cterm=NONE ctermbg=59
 "colorscheme gruvbox
@@ -79,3 +82,4 @@ source $HOME/.config/nvim/theme.vim
 source $HOME/.config/nvim/function.vim
 source $HOME/.config/nvim/tagbar.vim
 source $HOME/.config/nvim/key.vim
+source $HOME/.config/nvim/undo.vim
