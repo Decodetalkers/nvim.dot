@@ -3,7 +3,8 @@ nmap ff :bn<cr>
 " open coc-explorer, so you should install it
 if !has('nvim')
     execute "set <M-f>=\ef"
+    execute "set <M-c>=\ec"
 endif
-if has('nvim')
-    nmap <M-f> :CocCommand explorer<cr>
-endif
+nmap <M-f> :CocCommand explorer<cr>
+nmap <M-d> :Vista<cr>
+nmap <silent> gd <Plug>(coc-definition)

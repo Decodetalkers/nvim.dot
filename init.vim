@@ -25,6 +25,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'sirver/UltiSnips'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'godlygeek/tabular'
+Plug 'liuchengxu/vista.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'humiaozuzu/dot-vimrc'
 " nerdtree as you known
