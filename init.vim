@@ -60,7 +60,11 @@ Plug 'maksimr/vim-jsbeautify'
 " Plug 'kovisoft/slimv'
 " 
 " It is used to detect lanaguages
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
+" highlights
+Plug 'kongo2002/fsharp-vim'
+Plug 'dart-lang/dart-vim-plugin'
+" highlight end
 " the theme
 Plug 'rakr/vim-one'
 " show more message for git
