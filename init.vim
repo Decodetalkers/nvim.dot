@@ -64,6 +64,7 @@ Plug 'maksimr/vim-jsbeautify'
 " highlights
 Plug 'kongo2002/fsharp-vim'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'peterhoeg/vim-qml'
 " highlight end
 " the theme
 Plug 'rakr/vim-one'
