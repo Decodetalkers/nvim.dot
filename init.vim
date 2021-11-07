@@ -94,3 +94,4 @@ source $HOME/.config/nvim/theme.vim
 source $HOME/.config/nvim/function.vim
 source $HOME/.config/nvim/key.vim
 source $HOME/.config/nvim/undo.vim
+source $HOME/.config/nvim/filetype.vim
