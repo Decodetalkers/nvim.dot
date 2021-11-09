@@ -37,7 +37,11 @@ plug.loadplug = function ()
     use {'honza/vim-snippets'}
     use {'junegunn/fzf'}
     --use {'neoclide/coc.nvim',branch = 'release'}
-    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+		use {
+			'iamcco/markdown-preview.nvim',
+			run = function() vim.fn['mkdp#util#install']() end,
+			ft = {'markdown'}
+		}
     use {'cespare/vim-toml'}
     use {'alaviss/nim.nvim'}
     use {'puremourning/vimspector'}
