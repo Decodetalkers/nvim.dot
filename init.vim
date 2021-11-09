@@ -31,7 +31,7 @@ Plug 'preservim/tagbar'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'humiaozuzu/dot-vimrc'
 " nerdtree as you known
-Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 "Plug 'tpope/vim-dispatch'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'preservim/tagbar'
