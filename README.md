@@ -6,16 +6,14 @@ If you like my dot, you can use it
 
 ## About the dot
 
+Now I use lua, because lua is better to create mod
+
 ### Cocnvim
 
 I use Cocnvim. So make sure you have install node.js and It should not be very old. Or put the node manully to your path of the shell
 
 I use such plugins:
 
-* coc-explorer
-    * It is where I need in the key.vim. I set it to M-F, on the keyboard it should be alt+F
-* coc-git
-    * You'd better use it.
 * coc-pylint
     * This plugin always report useless error when use opencv. So I mannuly stop it
 * Flutter

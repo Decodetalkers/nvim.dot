@@ -3,13 +3,13 @@ plug.loadplug = function ()
  require('packer').startup(function(use)
     use {"wbthomason/packer.nvim", event = "VimEnter"}
     use {
-	'lewis6991/gitsigns.nvim',
-   	requires = {
+			'lewis6991/gitsigns.nvim',
+			requires = {
     	   'nvim-lua/plenary.nvim'
         },
         config = function()
          require('gitsigns').setup()
-        end
+      end
     }
     use {'neoclide/coc.nvim', branch = "release"}
     use {'hrsh7th/nvim-compe'}
@@ -37,7 +37,7 @@ plug.loadplug = function ()
     use {'honza/vim-snippets'}
     use {'junegunn/fzf'}
     --use {'neoclide/coc.nvim',branch = 'release'}
-    use {'iamcco/markdown-preview.nvim', opt=true, run = 'cd app && yarn install', cmd = "MarkdownPreview"}
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
     use {'cespare/vim-toml'}
     use {'alaviss/nim.nvim'}
     use {'puremourning/vimspector'}
