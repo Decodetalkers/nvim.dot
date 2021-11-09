@@ -11,8 +11,8 @@ return require('packer').startup(function(use)
     }
 
     use {'hrsh7th/nvim-compe'}
-    use {"neovim/nvim-lspconfig"}
-    use {'williamboman/nvim-lsp-installer'}
+    --use {"neovim/nvim-lspconfig"}
+    --use {'williamboman/nvim-lsp-installer'}
     use {'tpope/vim-fugitive'}
     use {'chrisbra/csv.vim'}
     use {'roxma/nvim-yarp'}
