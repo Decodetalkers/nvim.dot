@@ -6,62 +6,7 @@ opt.guifont = "DroidSansMono_Nerd_Font:h11"
 vim.cmd [[filetype off]]
 vim.cmd [[packadd packer.nvim]]
 opt.foldmethod="syntax"
-
-require('packer').startup(function()
-    use {"wbthomason/packer.nvim", event = "VimEnter"}
-    use {
-	'lewis6991/gitsigns.nvim',
-   	requires = {
-    	   'nvim-lua/plenary.nvim'
-        },
-        config = function()
-         require('gitsigns').setup()
-        end
-    }
-
-    use {'hrsh7th/nvim-compe'}
-    use {"neovim/nvim-lspconfig"}
-    use {'williamboman/nvim-lsp-installer'}
-    use {'tpope/vim-fugitive'}
-    use {'chrisbra/csv.vim'}
-    use {'roxma/nvim-yarp'}
-    use {'roxma/vim-hug-neovim-rpc'}
-    use {'sirver/UltiSnips'}
-    use {'ncm2/ncm2-ultisnips'}
-    use {'godlygeek/tabular'}
-    use {'liuchengxu/vista.vim'}
-    use {'preservim/tagbar'}
-    use {'skywind3000/asyncrun.vim'}
-    use {'humiaozuzu/dot-vimrc'}
-    --use {'preservim/nerdtree'}
-    use {'ctrlpvim/ctrlp.vim'}
-    use {'vim-airline/vim-airline'}
-    use {'vim-airline/vim-airline-themes'}
-    use {'natebosch/vim-lsc'}
-    use {'ryanoasis/vim-devicons'}
-    use {'mattn/emmet-vim'}
-    use {'vim-scripts/cpp.vim'}
-    use {'honza/vim-snippets'}
-    use {'junegunn/fzf'}
-    --use {'neoclide/coc.nvim',branch = 'release'}
-    use {'iamcco/markdown-preview.nvim', opt=true, run = 'cd app && yarn install', cmd = "MarkdownPreview"}
-    use {'cespare/vim-toml'}
-    use {'alaviss/nim.nvim'}
-    use {'puremourning/vimspector'}
-    use {'maksimr/vim-jsbeautify'}
-    use {'kongo2002/fsharp-vim'}
-    use {'dart-lang/dart-vim-plugin'}
-    use {'peterhoeg/vim-qml'}
-    use {'arrufat/vala.vim'}
-    use {'rakr/vim-one'}
-    use {'APZelos/blamer.nvim'}
-    use {'rrethy/vim-hexokinase'}
-    use {'lukas-reineke/indent-blankline.nvim',run = 'make hexokinase'}
-    use {'simnalamburt/vim-mundo'}
-    use {'rbong/vim-flog'}
-    use {'kyazdani42/nvim-web-devicons'}
-    use {'kyazdani42/nvim-tree.lua'}-- Packer can manage itself
- end)
+pcall(require,'plug')
 require'nvim-tree'.setup{}
 require('gitsigns').setup()
 
@@ -124,16 +69,29 @@ require'lspconfig'.dartls.setup{
       suggestFromUnimportedLibraries = true
     },
     root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
-
+}
+require'lspconfig'.clangd.setup{
+    on_attach = on_attach,
+}
+require'lspconfig'.rust_analyzer.setup{
+    cmd = {'/home/cht/.local/share/nvim/lsp_servers/rust/rust-analyzer'},
+    on_attach = on_attach,
+    filetypes = { "rust" },
+    root_dir = nvim_lsp.util.root_pattern("Cargo.toml", "rust-project.json"),
+    settings = {
+      ["rust-analyzer"] = {}
+    }
 
 }
+
 local sumneko_root_path = '/usr/bin/lua-language-server' -- Change to your sumneko root installation
 local sumneko_binary = '/usr/bin/lua-language-server'
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 require'lspconfig'.sumneko_lua.setup{
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+    on_attach = on_attach,
     settings = {
         Lua = {
 	  runtime = {
