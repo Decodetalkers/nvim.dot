@@ -21,6 +21,7 @@ require('gitsigns').setup()
 opt.termguicolors=true
 opt.background="dark"
 opt.cursorline=true
+opt.relativenumber = true
 opt.undofile=true
 opt.undodir="/home/cht/.vim/undo"
 vim.cmd [[colorscheme one]]
@@ -32,3 +33,4 @@ vim.cmd [[autocmd ColorScheme * hi Normal guibg=#1b1e27]]
 vim.cmd [[let g:Hexokinase_highlighters = ['backgroundfull'] ]]
 vim.cmd [[autocmd BufNewFile,BufWritePre,BufRead *.* exec ":lua require('functions/files').Settab()" ]]
 vim.cmd [[autocmd BufNewFile,BufRead *.conf,*.ini set filetype=dosini ]]
+vim.cmd [[autocmd!   BufNewFile,BufRead *    setlocal nofoldenable]]
