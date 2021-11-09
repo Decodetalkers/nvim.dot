@@ -8,7 +8,7 @@ vim.cmd [[packadd packer.nvim]]
 opt.foldmethod="syntax"
 require('plug').loadplug();
 require('key').keys();
-require'nvim-tree'.setup{}
+require('nvim-tree').setup()
 require('gitsigns').setup()
 
 --require'gitsigns'.setup{}
