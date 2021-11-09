@@ -78,6 +78,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " Undo tree
 Plug 'simnalamburt/vim-mundo'
 Plug 'rbong/vim-flog'
+" requires
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 
 
 call plug#end()
@@ -95,3 +98,6 @@ source $HOME/.config/nvim/function.vim
 source $HOME/.config/nvim/key.vim
 source $HOME/.config/nvim/undo.vim
 source $HOME/.config/nvim/filetype.vim
+lua << EOF
+require'nvim-tree'.setup{}
+EOF

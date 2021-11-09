@@ -38,7 +38,7 @@ func! Relative()
         exec "set relativenumber"
     endif
 endfunc
-nmap <M-f> :CocCommand explorer<cr>
+nmap <M-f> :NvimTreeToggle<cr>
 nmap <M-d> :call VistaStart()<cr>
 nmap <M-w> :Tagbar<cr>
 nmap <M-e> :call UndoStart()<cr>
