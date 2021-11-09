@@ -1,4 +1,6 @@
-return require('packer').startup(function(use)
+local plug = {}
+plug.loadplug = function ()
+ require('packer').startup(function(use)
     use {"wbthomason/packer.nvim", event = "VimEnter"}
     use {
 	'lewis6991/gitsigns.nvim',
@@ -9,7 +11,7 @@ return require('packer').startup(function(use)
          require('gitsigns').setup()
         end
     }
-
+    use {'neoclide/coc.nvim', branch = "release"}
     use {'hrsh7th/nvim-compe'}
     --use {"neovim/nvim-lspconfig"}
     --use {'williamboman/nvim-lsp-installer'}
@@ -53,4 +55,5 @@ return require('packer').startup(function(use)
     use {'kyazdani42/nvim-web-devicons'}
     use {'kyazdani42/nvim-tree.lua'}-- Packer can manage itself
  end)
-
+end
+return plug

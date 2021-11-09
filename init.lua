@@ -6,7 +6,8 @@ opt.guifont = "DroidSansMono_Nerd_Font:h11"
 vim.cmd [[filetype off]]
 vim.cmd [[packadd packer.nvim]]
 opt.foldmethod="syntax"
-pcall(require,'plug')
+require('plug').loadplug();
+require('key').keys();
 require'nvim-tree'.setup{}
 require('gitsigns').setup()
 
@@ -29,8 +30,5 @@ vim.cmd [[let g:airline#extensions#tabline#enabled = 1 ]]
 vim.cmd [[let g:airline_powerline_fonts = 1]]
 vim.cmd [[autocmd ColorScheme * hi Normal guibg=#1b1e27]]
 vim.cmd [[let g:Hexokinase_highlighters = ['backgroundfull'] ]]
-
-vim.api.nvim_set_keymap("n","<M-f>",":NvimTreeToggle<cr>",{ noremap = false, silent = true })
-vim.api.nvim_set_keymap("n","<M-g>",":Flog<cr>",{ noremap = false, silent = true })
-vim.api.nvim_set_keymap("n","<M-w>",":Tagbar<cr>",{ noremap = false, silent = true })
-vim.api.nvim_set_keymap("n","<M-d>",":Vista<cr>",{ noremap = false, silent = true })
+vim.cmd [[autocmd BufNewFile,BufWritePre,BufRead *.* exec ":lua require('functions/files').Settab()" ]]
+vim.cmd [[autocmd BufNewFile,BufRead *.conf,*.ini set filetype=dosini ]]
