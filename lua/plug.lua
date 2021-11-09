@@ -47,7 +47,7 @@ plug.loadplug = function ()
     use {'puremourning/vimspector'}
     use {'maksimr/vim-jsbeautify'}
     use {'kongo2002/fsharp-vim'}
-    use {'dart-lang/dart-vim-plugin'}
+    use {'chen244/dart-vim-plugin'}
     use {'peterhoeg/vim-qml'}
     use {'arrufat/vala.vim'}
     use {'rakr/vim-one'}

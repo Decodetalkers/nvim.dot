@@ -33,3 +33,7 @@ Change the file path to Yours
 ### Function.vim
 
 I set the tab for different files. At first I use four tab. But dart, clang-foramt ,json, javascript use two. so, I set this for these, when change to different files
+
+### About dart
+
+Google have not handle my pr, so I use my folk for my dart highlight
