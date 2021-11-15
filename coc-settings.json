@@ -47,8 +47,8 @@
     "python.analysis.useLibraryCodeForTypes": false,
     "java.format.settings.url": "/home/cht/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
     "Lua.diagnostics.globals": ["vim"],
-		"xml.validation.noGrammar": "ignore",
-		"explorer.width": 30,
+    "xml.validation.noGrammar": "ignore",
+    "explorer.width": 30,
     "explorer.previewAction.onHover": "labeling",
     "explorer.icon.enableNerdfont": true
 }
