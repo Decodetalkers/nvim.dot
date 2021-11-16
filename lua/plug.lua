@@ -57,6 +57,7 @@ require('packer').startup(function(use)
 		use {'simnalamburt/vim-mundo'}
 		use {'rbong/vim-flog'}
 		use {'kyazdani42/nvim-web-devicons'}
+		use {'JuliaEditorSupport/julia-vim'}
 		use {'kyazdani42/nvim-tree.lua'}-- Packer can manage itself
 	end)
 end
