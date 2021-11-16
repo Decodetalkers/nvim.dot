@@ -17,13 +17,13 @@ require('gitsigns').setup()
 --local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
 --local sumneko_root_path = '/usr/bin/lua-language-server'
 --local sumneko_binary = '/usr/bin/lua-language-server'
-
 opt.termguicolors=true
 opt.background="dark"
 opt.cursorline=true
 opt.relativenumber = true
 opt.undofile=true
-opt.undodir="/home/cht/.vim/undo"
+--opt.undodir="/home/cht/.vim/undo"
+opt.undodir=os.getenv("HOME") .. '/.vim/undo'
 vim.cmd [[colorscheme one]]
 vim.cmd [[hi CursorLine cterm=bold  guibg=#333333]]
 vim.cmd [[hi CocFadeOut cterm=bold  guibg=#666666]]
