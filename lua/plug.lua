@@ -46,18 +46,18 @@ require('packer').startup(function(use)
 		use {'alaviss/nim.nvim'}
 		use {'puremourning/vimspector'}
 		use {'maksimr/vim-jsbeautify'}
-		use {'kongo2002/fsharp-vim'}
+		use {'kongo2002/fsharp-vim'} --hightlight for fsharp
 		use {'chen244/dart-vim-plugin'}
 		use {'peterhoeg/vim-qml'}
 		use {'arrufat/vala.vim'}
-		use {'rakr/vim-one'}
+		use {'rakr/vim-one'} --background
 		use {'APZelos/blamer.nvim'}
 		use {'rrethy/vim-hexokinase'}
 		use {'lukas-reineke/indent-blankline.nvim',run = 'make hexokinase'}
 		use {'simnalamburt/vim-mundo'}
 		use {'rbong/vim-flog'}
-		use {'kyazdani42/nvim-web-devicons'}
-		use {'JuliaEditorSupport/julia-vim'}
+		use {'kyazdani42/nvim-web-devicons'} --icons for Nvim tree
+		use {'JuliaEditorSupport/julia-vim'} --julia-hightlight
 		use {'kyazdani42/nvim-tree.lua'}-- Packer can manage itself
 		use {'udalov/kotlin-vim'} --kotlin hightlight
 	end)
