@@ -59,6 +59,7 @@ require('packer').startup(function(use)
 		use {'kyazdani42/nvim-web-devicons'}
 		use {'JuliaEditorSupport/julia-vim'}
 		use {'kyazdani42/nvim-tree.lua'}-- Packer can manage itself
+		use {'udalov/kotlin-vim'} --kotlin hightlight
 	end)
 end
 return plug
