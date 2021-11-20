@@ -1,6 +1,6 @@
 local plug = {}
 plug.loadplug = function ()
-require('packer').startup(function(use)
+	require('packer').startup(function(use)
 		use {"wbthomason/packer.nvim", event = "VimEnter"}
 		use {
 			'lewis6991/gitsigns.nvim',
