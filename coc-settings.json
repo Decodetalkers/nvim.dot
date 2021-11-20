@@ -50,5 +50,6 @@
     "xml.validation.noGrammar": "ignore",
     "explorer.width": 30,
     "explorer.previewAction.onHover": "labeling",
-    "explorer.icon.enableNerdfont": true
+    "explorer.icon.enableNerdfont": true,
+		"rust-analyzer.updates.channel": "nightly"
 }
