@@ -60,6 +60,7 @@ require('packer').startup(function(use)
 		use {'JuliaEditorSupport/julia-vim'} --julia-hightlight
 		use {'kyazdani42/nvim-tree.lua'}-- Packer can manage itself
 		use {'udalov/kotlin-vim'} --kotlin hightlight
+		use {'rust-lang/rust.vim'}
 	end)
 end
 return plug
