@@ -61,6 +61,7 @@ plug.loadplug = function ()
 		use {'kyazdani42/nvim-tree.lua'}-- Packer can manage itself
 		use {'udalov/kotlin-vim'} --kotlin hightlight
 		use {'rust-lang/rust.vim'}
+		use {'Xuyuanp/scrollbar.nvim'}
 	end)
 end
 return plug
