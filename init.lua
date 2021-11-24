@@ -22,6 +22,7 @@ opt.background="dark"
 opt.cursorline=true
 opt.relativenumber = true
 opt.undofile=true
+opt.inccommand="nosplit"
 --opt.undodir="/home/cht/.vim/undo"
 opt.undodir=os.getenv("HOME") .. '/.vim/undo'
 vim.cmd [[colorscheme one]]
