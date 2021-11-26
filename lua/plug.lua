@@ -13,8 +13,6 @@ plug.loadplug = function ()
 		}
 		use {'neoclide/coc.nvim', branch = "release"}
 		use {'hrsh7th/nvim-compe'}
-		--use {"neovim/nvim-lspconfig"}
-		--use {'williamboman/nvim-lsp-installer'}
 		use {'tpope/vim-fugitive'}
 		use {'chrisbra/csv.vim'}
 		use {'roxma/nvim-yarp'}
@@ -26,17 +24,14 @@ plug.loadplug = function ()
 		use {'preservim/tagbar'}
 		use {'skywind3000/asyncrun.vim'}
 		use {'humiaozuzu/dot-vimrc'}
-		--use {'preservim/nerdtree'}
 		use {'ctrlpvim/ctrlp.vim'}
 		use {'vim-airline/vim-airline'}
 		use {'vim-airline/vim-airline-themes'}
 		use {'natebosch/vim-lsc'}
 		use {'ryanoasis/vim-devicons'}
 		use {'mattn/emmet-vim'}
-		-- use {'vim-scripts/cpp.vim'}
 		use {'honza/vim-snippets'}
 		use {'junegunn/fzf'}
-		--use {'neoclide/coc.nvim',branch = 'release'}
 		use {
 			'iamcco/markdown-preview.nvim',
 			run = function() vim.fn['mkdp#util#install']() end,
@@ -47,7 +42,6 @@ plug.loadplug = function ()
 		use {'puremourning/vimspector'}
 		use {'maksimr/vim-jsbeautify'}
 		use {'kongo2002/fsharp-vim'} --hightlight for fsharp
---		use {'chen244/dart-vim-plugin'}
 		use {'peterhoeg/vim-qml'}
 		use {'arrufat/vala.vim'}
 		use {'rakr/vim-one'} --background
@@ -57,7 +51,6 @@ plug.loadplug = function ()
 		use {'simnalamburt/vim-mundo'}
 		use {'rbong/vim-flog'}
 		use {'kyazdani42/nvim-web-devicons'} --icons for Nvim tree
-		--use {'JuliaEditorSupport/julia-vim'} --julia-hightlight
 		use {'kyazdani42/nvim-tree.lua',
 			requires = {
 				require('nvim-tree').setup()
