@@ -33,7 +33,7 @@ plug.loadplug = function ()
 		use {'natebosch/vim-lsc'}
 		use {'ryanoasis/vim-devicons'}
 		use {'mattn/emmet-vim'}
-		use {'vim-scripts/cpp.vim'}
+		-- use {'vim-scripts/cpp.vim'}
 		use {'honza/vim-snippets'}
 		use {'junegunn/fzf'}
 		--use {'neoclide/coc.nvim',branch = 'release'}
@@ -57,9 +57,9 @@ plug.loadplug = function ()
 		use {'simnalamburt/vim-mundo'}
 		use {'rbong/vim-flog'}
 		use {'kyazdani42/nvim-web-devicons'} --icons for Nvim tree
-		use {'JuliaEditorSupport/julia-vim'} --julia-hightlight
+		--use {'JuliaEditorSupport/julia-vim'} --julia-hightlight
 		use {'kyazdani42/nvim-tree.lua'}-- Packer can manage itself
-		use {'udalov/kotlin-vim'} --kotlin hightlight
+		--use {'udalov/kotlin-vim'} --kotlin hightlight
 		use {'rust-lang/rust.vim'}
 		use {'Xuyuanp/scrollbar.nvim'}
 		use {
