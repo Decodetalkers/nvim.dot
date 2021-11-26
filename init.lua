@@ -9,21 +9,12 @@ opt.foldmethod="syntax"
 require('plug').loadplug();
 require('key').keys();
 
---require('gitsigns').setup()
-
---require'gitsigns'.setup{}
-
---local sumneko_root_path = vim.fn.stdpath('cache')..'/lspconfig/sumneko_lua/lua-language-server'
---local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
---local sumneko_root_path = '/usr/bin/lua-language-server'
---local sumneko_binary = '/usr/bin/lua-language-server'
 opt.termguicolors=true
 opt.background="dark"
 opt.cursorline=true
 opt.relativenumber = true
 opt.undofile=true
 opt.inccommand="nosplit"
---opt.undodir="/home/cht/.vim/undo"
 opt.undodir=os.getenv("HOME") .. '/.vim/undo'
 vim.cmd [[colorscheme one]]
 vim.cmd [[hi CursorLine cterm=bold  guibg=#333333]]
