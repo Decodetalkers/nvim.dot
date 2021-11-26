@@ -1,9 +1,9 @@
 local Vista = { state = false }
 Vista.Open = function ()
-	if (Vista.state)
+	if (not Vista.state)
 	then
 			Vista.state = true
-			vim.cmd [[Vista]]
+			vim.cmd [[Vista coc ]]
 	else
 		Vista.state = false
 		vim.cmd [[Vista!!]]
