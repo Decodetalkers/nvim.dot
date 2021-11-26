@@ -6,7 +6,7 @@ Vista.Open = function ()
 			vim.cmd [[Vista coc ]]
 	else
 		Vista.state = false
-		vim.cmd [[Vista!!]]
+		vim.cmd [[Vista!]]
 	end
 end
 return Vista
