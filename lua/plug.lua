@@ -47,7 +47,7 @@ plug.loadplug = function ()
 		use {'puremourning/vimspector'}
 		use {'maksimr/vim-jsbeautify'}
 		use {'kongo2002/fsharp-vim'} --hightlight for fsharp
-		use {'chen244/dart-vim-plugin'}
+--		use {'chen244/dart-vim-plugin'}
 		use {'peterhoeg/vim-qml'}
 		use {'arrufat/vala.vim'}
 		use {'rakr/vim-one'} --background
@@ -62,6 +62,11 @@ plug.loadplug = function ()
 		use {'udalov/kotlin-vim'} --kotlin hightlight
 		use {'rust-lang/rust.vim'}
 		use {'Xuyuanp/scrollbar.nvim'}
+		use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+    }
+
 	end)
 end
 return plug
