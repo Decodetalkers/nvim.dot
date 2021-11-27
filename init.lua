@@ -8,7 +8,7 @@ vim.cmd([[packadd packer.nvim]])
 opt.foldmethod = "syntax"
 require("plug").loadplug()
 require("key").keys()
-
+require("cmps").loadlsp()
 opt.termguicolors = true
 opt.background = "dark"
 opt.cursorline = true

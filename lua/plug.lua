@@ -11,14 +11,14 @@ plug.loadplug = function()
 				require("gitsigns").setup()
 			end,
 		})
-		use({ "neoclide/coc.nvim", branch = "release" })
+		--use({ "neoclide/coc.nvim", branch = "release" })
 		use({ "hrsh7th/nvim-compe" })
 		use({ "tpope/vim-fugitive" })
 		use({ "chrisbra/csv.vim" })
 		use({ "roxma/nvim-yarp" })
 		use({ "roxma/vim-hug-neovim-rpc" })
 		use({ "sirver/UltiSnips" })
-		use({ "ncm2/ncm2-ultisnips" })
+		--use({ "ncm2/ncm2-ultisnips" })
 		use({ "godlygeek/tabular" })
 		use({ "liuchengxu/vista.vim" })
 		use({ "preservim/tagbar" })
@@ -30,7 +30,7 @@ plug.loadplug = function()
 		use({ "natebosch/vim-lsc" })
 		use({ "ryanoasis/vim-devicons" })
 		use({ "mattn/emmet-vim" })
-		use({ "honza/vim-snippets" })
+		--use({ "honza/vim-snippets" })
 		use({ "junegunn/fzf" })
 		use({
 			"iamcco/markdown-preview.nvim",
@@ -59,6 +59,11 @@ plug.loadplug = function()
 		--use {'udalov/kotlin-vim'} --kotlin hightlight
 		use({ "rust-lang/rust.vim" })
 		use({ "Xuyuanp/scrollbar.nvim" })
+		use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
+		use("hrsh7th/nvim-cmp") -- Autocompletion plugin
+		use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
+		use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
+		use("L3MON4D3/LuaSnip") -- Snippets plugin
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
