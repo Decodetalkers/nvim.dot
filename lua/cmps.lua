@@ -4,6 +4,23 @@ M.loadlsp = function()
 
 	-- Use an on_attach function to only map the following keys
 	-- after the language server attaches to the current buffer
+	local lsp_installer = require("nvim-lsp-installer")
+
+	-- Register a handler that will be called for all installed servers.
+	-- Alternatively, you may also register handlers on specific server instances instead (see example below).
+	lsp_installer.on_server_ready(function(server)
+		local opts = {}
+
+		-- (optional) Customize the options passed to the server
+		-- if server.name == "tsserver" then
+		--     opts.root_dir = function() ... end
+		-- end
+
+		-- This setup() function is exactly the same as lspconfig's setup function.
+		-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+		server:setup(opts)
+	end)
+
 	local on_attach = function(_, bufnr)
 		local function buf_set_keymap(...)
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -43,53 +60,40 @@ M.loadlsp = function()
 	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 	--local protocol = require('vim.lsp.protocol')
 	-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-	local servers = { "clangd", "rust_analyzer", "pyright", "tsserver" ,"csharp_ls","fsautocomplete"}
-	for _, lsp in ipairs(servers) do
-		nvim_lsp[lsp].setup({
-			-- on_attach = my_custom_on_attach,
-			on_attach = on_attach,
-			capabilities = capabilities,
-			debounce_text_changes = 150,
-		})
+	local servers = {
+		"sumneko_lua",
+		"clangd",
+		"rust_analyzer",
+		"pyright",
+		"tsserver",
+		"omnisharp",
+		"fsautocomplete",
+		"hls",
+		"texlab",
+		"jsonls",
+		"dartls",
+		"vala_ls",
+		"volar",
+		"kotlin_language_server",
+		"gopls",
+		"jedi_language_server",
+		"jdtls",
+		"cmake",
+		"bashls",
+		"vimls"
+
+	}
+
+	for _, name in pairs(servers) do
+		local ok, server = lsp_installer.get_server(name)
+		-- Check that the server is supported in nvim-lsp-installer
+		if ok then
+			if not server:is_installed() then
+				print("Installing " .. name)
+				server:install()
+			end
+		end
 	end
-	require("lspconfig").dartls.setup({
-		cmd = { "dart", "/home/cht/Flutter/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot", "--lsp" },
-		filetypes = { "dart" },
-		on_attach = on_attach,
-		init_options = {
-			closingLabels = false,
-			flutterOutline = false,
-			onlyAnalyzeProjectsWithOpenFiles = false,
-			outline = false,
-			suggestFromUnimportedLibraries = true,
-		},
-		root_dir = nvim_lsp.util.root_pattern("pubspec.yaml"),
-	})
-	local sumneko_root_path = "/usr/bin/lua-language-server" -- Change to your sumneko root installation
-	local sumneko_binary = "/usr/bin/lua-language-server"
-	local runtime_path = vim.split(package.path, ";")
-	table.insert(runtime_path, "lua/?.lua")
-	table.insert(runtime_path, "lua/?/init.lua")
-	require("lspconfig").sumneko_lua.setup({
-		cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
-		settings = {
-			Lua = {
-				runtime = {
-					-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-					version = "LuaJIT",
-					-- Setup your lua path
-					path = runtime_path,
-				},
-				diagnostics = {
-					-- Get the language server to recognize the `vim` global
-					globals = { "vim" },
-				},
-				telemetry = {
-					enable = false,
-				},
-			},
-		},
-	})
 	-- Set completeopt to have a better completion experience
 	vim.o.completeopt = "menuone,noselect"
 
