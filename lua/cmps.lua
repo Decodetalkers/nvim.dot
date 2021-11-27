@@ -77,7 +77,9 @@ M.loadlsp = function()
 		"bashls",
 		"vimls",
 		"cssls",
-		"lemminx"
+		"lemminx",
+		"graphql",
+		"html"
 	}
 
 	local lsp_installer = require("nvim-lsp-installer")
