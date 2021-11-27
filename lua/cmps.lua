@@ -6,7 +6,7 @@ M.loadlsp = function()
 	-- after the language server attaches to the current buffer
 	--require'lspconfig'.csharp_ls.setup{}
 	--require'lspconfig'.fsautocomplete.setup{}
-	local nvim_lsp = require("lspconfig")
+
 	local on_attach = function(_, bufnr)
 		local function buf_set_keymap(...)
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -42,7 +42,8 @@ M.loadlsp = function()
 		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 	end
 
-	local servers_lsp = { "fsautocomplete" }
+	local nvim_lsp = require("lspconfig")
+	local servers_lsp = { "fsautocomplete", "julials", "csharp_ls" }
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 	for _, lsp in ipairs(servers_lsp) do
@@ -60,7 +61,7 @@ M.loadlsp = function()
 		"rust_analyzer",
 		"pyright",
 		"tsserver",
-		"omnisharp",
+		-- "omnisharp",
 		--"fsautocomplete",
 		"hls",
 		"texlab",
@@ -76,6 +77,7 @@ M.loadlsp = function()
 		"bashls",
 		"vimls",
 		"cssls",
+		"lemminx"
 	}
 
 	local lsp_installer = require("nvim-lsp-installer")

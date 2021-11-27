@@ -66,19 +66,6 @@ plug.loadplug = function()
 		use("L3MON4D3/LuaSnip") -- Snippets plugin
 		use("williamboman/nvim-lsp-installer")
 		use("glepnir/lspsaga.nvim")
-		--use({
-		--	"simrat39/rust-tools.nvim",
-		--	requires = {
-		--		require("rust-tools").setup({}),
-		--	},
-		--})
-		--use({
-		--	"akinsho/flutter-tools.nvim",
-		--	requires = {
-		--		"nvim-lua/plenary.nvim",
-		--		require("flutter-tools").setup({}), -- use defaults
-		--	},
-		--})
 		use("mfussenegger/nvim-dap")
 		use("folke/lsp-colors.nvim")
 		use({

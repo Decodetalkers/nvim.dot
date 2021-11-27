@@ -34,4 +34,9 @@ vim.cmd([[augroup ScrollbarInit
   autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
   autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
 augroup end]])
-vim.cmd([[autocmd BufNewFile,BufRead .fs,*.fsi,*.fsx  set ft=fsharp]])
+vim.cmd([[autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp]])
+vim.cmd([[autocmd BufNewFile,BufRead *.fsproj set filetype=xml]])
+vim.cmd([[
+let g:vimspector_enable_mappings = 'HUMAN'
+packadd! vimspector
+]])
