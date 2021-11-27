@@ -38,9 +38,10 @@ M.loadlsp = function()
 		buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
 		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 	end
+
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
+	local protocol = require('vim.lsp.protocol')
 	-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 	local servers = { "clangd", "rust_analyzer", "pyright", "tsserver" }
 	for _, lsp in ipairs(servers) do
