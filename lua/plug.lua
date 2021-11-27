@@ -60,8 +60,8 @@ plug.loadplug = function ()
 		use {'rust-lang/rust.vim'}
 		use {'Xuyuanp/scrollbar.nvim'}
 		use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
+			'nvim-treesitter/nvim-treesitter',
+			run = ':TSUpdate',
 			requires = {
 				require('nvim-treesitter.configs').setup {
 				ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
