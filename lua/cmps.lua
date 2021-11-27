@@ -4,22 +4,6 @@ M.loadlsp = function()
 
 	-- Use an on_attach function to only map the following keys
 	-- after the language server attaches to the current buffer
-	local lsp_installer = require("nvim-lsp-installer")
-
-	-- Register a handler that will be called for all installed servers.
-	-- Alternatively, you may also register handlers on specific server instances instead (see example below).
-	lsp_installer.on_server_ready(function(server)
-		local opts = {}
-
-		-- (optional) Customize the options passed to the server
-		-- if server.name == "tsserver" then
-		--     opts.root_dir = function() ... end
-		-- end
-
-		-- This setup() function is exactly the same as lspconfig's setup function.
-		-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-		server:setup(opts)
-	end)
 
 	local on_attach = function(_, bufnr)
 		local function buf_set_keymap(...)
@@ -80,9 +64,10 @@ M.loadlsp = function()
 		"jdtls",
 		"cmake",
 		"bashls",
-		"vimls"
-
+		"vimls",
 	}
+
+	local lsp_installer = require("nvim-lsp-installer")
 
 	for _, name in pairs(servers) do
 		local ok, server = lsp_installer.get_server(name)
@@ -94,6 +79,21 @@ M.loadlsp = function()
 			end
 		end
 	end
+
+	-- Register a handler that will be called for all installed servers.
+	-- Alternatively, you may also register handlers on specific server instances instead (see example below).
+	lsp_installer.on_server_ready(function(server)
+		local opts = {}
+
+		-- (optional) Customize the options passed to the server
+		-- if server.name == "tsserver" then
+		--     opts.root_dir = function() ... end
+		-- end
+
+		-- This setup() function is exactly the same as lspconfig's setup function.
+		-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+		server:setup(opts)
+	end)
 	-- Set completeopt to have a better completion experience
 	vim.o.completeopt = "menuone,noselect"
 
