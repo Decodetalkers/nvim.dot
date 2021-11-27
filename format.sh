@@ -1,5 +1,4 @@
 #!/bin/bash
-
 format () {
 	if [ "$1" == "--format" ]
 	then
