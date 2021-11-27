@@ -83,16 +83,43 @@ M.loadlsp = function()
 	-- Register a handler that will be called for all installed servers.
 	-- Alternatively, you may also register handlers on specific server instances instead (see example below).
 	lsp_installer.on_server_ready(function(server)
-		local opts = {}
+		if server.name == "sumneko_lua" then
+			local runtime_path = vim.split(package.path, ';')
+			local opts = {
+				on_attach = on_attach,
+				settings = {
+					Lua = {
+						runtime = {
+							-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+							version = "LuaJIT",
+							-- Setup your lua path
+							path = runtime_path,
+						},
+						diagnostics = {
+							-- Get the language server to recognize the `vim` global
+							globals = { "vim" },
+						},
+						telemetry = {
+							enable = false,
+						},
+					},
+				},
+			}
+			server:setup(opts)
+		else
+			local opts = {
+				on_attach = on_attach,
+			}
 
-		-- (optional) Customize the options passed to the server
-		-- if server.name == "tsserver" then
-		--     opts.root_dir = function() ... end
-		-- end
+			-- (optional) Customize the options passed to the server
+			-- if server.name == "tsserver" then
+			--     opts.root_dir = function() ... end
+			-- end
 
-		-- This setup() function is exactly the same as lspconfig's setup function.
-		-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-		server:setup(opts)
+			-- This setup() function is exactly the same as lspconfig's setup function.
+			-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+			server:setup(opts)
+		end
 	end)
 	-- Set completeopt to have a better completion experience
 	vim.o.completeopt = "menuone,noselect"
