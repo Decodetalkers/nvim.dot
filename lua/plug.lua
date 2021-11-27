@@ -80,6 +80,7 @@ plug.loadplug = function()
 		--	},
 		--})
 		use("mfussenegger/nvim-dap")
+		use("folke/lsp-colors.nvim")
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
