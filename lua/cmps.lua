@@ -65,6 +65,7 @@ M.loadlsp = function()
 		"cmake",
 		"bashls",
 		"vimls",
+		"cssls"
 	}
 
 	local lsp_installer = require("nvim-lsp-installer")
