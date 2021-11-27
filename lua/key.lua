@@ -1,10 +1,11 @@
 local keys = {}
 
 keys.keys = function()
-	vim.api.nvim_set_keymap("n", "<M-r>", ":NvimTreeToggle<cr>", { noremap = false, silent = true })
+	vim.api.nvim_set_keymap("n", "<M-f>", ":NvimTreeToggle<cr>", { noremap = false, silent = true })
 	--vim.api.nvim_set_keymap("n", "<M-f>", ":CocCommand explorer<cr>", { noremap = false, silent = true })
 	vim.api.nvim_set_keymap("n", "<M-g>", ":Flog<cr>", { noremap = false, silent = true })
 	vim.api.nvim_set_keymap("n", "<M-w>", ":Tagbar<cr>", { noremap = false, silent = true })
+	vim.api.nvim_set_keymap("n", "<M-r>", ":Lspsaga lsp_finder<CR>", { noremap = false, silent = true })
 	vim.api.nvim_set_keymap(
 		"n",
 		"<M-d>",

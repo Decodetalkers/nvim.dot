@@ -1,6 +1,6 @@
 local M = {}
 M.loadlsp = function()
-	local nvim_lsp = require("lspconfig")
+	--	local nvim_lsp = require("lspconfig")
 
 	-- Use an on_attach function to only map the following keys
 	-- after the language server attaches to the current buffer
@@ -65,7 +65,7 @@ M.loadlsp = function()
 		"cmake",
 		"bashls",
 		"vimls",
-		"cssls"
+		"cssls",
 	}
 
 	local lsp_installer = require("nvim-lsp-installer")
@@ -85,7 +85,7 @@ M.loadlsp = function()
 	-- Alternatively, you may also register handlers on specific server instances instead (see example below).
 	lsp_installer.on_server_ready(function(server)
 		if server.name == "sumneko_lua" then
-			local runtime_path = vim.split(package.path, ';')
+			local runtime_path = vim.split(package.path, ";")
 			local opts = {
 				on_attach = on_attach,
 				settings = {

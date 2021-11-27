@@ -9,6 +9,7 @@ opt.foldmethod = "syntax"
 require("plug").loadplug()
 require("key").keys()
 require("cmps").loadlsp()
+require("lspsaga").init_lsp_saga()
 opt.termguicolors = true
 opt.background = "dark"
 opt.cursorline = true
