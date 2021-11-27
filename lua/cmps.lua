@@ -4,7 +4,9 @@ M.loadlsp = function()
 
 	-- Use an on_attach function to only map the following keys
 	-- after the language server attaches to the current buffer
-
+	--require'lspconfig'.csharp_ls.setup{}
+	--require'lspconfig'.fsautocomplete.setup{}
+	local nvim_lsp = require("lspconfig")
 	local on_attach = function(_, bufnr)
 		local function buf_set_keymap(...)
 			vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -40,8 +42,16 @@ M.loadlsp = function()
 		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 	end
 
+	local servers_lsp = { 'csharp_ls', 'fsautocomplete' }
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+	capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+	for _, lsp in ipairs(servers_lsp) do
+		nvim_lsp[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities,
+		on_attach = on_attach,
+	}
+	end
 	--local protocol = require('vim.lsp.protocol')
 	-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 	local servers = {
@@ -50,8 +60,8 @@ M.loadlsp = function()
 		"rust_analyzer",
 		"pyright",
 		"tsserver",
-		"omnisharp",
-		"fsautocomplete",
+		--"omnisharp",
+		--"fsautocomplete",
 		"hls",
 		"texlab",
 		"jsonls",
