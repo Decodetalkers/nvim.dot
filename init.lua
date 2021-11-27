@@ -34,4 +34,4 @@ vim.cmd([[augroup ScrollbarInit
   autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
   autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
 augroup end]])
-vim.cmd([[autocmd BufNewFile,BufRead *.fs,*.fsi,*.fsx verb set ft=fsharp]])
+vim.cmd([[autocmd BufNewFile,BufRead .fs,*.fsi,*.fsx  set ft=fsharp]])

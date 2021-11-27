@@ -42,7 +42,7 @@ M.loadlsp = function()
 		buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 	end
 
-	local servers_lsp = { 'csharp_ls', 'fsautocomplete' }
+	local servers_lsp = { 'fsautocomplete' }
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 	for _, lsp in ipairs(servers_lsp) do
@@ -60,7 +60,7 @@ M.loadlsp = function()
 		"rust_analyzer",
 		"pyright",
 		"tsserver",
-		--"omnisharp",
+		"omnisharp",
 		--"fsautocomplete",
 		"hls",
 		"texlab",
