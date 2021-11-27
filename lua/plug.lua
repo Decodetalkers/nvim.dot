@@ -12,7 +12,7 @@ plug.loadplug = function()
 			end,
 		})
 		--use({ "neoclide/coc.nvim", branch = "release" })
-		use({ "hrsh7th/nvim-compe" })
+		--use({ "hrsh7th/nvim-compe" })
 		use({ "tpope/vim-fugitive" })
 		use({ "chrisbra/csv.vim" })
 		use({ "roxma/nvim-yarp" })
