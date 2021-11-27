@@ -6,6 +6,7 @@ keys.keys = function()
 	vim.api.nvim_set_keymap("n", "<M-g>", ":Flog<cr>", { noremap = false, silent = true })
 	vim.api.nvim_set_keymap("n", "<M-w>", ":Tagbar<cr>", { noremap = false, silent = true })
 	vim.api.nvim_set_keymap("n", "<M-r>", ":Lspsaga lsp_finder<CR>", { noremap = false, silent = true })
+	vim.api.nvim_set_keymap("n", "fg", ":Telescope<CR>", { noremap = false, silent = true })
 	vim.api.nvim_set_keymap(
 		"n",
 		"<M-d>",

@@ -82,6 +82,11 @@ plug.loadplug = function()
 		use("mfussenegger/nvim-dap")
 		use("folke/lsp-colors.nvim")
 		use({
+			"nvim-telescope/telescope.nvim",
+			requires = { { "nvim-lua/plenary.nvim" } },
+		})
+
+		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
 			requires = {
