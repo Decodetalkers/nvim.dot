@@ -79,7 +79,8 @@ M.loadlsp = function()
 		"cssls",
 		"lemminx",
 		"graphql",
-		"html"
+		"html",
+		"yamlls"
 	}
 
 	local lsp_installer = require("nvim-lsp-installer")
