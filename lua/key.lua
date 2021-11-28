@@ -9,12 +9,12 @@ keys.keys = function()
 	vim.api.nvim_set_keymap("n", "sd", ":Lspsaga show_line_diagnostics<CR>", { noremap = false, silent = true })
 	vim.api.nvim_set_keymap("n", "df", ":Lspsaga preview_definition<CR>", { noremap = false, silent = true })
 	vim.api.nvim_set_keymap("n", "fg", ":Telescope<CR>", { noremap = false, silent = true })
-	vim.api.nvim_set_keymap(
-		"n",
-		"sw",
-		':lua require\'lsp_extensions\'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}<CR>',
-		{ noremap = false, silent = true }
-	)
+	--vim.api.nvim_set_keymap(
+	--	"n",
+	--	"sw",
+	--	':lua require\'lsp_extensions\'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}<CR>',
+	--	{ noremap = false, silent = true }
+	--)
 	vim.api.nvim_set_keymap(
 		"n",
 		"<M-d>",
