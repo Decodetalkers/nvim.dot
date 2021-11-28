@@ -43,7 +43,7 @@ M.loadlsp = function()
 	end
 
 	local nvim_lsp = require("lspconfig")
-	local servers_lsp = { "fsautocomplete", "julials", "csharp_ls" }
+	local servers_lsp = { "julials", "csharp_ls" }
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 	capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -63,7 +63,7 @@ M.loadlsp = function()
 		"pyright",
 		"tsserver",
 		-- "omnisharp",
-		--"fsautocomplete",
+		"fsautocomplete",
 		"hls",
 		"texlab",
 		"jsonls",

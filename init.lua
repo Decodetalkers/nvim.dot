@@ -28,18 +28,20 @@ vim.cmd([[autocmd BufNewFile,BufWritePre,BufRead *.* exec ":lua require('functio
 vim.cmd([[autocmd BufNewFile,BufRead *.conf,*.ini set filetype=dosini ]])
 vim.cmd([[autocmd!   BufNewFile,BufRead *    setlocal nofoldenable]])
 vim.cmd([[let g:blamer_enabled = 1]])
+vim.cmd([[syntax on]])
 vim.cmd([[augroup ScrollbarInit
   autocmd!
   autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
   autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
   autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
 augroup end]])
-vim.cmd([[autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp]])
+vim.cmd([[au FileType glsl set filetype=fsharp]])
 vim.cmd([[autocmd BufNewFile,BufRead *.fsproj set filetype=xml]])
 vim.cmd([[
 let g:vimspector_enable_mappings = 'HUMAN'
 packadd! vimspector
 ]])
+
 vim.cmd(
 	[[autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}]]
 )
