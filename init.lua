@@ -40,4 +40,6 @@ vim.cmd([[
 let g:vimspector_enable_mappings = 'HUMAN'
 packadd! vimspector
 ]])
-vim.cmd([[autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}]])
+vim.cmd(
+	[[autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}]]
+)

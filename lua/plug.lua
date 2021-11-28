@@ -72,7 +72,7 @@ plug.loadplug = function()
 			"nvim-telescope/telescope.nvim",
 			requires = { { "nvim-lua/plenary.nvim" } },
 		})
-		use('nvim-lua/lsp_extensions.nvim')
+		use("nvim-lua/lsp_extensions.nvim")
 		use({
 			"nvim-treesitter/nvim-treesitter",
 			run = ":TSUpdate",
