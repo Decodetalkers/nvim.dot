@@ -46,6 +46,7 @@ M.loadlsp = function()
 	local servers_lsp = { "fsautocomplete", "julials", "csharp_ls" }
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+	capabilities.textDocument.completion.completionItem.snippetSupport = true
 	for _, lsp in ipairs(servers_lsp) do
 		nvim_lsp[lsp].setup({
 			-- on_attach = my_custom_on_attach,
@@ -187,6 +188,7 @@ M.loadlsp = function()
 		sources = {
 			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
+			{ name = "path" },
 		},
 	})
 end
