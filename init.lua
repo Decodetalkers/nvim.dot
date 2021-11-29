@@ -6,10 +6,9 @@ opt.guifont = "DroidSansMono_Nerd_Font:h11"
 vim.cmd([[filetype off]])
 vim.cmd([[packadd packer.nvim]])
 opt.foldmethod = "syntax"
-require("plug").loadplug()
-require("key").keys()
-require("cmps").loadlsp()
-require("lspsaga").init_lsp_saga()
+require("plug")
+require("key")
+require("cmps")
 opt.termguicolors = true
 opt.background = "dark"
 opt.cursorline = true

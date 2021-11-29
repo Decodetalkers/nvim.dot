@@ -1,5 +1,3 @@
-local M = {}
-M.loadlsp = function()
 	--	local nvim_lsp = require("lspconfig")
 
 	-- Use an on_attach function to only map the following keys
@@ -194,5 +192,3 @@ M.loadlsp = function()
 			{ name = "path" },
 		},
 	})
-end
-return M

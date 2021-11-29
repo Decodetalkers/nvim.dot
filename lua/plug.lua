@@ -1,5 +1,3 @@
-local plug = {}
-plug.loadplug = function()
 	require("packer").startup(function(use)
 		use({ "wbthomason/packer.nvim", event = "VimEnter" })
 		use({
@@ -94,5 +92,4 @@ plug.loadplug = function()
 			},
 		})
 	end)
-end
-return plug
+require("lspsaga").init_lsp_saga()
