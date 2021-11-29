@@ -13,22 +13,22 @@ vim.api.nvim_set_keymap("n", "fg", ":Telescope<CR>", { noremap = false, silent =
 --	{ noremap = false, silent = true }
 --)
 vim.api.nvim_set_keymap(
-	"n",
-	"<M-d>",
-	"<cmd> lua require('functions.vista').Open()<cr>",
-	{ noremap = false, silent = true }
+    "n",
+    "<M-d>",
+    "<cmd> lua require('functions.vista').Open()<cr>",
+    { noremap = false, silent = true }
 )
 vim.api.nvim_set_keymap(
-	"n",
-	"<M-e>",
-	"<cmd> lua require('functions.undo').Open()<cr>",
-	{ noremap = false, silent = true }
+    "n",
+    "<M-e>",
+    "<cmd> lua require('functions.undo').Open()<cr>",
+    { noremap = false, silent = true }
 )
 vim.api.nvim_set_keymap("n", "ff", ":bn<cr>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap(
-	"n",
-	"<M-q>",
-	"<cmd> lua require('functions.relative').change()<cr>",
-	{ noremap = false, silent = true }
+    "n",
+    "<M-q>",
+    "<cmd> lua require('functions.relative').change()<cr>",
+    { noremap = false, silent = true }
 )
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })
