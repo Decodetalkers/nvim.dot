@@ -15,7 +15,7 @@ vim.api.nvim_set_keymap("n", "fg", ":Telescope<CR>", { noremap = false, silent =
 vim.api.nvim_set_keymap(
 	"n",
 	"<M-d>",
-	"<cmd> lua require('functions/vista').Open()<cr>",
+	"<cmd> lua require('functions.vista').Open()<cr>",
 	{ noremap = false, silent = true }
 )
 vim.api.nvim_set_keymap(
