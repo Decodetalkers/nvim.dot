@@ -12,10 +12,6 @@ Now I use lua, because lua is better to create mod
 
 I set two key: ff and M-F. M-F may more like which emacsman use. xD.
 
-### coc-setting.json
-
-Change the file path to Yours
-
 ### Function.vim
 
 I set the tab for different files. At first I use four tab. But dart, clang-foramt ,json, javascript use two. so, I set this for these, when change to different files
