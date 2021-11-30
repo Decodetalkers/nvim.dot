@@ -8,20 +8,6 @@ If you like my dot, you can use it
 
 Now I use lua, because lua is better to create mod
 
-### Cocnvim
-
-I use Cocnvim. So make sure you have install node.js and It should not be very old. Or put the node manully to your path of the shell
-
-I use such plugins:
-
-* coc-pylint
-  * This plugin always report useless error when use opencv. So I mannuly stop it
-* Flutter
-  * This has nothing about plugin. I mannuly install flutter to my path. So you'd better put flutter and dart into your path. I do not use coc-flutter because one day it cannot autocomplete. So I manully set the lsp
-* coc-explorer
-	* Because I use coc, so this is needed for my neovim. You can install it with CocInstall coc-explorer
-
-What else, about the markdownprew, you should PackCompile after install
 ### Key
 
 I set two key: ff and M-F. M-F may more like which emacsman use. xD.
