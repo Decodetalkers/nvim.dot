@@ -6,7 +6,6 @@ File.Settab = function()
         vim.cmd([[set shiftwidth=4 ]])
         vim.cmd([[set softtabstop=4 ]])
     else
-        print("ssf")
         vim.cmd([[set ts=2 ]])
         vim.cmd([[set tabstop=2 ]])
         vim.cmd([[set shiftwidth=2 ]])
