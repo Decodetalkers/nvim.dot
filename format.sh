@@ -14,3 +14,4 @@ format () {
 	fi
 }
 format $1
+
