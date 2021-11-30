@@ -15,13 +15,14 @@ opt.cursorline = true
 opt.relativenumber = true
 opt.undofile = true
 opt.inccommand = "nosplit"
-opt.undodir = os.getenv("HOME") .. "/.vim/undo"
+--opt.undodir = os.getenv("HOME") .. "/.vim/undo"
 vim.cmd([[colorscheme one]])
 vim.cmd([[hi CursorLine cterm=bold  guibg=#333333]])
 vim.cmd([[hi CocFadeOut cterm=bold  guibg=#666666]])
 vim.cmd([[let g:airline#extensions#tabline#enabled = 1 ]])
 vim.cmd([[let g:airline_powerline_fonts = 1]])
-vim.cmd([[autocmd ColorScheme * hi Normal guibg=#1b1e27]])
+--vim.cmd([[autocmd ColorScheme * hi Normal guibg=#1b1e27]])
+vim.cmd([[hi Normal guibg=#1b1e27]])
 vim.cmd([[let g:Hexokinase_highlighters = ['backgroundfull'] ]])
 vim.cmd([[autocmd BufNewFile,BufWritePre,BufRead *.* exec ":lua require('functions.files').Settab()" ]])
 vim.cmd([[autocmd BufNewFile,BufRead *.conf,*.ini set filetype=dosini ]])
@@ -38,8 +39,8 @@ vim.cmd([[augroup end]])
 vim.cmd([[au FileType glsl set filetype=fsharp]])
 vim.cmd([[autocmd BufNewFile,BufRead *.fsproj set filetype=xml]])
 -- for vimspector
-vim.cmd([[let g:vimspector_enable_mappings = 'HUMAN']])
-vim.cmd([[packadd! vimspector]])
+--vim.cmd([[let g:vimspector_enable_mappings = 'HUMAN']])
+--vim.cmd([[packadd! vimspector]])
 
 vim.cmd(
     [[autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}]]
