@@ -3,7 +3,7 @@ opt.number = true
 opt.wrap = true
 opt.mouse = "a"
 opt.guifont = "DroidSansMono_Nerd_Font:h11"
-vim.cmd([[filetype off]])
+--vim.cmd([[filetype off]])
 vim.cmd([[packadd packer.nvim]])
 opt.foldmethod = "syntax"
 require("plug")
