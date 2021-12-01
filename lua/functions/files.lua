@@ -1,11 +1,11 @@
 local File = {
-	["rust"] = true,
-	["cs"] = true,
-	["lua"] = true,
-	["kotlin"] = true,
+    ["rust"] = true,
+    ["cs"] = true,
+    ["lua"] = true,
+    ["kotlin"] = true,
 }
 File.Settab = function()
-    if File[vim.o.filetype]~=nil then
+    if File[vim.o.filetype] ~= nil then
         vim.cmd([[set ts=4 ]])
         vim.cmd([[set tabstop=4 ]])
         vim.cmd([[set shiftwidth=4 ]])
