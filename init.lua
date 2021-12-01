@@ -16,6 +16,7 @@ opt.relativenumber = true
 opt.undofile = true
 opt.inccommand = "nosplit"
 opt.undodir = os.getenv("HOME") .. "/.vim/undo"
+vim.cmd([[filetype on]])
 vim.cmd([[colorscheme one]])
 vim.cmd([[hi CursorLine cterm=bold  guibg=#333333]])
 vim.cmd([[hi CocFadeOut cterm=bold  guibg=#666666]])
@@ -37,7 +38,7 @@ vim.cmd([[augroup end]])
 -- for fsharp
 -- vim.cmd([[au FileType glsl set filetype=fsharp]])
 -- vim.cmd([[au BufNewFile,BufRead *.fs  set filetype=fsharp]])
-vim.cmd([[autocmd BufNewFile,BufRead *.fsproj set filetype=xml]])
+--vim.cmd([[autocmd BufNewFile,BufRead *.fsproj set filetype=xml]])
 -- for vimspector
 vim.cmd([[let g:vimspector_enable_mappings = 'HUMAN']])
 vim.cmd([[packadd! vimspector]])

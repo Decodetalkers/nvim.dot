@@ -1,6 +1,6 @@
 local File = {}
 File.Settab = function()
-    if vim.bo.filetype == "rust" or vim.bo.filetype == "cs" then
+    if vim.o.filetype == "rust" or vim.o.filetype == "cs" or vim.o.filetype == "lua" then
         vim.cmd([[set ts=4 ]])
         vim.cmd([[set tabstop=4 ]])
         vim.cmd([[set shiftwidth=4 ]])
