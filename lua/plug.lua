@@ -63,7 +63,7 @@ require("packer").startup(function(use)
     use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
     use("L3MON4D3/LuaSnip") -- Snippets plugin
     use("williamboman/nvim-lsp-installer")
-    use("glepnir/lspsaga.nvim")
+	use{'tami5/lspsaga.nvim' }
     use("mfussenegger/nvim-dap")
     use("folke/lsp-colors.nvim")
     use({
