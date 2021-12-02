@@ -46,5 +46,5 @@ vim.cmd([[packadd! vimspector]])
 vim.cmd(
     [[autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}]]
 )
-vim.cmd([[highlight Function cterm=bold gui=bold]])
+vim.cmd([[highlight Function cterm=italic gui=italic]])
 vim.cmd([[highlight Comment cterm=italic gui=italic]])
