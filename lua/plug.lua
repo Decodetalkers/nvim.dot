@@ -63,7 +63,7 @@ require("packer").startup(function(use)
     use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
     use("L3MON4D3/LuaSnip") -- Snippets plugin
     use("williamboman/nvim-lsp-installer")
-	use{'tami5/lspsaga.nvim' }
+    use({ "tami5/lspsaga.nvim" })
     use("mfussenegger/nvim-dap")
     use("folke/lsp-colors.nvim")
     use({
@@ -71,6 +71,7 @@ require("packer").startup(function(use)
         requires = { { "nvim-lua/plenary.nvim" } },
     })
     use("nvim-lua/lsp_extensions.nvim")
+    use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -93,3 +94,5 @@ require("packer").startup(function(use)
     })
 end)
 require("lspsaga").init_lsp_saga()
+require("flutter-tools").setup({}) -- use defaults
+require("telescope").load_extension("flutter")
