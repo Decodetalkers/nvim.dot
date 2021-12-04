@@ -96,14 +96,14 @@ end)
 require("lspsaga").init_lsp_saga()
 require("flutter-tools").setup({}) -- use defaults
 require("telescope").load_extension("flutter")
-require'nvim-tree'.setup {
-  diagnostics = {
-    enable = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    }
-  },
-}
+require("nvim-tree").setup({
+    diagnostics = {
+        enable = true,
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        },
+    },
+})

@@ -83,7 +83,7 @@ local servers = {
     "graphql",
     "html",
     "yamlls",
-	"ocamlls"
+    "ocamlls",
 }
 
 local lsp_installer = require("nvim-lsp-installer")
