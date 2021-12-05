@@ -4,6 +4,7 @@ local File = {
     ["cs"] = true,
     ["lua"] = true,
     ["kotlin"] = true,
+    ["sh"] = true,
 }
 File.Settab = function()
     if File[vim.o.filetype] ~= nil then
