@@ -72,6 +72,9 @@ require("packer").startup(function(use)
     })
     use("nvim-lua/lsp_extensions.nvim")
     use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
+    use("aklt/plantuml-syntax")
+    use("tyru/open-browser.vim")
+    use("weirongxu/plantuml-previewer.vim")
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
