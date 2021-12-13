@@ -75,6 +75,7 @@ require("packer").startup(function(use)
     use("aklt/plantuml-syntax")
     use("tyru/open-browser.vim")
     use("weirongxu/plantuml-previewer.vim")
+	use('simrat39/rust-tools.nvim')
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
