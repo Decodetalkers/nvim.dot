@@ -70,7 +70,7 @@ require("packer").startup(function(use)
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" } },
     })
-    use("nvim-lua/lsp_extensions.nvim")
+    --use("nvim-lua/lsp_extensions.nvim")
     use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
     use("aklt/plantuml-syntax")
     use("tyru/open-browser.vim")
