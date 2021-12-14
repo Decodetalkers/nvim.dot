@@ -9,8 +9,8 @@ vim.cmd([[packadd packer.nvim]])
 require("plug")
 require("key")
 require("cmps")
-vim.g.foldmethod = 'expr'
-vim.g.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.g.foldmethod = "expr"
+vim.g.foldexpr = "nvim_treesitter#foldexpr()"
 opt.termguicolors = true
 opt.background = "dark"
 opt.cursorline = true
