@@ -23,8 +23,12 @@ require("packer").startup(function(use)
     use({ "skywind3000/asyncrun.vim" })
     use({ "humiaozuzu/dot-vimrc" })
     use({ "ctrlpvim/ctrlp.vim" })
-    use({ "vim-airline/vim-airline" })
-    use({ "vim-airline/vim-airline-themes" })
+    --use({ "vim-airline/vim-airline" })
+    --use({ "vim-airline/vim-airline-themes" })
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    })
     use({ "natebosch/vim-lsc" })
     use({ "ryanoasis/vim-devicons" })
     use({ "mattn/emmet-vim" })
@@ -110,4 +114,7 @@ require("nvim-tree").setup({
             error = "",
         },
     },
+})
+require("lualine").setup({
+	  options = { theme  = 'onedark' },
 })
