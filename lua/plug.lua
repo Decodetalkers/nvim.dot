@@ -29,6 +29,7 @@ require("packer").startup(function(use)
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
+	use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use({ "natebosch/vim-lsc" })
     use({ "ryanoasis/vim-devicons" })
     use({ "mattn/emmet-vim" })
@@ -118,3 +119,4 @@ require("nvim-tree").setup({
 require("lualine").setup({
 	  options = { theme  = 'onedark' },
 })
+require("bufferline").setup{}
