@@ -80,11 +80,11 @@ local servers = {
     "vimls",
     "cssls",
     "lemminx",
-    "graphql",
+    --"graphql",
     "html",
     "yamlls",
     "ocamlls",
-    "denols",
+    --"denols",
 }
 
 local lsp_installer = require("nvim-lsp-installer")
