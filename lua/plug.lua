@@ -76,7 +76,7 @@ require("packer").startup(function(use)
     use("folke/lsp-colors.nvim")
     use({
         "nvim-telescope/telescope.nvim",
-        requires = { { "nvim-lua/plenary.nvim" } },
+        requires = "nvim-lua/plenary.nvim",
     })
     --use("nvim-lua/lsp_extensions.nvim")
     use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
