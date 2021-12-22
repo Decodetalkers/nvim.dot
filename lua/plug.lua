@@ -60,7 +60,7 @@ require("packer").startup(function(use)
         require("nvim-tree").setup(),
     } }) -- Packer can manage itself
     --use {'udalov/kotlin-vim'} --kotlin hightlight
-    use({ "rust-lang/rust.vim" })
+    --use({ "rust-lang/rust.vim" })
     use({ "Xuyuanp/scrollbar.nvim" })
     use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
     use("hrsh7th/nvim-cmp") -- Autocompletion plugin
