@@ -5,7 +5,7 @@
     },
     "contributes": {
         "snippets": [{
-            "language": "",
+            "language": "LICENSE",
             "path": "./snippets/LICENSE.json"
         }]
     }
