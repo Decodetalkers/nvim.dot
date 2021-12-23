@@ -34,7 +34,7 @@ local on_attach = function(_, bufnr)
 end
 
 local nvim_lsp = require("lspconfig")
-local servers_lsp = { "julials","r_language_server" }
+local servers_lsp = { "julials", "r_language_server" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -77,7 +77,7 @@ local servers = {
     "html",
     "yamlls",
     "ocamlls",
-    --"denols",
+    "denols",
 }
 
 local lsp_installer = require("nvim-lsp-installer")
@@ -116,6 +116,24 @@ lsp_installer.on_server_ready(function(server)
                         enable = false,
                     },
                 },
+            },
+        }
+        server:setup(opts)
+    elseif server.name == "denols" then
+        local opts = {
+            on_attach = on_attach,
+            root_dir = nvim_lsp.util.root_pattern("deno.json"),
+            init_options = {
+                lint = true,
+            },
+        }
+        server:setup(opts)
+    elseif server.name == "tsserver" then
+        local opts = {
+            on_attach = on_attach,
+            root_dir = nvim_lsp.util.root_pattern("package.json"),
+            init_options = {
+                lint = true,
             },
         }
         server:setup(opts)
