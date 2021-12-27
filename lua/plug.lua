@@ -21,6 +21,7 @@ require("packer").startup(function(use)
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
+    use("arkav/lualine-lsp-progress")
     use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
     use({ "natebosch/vim-lsc" })
     use({ "ryanoasis/vim-devicons" })
@@ -107,5 +108,11 @@ require("nvim-tree").setup({
 })
 require("lualine").setup({
     options = { theme = "onedark" },
+    sections = {
+        lualine_c = {
+            ...,
+            "lsp_progress",
+        },
+    },
 })
 require("bufferline").setup({})
