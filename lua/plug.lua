@@ -1,4 +1,51 @@
 require("packer").startup(function(use)
+    use({
+        "tpope/vim-fugitive",
+        "chrisbra/csv.vim",
+        "roxma/nvim-yarp",
+        "roxma/vim-hug-neovim-rpc",
+        "liuchengxu/vista.vim",
+        "preservim/tagbar",
+        "humiaozuzu/dot-vimrc",
+        "ctrlpvim/ctrlp.vim",
+        "arkav/lualine-lsp-progress",
+        "natebosch/vim-lsc",
+        "ryanoasis/vim-devicons",
+        "mattn/emmet-vim",
+        "junegunn/fzf",
+        "cespare/vim-toml",
+        "alaviss/nim.nvim",
+        "puremourning/vimspector",
+        "maksimr/vim-jsbeautify",
+        "kongo2002/fsharp-vim", --hightlight for fsharp
+        "peterhoeg/vim-qml",
+        "arrufat/vala.vim",
+        "rakr/vim-one", --background
+        "APZelos/blamer.nvim",
+        "rrethy/vim-hexokinase",
+        "Xuyuanp/scrollbar.nvim",
+        "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
+        "hrsh7th/nvim-cmp", -- Autocompletion plugin
+        "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+        -- cmp's luasnip and luasnip engine
+        "L3MON4D3/LuaSnip", -- Snippets plugin
+        "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+        -- vscode snippets
+        "rafamadriz/friendly-snippets",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-buffer",
+        "williamboman/nvim-lsp-installer",
+        "tami5/lspsaga.nvim",
+        "mfussenegger/nvim-dap",
+        "folke/lsp-colors.nvim",
+        "simnalamburt/vim-mundo",
+        "rbong/vim-flog",
+        "kyazdani42/nvim-web-devicons", --icons for Nvim tree
+        "aklt/plantuml-syntax",
+        "tyru/open-browser.vim",
+        "weirongxu/plantuml-previewer.vim",
+        "simrat39/rust-tools.nvim",
+    })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({
         "lewis6991/gitsigns.nvim",
@@ -9,24 +56,12 @@ require("packer").startup(function(use)
             require("gitsigns").setup()
         end,
     })
-    use({ "tpope/vim-fugitive" })
-    use({ "chrisbra/csv.vim" })
-    use({ "roxma/nvim-yarp" })
-    use({ "roxma/vim-hug-neovim-rpc" })
-    use({ "liuchengxu/vista.vim" })
-    use({ "preservim/tagbar" })
-    use({ "humiaozuzu/dot-vimrc" })
-    use({ "ctrlpvim/ctrlp.vim" })
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
-    use("arkav/lualine-lsp-progress")
     use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
-    use({ "natebosch/vim-lsc" })
-    use({ "ryanoasis/vim-devicons" })
-    use({ "mattn/emmet-vim" })
-    use({ "junegunn/fzf" })
+
     use({
         "iamcco/markdown-preview.nvim",
         run = function()
@@ -34,47 +69,16 @@ require("packer").startup(function(use)
         end,
         ft = { "markdown" },
     })
-    use({ "cespare/vim-toml" })
-    use({ "alaviss/nim.nvim" })
-    use({ "puremourning/vimspector" })
-    use({ "maksimr/vim-jsbeautify" })
-    use({ "kongo2002/fsharp-vim" }) --hightlight for fsharp
-    use({ "peterhoeg/vim-qml" })
-    use({ "arrufat/vala.vim" })
-    use({ "rakr/vim-one" }) --background
-    use({ "APZelos/blamer.nvim" })
-    use({ "rrethy/vim-hexokinase" })
     use({ "lukas-reineke/indent-blankline.nvim", run = "make hexokinase" })
-    use({ "simnalamburt/vim-mundo" })
-    use({ "rbong/vim-flog" })
-    use({ "kyazdani42/nvim-web-devicons" }) --icons for Nvim tree
+
     use({ "kyazdani42/nvim-tree.lua", requires = {
         require("nvim-tree").setup(),
     } }) -- Packer can manage itself
-    use({ "Xuyuanp/scrollbar.nvim" })
-    use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
-    use("hrsh7th/nvim-cmp") -- Autocompletion plugin
-    use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
-    -- cmp's luasnip and luasnip engine
-    use("L3MON4D3/LuaSnip") -- Snippets plugin
-    use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
-    -- vscode snippets
-    use("rafamadriz/friendly-snippets")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-buffer")
-    use("williamboman/nvim-lsp-installer")
-    use({ "tami5/lspsaga.nvim" })
-    use("mfussenegger/nvim-dap")
-    use("folke/lsp-colors.nvim")
     use({
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
     })
     use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
-    use("aklt/plantuml-syntax")
-    use("tyru/open-browser.vim")
-    use("weirongxu/plantuml-previewer.vim")
-    use("simrat39/rust-tools.nvim")
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
