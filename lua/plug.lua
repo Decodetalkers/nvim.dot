@@ -45,6 +45,7 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
+		"kyazdani42/nvim-tree.lua",
     })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({
@@ -70,10 +71,6 @@ require("packer").startup(function(use)
         ft = { "markdown" },
     })
     use({ "lukas-reineke/indent-blankline.nvim", run = "make hexokinase" })
-
-    use({ "kyazdani42/nvim-tree.lua", requires = {
-        require("nvim-tree").setup(),
-    } }) -- Packer can manage itself
     use({
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
