@@ -20,7 +20,7 @@ require("packer").startup(function(use)
         "kongo2002/fsharp-vim", --hightlight for fsharp
         "peterhoeg/vim-qml",
         "arrufat/vala.vim",
-        "rakr/vim-one", --background
+        "chen244/vim-one", --background
         "APZelos/blamer.nvim",
         "rrethy/vim-hexokinase",
         "Xuyuanp/scrollbar.nvim",
