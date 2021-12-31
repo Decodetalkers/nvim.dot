@@ -45,7 +45,7 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-		"kyazdani42/nvim-tree.lua",
+        "kyazdani42/nvim-tree.lua",
     })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({
