@@ -22,7 +22,7 @@ require("packer").startup(function(use)
         "arrufat/vala.vim",
         "chen244/vim-one", --background
         "APZelos/blamer.nvim",
-        "rrethy/vim-hexokinase",
+        "lukas-reineke/indent-blankline.nvim",
         "Xuyuanp/scrollbar.nvim",
         "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
         "hrsh7th/nvim-cmp", -- Autocompletion plugin
@@ -70,7 +70,7 @@ require("packer").startup(function(use)
         end,
         ft = { "markdown" },
     })
-    use({ "lukas-reineke/indent-blankline.nvim", run = "make hexokinase" })
+    use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
     use({
         "nvim-telescope/telescope.nvim",
         requires = "nvim-lua/plenary.nvim",
