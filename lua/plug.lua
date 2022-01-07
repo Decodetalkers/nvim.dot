@@ -46,6 +46,7 @@ require("packer").startup(function(use)
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
         "kyazdani42/nvim-tree.lua",
+		"~/git/floatwindow.lua",
     })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({
@@ -112,8 +113,12 @@ require("lualine").setup({
     sections = {
         lualine_c = {
             ...,
+			'filename',
             "lsp_progress",
         },
     },
 })
 require("bufferline").setup({})
+require("floatwindow").setup({
+	one = false
+})
