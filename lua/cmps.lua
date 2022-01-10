@@ -78,6 +78,7 @@ local servers = {
     "yamlls",
     "ocamlls",
     "denols",
+	"taplo"
 }
 
 local lsp_installer = require("nvim-lsp-installer")
