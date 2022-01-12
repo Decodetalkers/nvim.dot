@@ -47,6 +47,7 @@ require("packer").startup(function(use)
         "simrat39/rust-tools.nvim",
         "kyazdani42/nvim-tree.lua",
         "~/git/floatwindow.lua",
+		"simrat39/symbols-outline.nvim"
     })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({
@@ -95,7 +96,7 @@ require("packer").startup(function(use)
     })
 end)
 require("lspsaga").init_lsp_saga()
-require("flutter-tools").setup({}) -- use defaults
+--require("flutter-tools").setup({}) -- use defaults
 require("telescope").load_extension("flutter")
 require("nvim-tree").setup({
     diagnostics = {
