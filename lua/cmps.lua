@@ -47,10 +47,10 @@ for _, lsp in ipairs(servers_lsp) do
 end
 -- use flutter-tools not darttls
 require("flutter-tools").setup({
-	lsp = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	}
+    lsp = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+    },
 }) -- use defaults
 
 local configs = require("lspconfig.configs")
@@ -297,4 +297,3 @@ for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
