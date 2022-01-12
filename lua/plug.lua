@@ -47,7 +47,7 @@ require("packer").startup(function(use)
         "simrat39/rust-tools.nvim",
         "kyazdani42/nvim-tree.lua",
         "~/git/floatwindow.lua",
-		"simrat39/symbols-outline.nvim"
+        "simrat39/symbols-outline.nvim",
     })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({

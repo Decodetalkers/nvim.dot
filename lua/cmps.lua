@@ -34,7 +34,7 @@ local on_attach = function(_, bufnr)
 end
 
 local nvim_lsp = require("lspconfig")
-local servers_lsp = { "julials", "r_language_server","gdscript" }
+local servers_lsp = { "julials", "r_language_server", "gdscript" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -45,23 +45,23 @@ for _, lsp in ipairs(servers_lsp) do
         on_attach = on_attach,
     })
 end
-local configs = require 'lspconfig.configs'
+local configs = require("lspconfig.configs")
 
 -- Check if the config is already defined (useful when reloading this file)
 if not configs.qml_lsp then
-  configs.qml_lsp = {
-    default_config = {
-      cmd = {'/home/cht/git/qew-em-el-el-ess-pee/qml-lsp'};
-      filetypes = {'qml'};
-      root_dir = function(fname)
-        return nvim_lsp.util.root_pattern('qml.qrc')(fname)
-      end;
-	  on_attach = on_attach;
-      settings = {};
-    };
-  }
+    configs.qml_lsp = {
+        default_config = {
+            cmd = { "/home/cht/git/qew-em-el-el-ess-pee/qml-lsp" },
+            filetypes = { "qml" },
+            root_dir = function(fname)
+                return nvim_lsp.util.root_pattern("qml.qrc")(fname)
+            end,
+            on_attach = on_attach,
+            settings = {},
+        },
+    }
 end
-nvim_lsp.qml_lsp.setup{}
+nvim_lsp.qml_lsp.setup({})
 --local protocol = require('vim.lsp.protocol')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
@@ -95,7 +95,7 @@ local servers = {
     "yamlls",
     "ocamlls",
     "denols",
-	"taplo"
+    "taplo",
 }
 
 local lsp_installer = require("nvim-lsp-installer")
