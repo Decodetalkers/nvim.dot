@@ -7,6 +7,7 @@ local File = {
     ["sh"] = true,
     ["json"] = true,
     ["python"] = true,
+    ["vim"] = true,
 }
 File.Settab = function()
     if File[vim.o.filetype] ~= nil then

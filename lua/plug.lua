@@ -48,6 +48,7 @@ require("packer").startup(function(use)
         "kyazdani42/nvim-tree.lua",
         "~/git/floatwindow.lua",
         "simrat39/symbols-outline.nvim",
+        "sidebar-nvim/sidebar.nvim",
     })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({
@@ -122,4 +123,7 @@ require("lualine").setup({
 require("bufferline").setup({})
 require("floatwindow").setup({
     one = false,
+})
+require("sidebar-nvim").setup({
+    --open = true
 })

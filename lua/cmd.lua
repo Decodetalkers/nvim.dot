@@ -30,6 +30,8 @@ vim.cmd([[highlight Function cterm=italic gui=italic]])
 vim.cmd([[highlight Comment cterm=italic gui=italic]])
 vim.cmd([[au FileType zsh set filetype=sh]])
 vim.cmd([[autocmd FileType cpp autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+vim.cmd([[autocmd FileType cs autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
+vim.cmd([[autocmd FileType c autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 vim.cmd([[autocmd FileType typescript autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 
 -- cmps
