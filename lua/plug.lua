@@ -19,8 +19,6 @@ require("packer").startup(function(use)
     use({ "skywind3000/asyncrun.vim" })
     use({ "humiaozuzu/dot-vimrc" })
     use({ "ctrlpvim/ctrlp.vim" })
-    use({ "vim-airline/vim-airline" })
-    use({ "vim-airline/vim-airline-themes" })
     use({ "natebosch/vim-lsc" })
     use({ "ryanoasis/vim-devicons" })
     use({ "mattn/emmet-vim" })
@@ -51,12 +49,18 @@ require("packer").startup(function(use)
     use("neovim/nvim-lspconfig") -- Collection of configurations for built-in LSP client
     use("hrsh7th/nvim-cmp") -- Autocompletion plugin
     use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
+    use("hrsh7th/cmp-path") -- LSP source for nvim-cmp
+    use("hrsh7th/cmp-buffer") -- LSP source for nvim-cmp
     use("saadparwaiz1/cmp_luasnip") -- Snippets source for nvim-cmp
     use("L3MON4D3/LuaSnip") -- Snippets plugin
     use("williamboman/nvim-lsp-installer")
     use("glepnir/lspsaga.nvim")
     use("mfussenegger/nvim-dap")
     use("folke/lsp-colors.nvim")
+		use {
+		  'nvim-lualine/lualine.nvim',
+		  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+		}
     use({
         "nvim-telescope/telescope.nvim",
         requires = { { "nvim-lua/plenary.nvim" } },
@@ -65,7 +69,17 @@ require("packer").startup(function(use)
     use({"nvim-treesitter/nvim-treesitter",run = ":TSUpdate"})
 end)
 require("lspsaga").init_lsp_saga()
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+    diagnostics = {
+        enable = true,
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        },
+    },
+})
 require("nvim-treesitter.configs").setup({
     ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -76,4 +90,11 @@ require("nvim-treesitter.configs").setup({
       additional_vim_regex_highlighting = false,
 	}
 })
-
+require('lualine').setup {
+	options = {theme = "onedark"}
+}
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
