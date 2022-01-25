@@ -34,7 +34,7 @@ local on_attach = function(_, bufnr)
 end
 
 local nvim_lsp = require("lspconfig")
-local servers_lsp = { "r_language_server", "gdscript" }
+local servers_lsp = { "r_language_server", "gdscript", "clangd" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -75,7 +75,7 @@ require("flutter-tools").setup({
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
     "sumneko_lua",
-    "clangd",
+    --"clangd",
     "rust_analyzer",
     "julials",
     --"csharp_ls",

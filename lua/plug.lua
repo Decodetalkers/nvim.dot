@@ -50,7 +50,7 @@ require("packer").startup(function(use)
         "simrat39/symbols-outline.nvim",
         "sidebar-nvim/sidebar.nvim",
     })
-	use({"LhKipp/nvim-nu", run =  ':TSInstall nu'})
+    use({ "LhKipp/nvim-nu", run = ":TSInstall nu" })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({
         "lewis6991/gitsigns.nvim",
