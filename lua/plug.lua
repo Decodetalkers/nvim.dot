@@ -100,7 +100,8 @@ require("packer").startup(function(use)
 end)
 require("lspsaga").init_lsp_saga()
 --require("flutter-tools").setup({}) -- use defaults
-require("telescope").load_extension("flutter")
+--require("telescope").load_extension("flutter")
+require('telescope').load_extension('aerial')
 require("nvim-tree").setup({
     diagnostics = {
         enable = true,
