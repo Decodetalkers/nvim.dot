@@ -22,4 +22,4 @@ Google have not handle my pr, so I use my folk for my dart highlight
 
 ### About vista
 
-If a file cannot open the sidebar, use command :Vista
+No vista
