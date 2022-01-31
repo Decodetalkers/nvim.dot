@@ -17,7 +17,7 @@ vim.api.nvim_set_keymap("n", "<M-k>", ":lua vim.lsp.diagnostic.goto_prev()<CR>",
 vim.api.nvim_set_keymap(
     "n",
     "<M-d>",
-    "<cmd> lua require('functions.vista').Open()<cr>",
+    ":AerialToggle<CR>",
     { noremap = false, silent = true }
 )
 vim.api.nvim_set_keymap(

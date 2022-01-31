@@ -4,7 +4,7 @@ require("packer").startup(function(use)
         "chrisbra/csv.vim",
         "roxma/nvim-yarp",
         "roxma/vim-hug-neovim-rpc",
-        "liuchengxu/vista.vim",
+        --"liuchengxu/vista.vim",
         "preservim/tagbar",
         --"humiaozuzu/dot-vimrc",
         "ctrlpvim/ctrlp.vim",
@@ -47,8 +47,9 @@ require("packer").startup(function(use)
         "simrat39/rust-tools.nvim",
         "kyazdani42/nvim-tree.lua",
         "~/git/floatwindow.lua",
-        "simrat39/symbols-outline.nvim",
+        --"simrat39/symbols-outline.nvim",
         "sidebar-nvim/sidebar.nvim",
+        "stevearc/aerial.nvim",
     })
     use({ "LhKipp/nvim-nu", run = ":TSInstall nu" })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
