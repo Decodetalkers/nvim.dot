@@ -9,7 +9,7 @@ autocmd BufNewFile,BufWritePre,BufRead *.* lua require('functions.files').Settab
 autocmd BufNewFile,BufRead *.conf,*.ini set filetype=dosini 
 autocmd! BufNewFile,BufRead *    setlocal nofoldenable
 ]])
-vim.cmd([[let g:blamer_enabled = 1]])
+--vim.cmd([[let g:blamer_enabled = 1]])
 -- for scrollbars
 vim.cmd([[
 augroup ScrollbarInit

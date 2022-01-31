@@ -21,7 +21,7 @@ require("packer").startup(function(use)
         "peterhoeg/vim-qml",
         "arrufat/vala.vim",
         "chen244/vim-one", --background
-        "APZelos/blamer.nvim",
+        --"APZelos/blamer.nvim",
         "lukas-reineke/indent-blankline.nvim",
         "Xuyuanp/scrollbar.nvim",
         "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
@@ -59,7 +59,18 @@ require("packer").startup(function(use)
             "nvim-lua/plenary.nvim",
         },
         config = function()
-            require("gitsigns").setup()
+            require("gitsigns").setup({
+                current_line_blame = true,
+                current_line_blame_opts = {
+                    virt_text = true,
+                    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+                    delay = 1000,
+                    ignore_whitespace = false,
+                },
+                current_line_blame_formatter_opts = {
+                    relative_time = false,
+                },
+            })
         end,
     })
     use({
@@ -101,7 +112,7 @@ end)
 require("lspsaga").init_lsp_saga()
 --require("flutter-tools").setup({}) -- use defaults
 --require("telescope").load_extension("flutter")
-require('telescope').load_extension('aerial')
+require("telescope").load_extension("aerial")
 require("nvim-tree").setup({
     diagnostics = {
         enable = true,
@@ -121,6 +132,7 @@ require("lualine").setup({
             "filename",
             "lsp_progress",
         },
+        lualine_x = { "aerial" },
     },
 })
 require("bufferline").setup({})
