@@ -142,3 +142,21 @@ require("floatwindow").setup({
 require("sidebar-nvim").setup({
     --open = true
 })
+require("aerial").setup({
+    filter_kind = {
+        "Class",
+        "Constructor",
+        "Enum",
+        "Function",
+        "Interface",
+        "Namespace",
+        "Package",
+        "Variable",
+        "Module",
+        "Method",
+        "Struct",
+        "Key",
+        "Object",
+        "String",
+    },
+})
