@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
 end
 
 local nvim_lsp = require("lspconfig")
-local servers_lsp = { "r_language_server", "gdscript", "clangd" }
+local servers_lsp = { "r_language_server", "gdscript", "clangd","cssls", "html" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -99,10 +99,10 @@ local servers = {
     "cmake",
     "bashls",
     "vimls",
-    "cssls",
+    --"cssls",
     "lemminx",
     --"graphql",
-    "html",
+    --"html",
     "yamlls",
     "ocamlls",
     "denols",
