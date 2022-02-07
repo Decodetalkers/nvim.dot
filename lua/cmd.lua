@@ -41,6 +41,7 @@ autocmd FileType cpp autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_syn
 autocmd FileType cs autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 autocmd FileType c autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 autocmd FileType typescript autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+autocmd FileType vue autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
 ]])
 
 -- cmps
