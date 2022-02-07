@@ -97,17 +97,6 @@ require("packer").startup(function(use)
         run = ":TSUpdate",
     })
 end)
-local function search_result()
-    if vim.v.hlsearch == 0 then
-        return ""
-    end
-    local last_search = vim.fn.getreg("/")
-    if not last_search or last_search == "" then
-        return ""
-    end
-    local searchcount = vim.fn.searchcount({ maxcount = 9999 })
-    return last_search .. "(" .. searchcount.current .. "/" .. searchcount.total .. ")"
-end
 require("lspsaga").init_lsp_saga()
 --require("flutter-tools").setup({}) -- use defaults
 --require("telescope").load_extension("flutter")
@@ -130,9 +119,32 @@ require("lualine").setup({
             ...,
             "filename",
             "lsp_progress",
+            {
+                function()
+                    local msg = "No Active Lsp"
+                    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+                    local clients = vim.lsp.get_active_clients()
+                    if next(clients) == nil then
+                        return msg
+                    end
+                    for _, client in ipairs(clients) do
+                        local filetypes = client.config.filetypes
+                        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                            return client.name
+                        end
+                    end
+                    return msg
+                end,
+                icon = " LSP:",
+                color = { fg = "#ffffff", gui = "bold" },
+            },
         },
         lualine_x = { "aerial" },
-        lualine_y = { search_result, "filetype" },
+        lualine_y = {
+            "encoding",
+            "fileformat",
+            "filetype",
+        },
     },
 })
 require("bufferline").setup({})
