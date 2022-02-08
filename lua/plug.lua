@@ -19,7 +19,7 @@ require("packer").startup(function(use)
         "maksimr/vim-jsbeautify",
         "kongo2002/fsharp-vim", --hightlight for fsharp
         "peterhoeg/vim-qml",
-        "arrufat/vala.vim",
+        --"arrufat/vala.vim",
         "chen244/vim-one", --background
         --"APZelos/blamer.nvim",
         "lukas-reineke/indent-blankline.nvim",
