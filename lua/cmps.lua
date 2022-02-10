@@ -53,7 +53,7 @@ require("flutter-tools").setup({
         on_attach = on_attach,
     },
 }) -- use defaults
-require("clangd_extensions").setup {
+require("clangd_extensions").setup({
     server = {
         -- options to pass to nvim-lspconfig
         -- i.e. the arguments to require("lspconfig").clangd.setup({})
@@ -94,8 +94,32 @@ require("clangd_extensions").setup {
             -- The color of the hints
             highlight = "Comment",
         },
-    }
-}
+        ast = {
+            role_icons = {
+                type = "",
+                declaration = "",
+                expression = "",
+                specifier = "",
+                statement = "",
+                ["template argument"] = "",
+            },
+
+            kind_icons = {
+                Compound = "",
+                Recovery = "",
+                TranslationUnit = "",
+                PackExpansion = "",
+                TemplateTypeParm = "",
+                TemplateTemplateParm = "",
+                TemplateParamObject = "",
+            },
+
+            highlights = {
+                detail = "Comment",
+            },
+        },
+    },
+})
 --local configs = require("lspconfig.configs")
 --
 ---- Check if the config is already defined (useful when reloading this file)
