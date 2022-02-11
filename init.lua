@@ -6,9 +6,14 @@ opt.mouse = "a"
 --vim.cmd([[filetype off]])
 vim.cmd([[packadd packer.nvim]])
 --opt.foldmethod = "syntax"
+
+local prequire = require("prequire")
 require("plug")
 require("key")
-require("cmps")
+local nvim_lsp = prequire("lspconfig")
+if nvim_lsp then
+    require("cmps")
+end
 vim.g.foldmethod = "expr"
 vim.g.foldexpr = "nvim_treesitter#foldexpr()"
 opt.termguicolors = true

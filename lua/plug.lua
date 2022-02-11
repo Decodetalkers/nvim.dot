@@ -98,88 +98,117 @@ require("packer").startup(function(use)
         run = ":TSUpdate",
     })
 end)
-require("lspsaga").init_lsp_saga()
+local prequire = require("prequire")
+local lspsage = prequire("lspsaga")
+if lspsage then
+    lspsage.init_lsp_saga()
+end
 --require("flutter-tools").setup({}) -- use defaults
 --require("telescope").load_extension("flutter")
-require("telescope").load_extension("aerial")
-require("nvim-tree").setup({
-    diagnostics = {
-        enable = true,
-        icons = {
-            hint = "",
-            info = "",
-            warning = "",
-            error = "",
-        },
-    },
-})
-require("lualine").setup({
-    options = { theme = "onedark" },
-    sections = {
-        lualine_c = {
-            ...,
-            "filename",
-            "lsp_progress",
-            {
-                function()
-                    local msg = "No Active Lsp"
-                    local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-                    local clients = vim.lsp.get_active_clients()
-                    if next(clients) == nil then
-                        return msg
-                    end
-                    for _, client in ipairs(clients) do
-                        local filetypes = client.config.filetypes
-                        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                            return client.name
-                        end
-                    end
-                    return msg
-                end,
-                icon = " LSP:",
-                color = { fg = "#ffffff", gui = "bold" },
+
+local telescope = prequire("telescope")
+if telescope then
+    telescope.load_extension("aerial")
+end
+local nvimtree = prequire("nvim-tree")
+if nvimtree then
+    nvimtree.setup({
+        diagnostics = {
+            enable = true,
+            icons = {
+                hint = "",
+                info = "",
+                warning = "",
+                error = "",
             },
         },
-        lualine_x = { "aerial" },
-        lualine_y = {
-            "encoding",
-            "fileformat",
-            "filetype",
+    })
+end
+local lualine = prequire("lualine")
+if lualine then
+    lualine.setup({
+        options = { theme = "onedark" },
+        sections = {
+            lualine_c = {
+                ...,
+                "filename",
+                "lsp_progress",
+                {
+                    function()
+                        local msg = "No Active Lsp"
+                        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+                        local clients = vim.lsp.get_active_clients()
+                        if next(clients) == nil then
+                            return msg
+                        end
+                        for _, client in ipairs(clients) do
+                            local filetypes = client.config.filetypes
+                            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                                return client.name
+                            end
+                        end
+                        return msg
+                    end,
+                    icon = " LSP:",
+                    color = { fg = "#ffffff", gui = "bold" },
+                },
+            },
+            lualine_x = { "aerial" },
+            lualine_y = {
+                "encoding",
+                "fileformat",
+                "filetype",
+            },
         },
-    },
-})
-require("bufferline").setup({})
-require("floatwindow").setup({
-    one = false,
-})
-require("sidebar-nvim").setup({
-    --open = true
-})
-require("aerial").setup({
-    filter_kind = {
-        "Class",
-        "Constructor",
-        "Enum",
-        "Function",
-        "Interface",
-        "Namespace",
-        "Package",
-        "Variable",
-        "Module",
-        "Method",
-        "Struct",
-        "Key",
-        "Object",
-        "String",
-    },
-})
-require("nvim-treesitter.configs").setup({
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-    ignore_install = {}, -- List of parsers to ignore installing
-    highlight = {
-        enable = true, -- false will disable the whole extension
-        -- disable = { "markdown" }, -- list of language that will be disabled
-        additional_vim_regex_highlighting = false,
-    },
-})
+    })
+end
+local bufferline = prequire("bufferline")
+if bufferline then
+    bufferline.setup({})
+end
+local floatwindow = prequire("floatwindow")
+if floatwindow then
+    floatwindow.setup({
+        one = false,
+    })
+end
+local sidebar_nvim = prequire("sidebar-nvim")
+if sidebar_nvim then
+    sidebar_nvim.setup({
+        --open = true
+    })
+end
+local aerial = prequire("aerial")
+if aerial then
+    aerial.setup({
+        filter_kind = {
+            "Class",
+            "Constructor",
+            "Enum",
+            "Function",
+            "Interface",
+            "Namespace",
+            "Package",
+            "Variable",
+            "Module",
+            "Method",
+            "Struct",
+            "Key",
+            "Object",
+            "String",
+        },
+    })
+end
+local treesitter_config = prequire("nvim-treesitter.configs")
+if treesitter_config then
+    treesitter_config.setup({
+        ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+        sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+        ignore_install = {}, -- List of parsers to ignore installing
+        highlight = {
+            enable = true, -- false will disable the whole extension
+            -- disable = { "markdown" }, -- list of language that will be disabled
+            additional_vim_regex_highlighting = false,
+        },
+    })
+end
