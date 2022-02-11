@@ -12,7 +12,7 @@ require("plug")
 
 local nvim_lsp = prequire("lspconfig")
 if nvim_lsp then
-	require("key")
+    require("key")
     require("cmps")
 end
 vim.g.foldmethod = "expr"
@@ -24,4 +24,6 @@ opt.relativenumber = true
 opt.undofile = true
 opt.inccommand = "nosplit"
 opt.undodir = os.getenv("HOME") .. "/.vim/undo"
-require("cmd")
+if nvim_lsp then
+    require("cmd")
+end
