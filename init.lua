@@ -9,9 +9,10 @@ vim.cmd([[packadd packer.nvim]])
 
 local prequire = require("prequire")
 require("plug")
-require("key")
+
 local nvim_lsp = prequire("lspconfig")
 if nvim_lsp then
+	require("key")
     require("cmps")
 end
 vim.g.foldmethod = "expr"
