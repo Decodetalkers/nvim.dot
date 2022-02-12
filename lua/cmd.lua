@@ -23,9 +23,10 @@ augroup end
 -- vim.cmd([[au FileType glsl set filetype=fsharp]])
 -- vim.cmd([[au BufNewFile,BufRead *.fs  set filetype=fsharp]])
 --vim.cmd([[autocmd BufNewFile,BufRead *.fsproj set filetype=xml]])
+
 -- for vimspector
-vim.cmd([[let g:vimspector_enable_mappings = 'HUMAN']])
-vim.cmd([[packadd! vimspector]])
+--vim.cmd([[let g:vimspector_enable_mappings = 'HUMAN']])
+--vim.cmd([[packadd! vimspector]])
 
 --vim.cmd(
 --    [[autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}]]

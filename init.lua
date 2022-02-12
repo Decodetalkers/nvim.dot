@@ -14,6 +14,7 @@ local nvim_lsp = prequire("lspconfig")
 if nvim_lsp then
     require("key")
     require("cmps")
+    require("mydap")
 end
 vim.g.foldmethod = "expr"
 vim.g.foldexpr = "nvim_treesitter#foldexpr()"

@@ -15,7 +15,7 @@ require("packer").startup(function(use)
         "junegunn/fzf",
         "cespare/vim-toml",
         "alaviss/nim.nvim",
-        "puremourning/vimspector",
+        --"puremourning/vimspector",
         "maksimr/vim-jsbeautify",
         "kongo2002/fsharp-vim", --hightlight for fsharp
         "peterhoeg/vim-qml",
