@@ -2,8 +2,8 @@ require("packer").startup(function(use)
     use({
         "tpope/vim-fugitive",
         "chrisbra/csv.vim",
-        "roxma/nvim-yarp",
-        "roxma/vim-hug-neovim-rpc",
+        --"roxma/nvim-yarp",
+        --"roxma/vim-hug-neovim-rpc",
         --"liuchengxu/vista.vim",
         "preservim/tagbar",
         --"humiaozuzu/dot-vimrc",
@@ -39,7 +39,7 @@ require("packer").startup(function(use)
         "mfussenegger/nvim-dap",
         "folke/lsp-colors.nvim",
         "simnalamburt/vim-mundo",
-        "rbong/vim-flog",
+        --"rbong/vim-flog",
         "kyazdani42/nvim-web-devicons", --icons for Nvim tree
         "aklt/plantuml-syntax",
         "tyru/open-browser.vim",

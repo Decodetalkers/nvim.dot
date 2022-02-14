@@ -6,7 +6,6 @@ vim.cmd([[let g:Hexokinase_highlighters = ['backgroundfull'] ]])
 --vim.cmd([[autocmd BufNewFile,BufWritePre,BufRead *.* exec ":lua require('functions.files').Settab()"]])
 vim.cmd([[
 autocmd BufNewFile,BufWritePre,BufRead *.* lua require('functions.files').Settab()
-autocmd BufNewFile,BufRead *.conf,*.ini set filetype=dosini 
 autocmd! BufNewFile,BufRead *    setlocal nofoldenable
 ]])
 --vim.cmd([[let g:blamer_enabled = 1]])
@@ -68,5 +67,4 @@ highlight! link CmpItemKindKeyword Keyword
 highlight! link CmpItemKindSnippet Red
 highlight! link CmpItemKindFile Orange
 highlight! link CmpItemKindFolder Orange
-autocmd CursorHold <buffer> lua vim.lsp.buf.hover()
 ]])

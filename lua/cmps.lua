@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
 end
 
 local nvim_lsp = require("lspconfig")
-local servers_lsp = { "r_language_server", "gdscript", "clangd", "cssls", "html" }
+local servers_lsp = { "r_language_server", "gdscript", "cssls", "html" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -53,10 +53,12 @@ require("flutter-tools").setup({
         on_attach = on_attach,
     },
 }) -- use defaults
+-- clangd start here
 require("clangd_extensions").setup({
     server = {
+		capabilities = capabilities,
+        on_attach = on_attach,
         -- options to pass to nvim-lspconfig
-        -- i.e. the arguments to require("lspconfig").clangd.setup({})
     },
     extensions = {
         -- defaults:
