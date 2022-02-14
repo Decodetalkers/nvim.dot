@@ -56,7 +56,7 @@ require("flutter-tools").setup({
 -- clangd start here
 require("clangd_extensions").setup({
     server = {
-		capabilities = capabilities,
+        capabilities = capabilities,
         on_attach = on_attach,
         -- options to pass to nvim-lspconfig
     },

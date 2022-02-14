@@ -59,20 +59,6 @@ require("packer").startup(function(use)
         requires = {
             "nvim-lua/plenary.nvim",
         },
-        config = function()
-            require("gitsigns").setup({
-                current_line_blame = true,
-                current_line_blame_opts = {
-                    virt_text = true,
-                    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-                    delay = 1000,
-                    ignore_whitespace = false,
-                },
-                current_line_blame_formatter_opts = {
-                    relative_time = false,
-                },
-            })
-        end,
     })
     use({
         "nvim-lualine/lualine.nvim",
@@ -209,6 +195,21 @@ if treesitter_config then
             enable = true, -- false will disable the whole extension
             -- disable = { "markdown" }, -- list of language that will be disabled
             additional_vim_regex_highlighting = false,
+        },
+    })
+end
+local gitsigns = prequire("gitsigns")
+if gitsigns then
+    gitsigns.setup({
+        current_line_blame = true,
+        current_line_blame_opts = {
+            virt_text = true,
+            virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+            delay = 1000,
+            ignore_whitespace = false,
+        },
+        current_line_blame_formatter_opts = {
+            relative_time = false,
         },
     })
 end
