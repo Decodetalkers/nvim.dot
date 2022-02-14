@@ -1,3 +1,4 @@
+-- every time changed should compiled first
 require("packer").startup(function(use)
     use({
         "tpope/vim-fugitive",
@@ -35,7 +36,6 @@ require("packer").startup(function(use)
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
         "williamboman/nvim-lsp-installer",
-        "tami5/lspsaga.nvim",
         "mfussenegger/nvim-dap",
         "folke/lsp-colors.nvim",
         "simnalamburt/vim-mundo",
@@ -45,12 +45,59 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-        "kyazdani42/nvim-tree.lua",
         "~/git/floatwindow.lua",
-        --"simrat39/symbols-outline.nvim",
-        "sidebar-nvim/sidebar.nvim",
-        "stevearc/aerial.nvim",
         "p00f/clangd_extensions.nvim",
+    })
+    use({
+        "sidebar-nvim/sidebar.nvim",
+        config = function()
+            require("sidebar-nvim").setup({})
+        end,
+    })
+    use({
+        "stevearc/aerial.nvim",
+        config = function()
+            require("aerial").setup({
+                filter_kind = {
+                    "Class",
+                    "Constructor",
+                    "Enum",
+                    "Function",
+                    "Interface",
+                    "Namespace",
+                    "Package",
+                    "Variable",
+                    "Module",
+                    "Method",
+                    "Struct",
+                    "Key",
+                    "Object",
+                    "String",
+                },
+            })
+        end,
+    })
+    use({
+        "tami5/lspsaga.nvim",
+        config = function()
+            require("lspsaga").init_lsp_saga()
+        end,
+    })
+    use({
+        "kyazdani42/nvim-tree.lua",
+        config = function()
+            require("nvim-tree").setup({
+                diagnostics = {
+                    enable = true,
+                    icons = {
+                        hint = "",
+                        info = "",
+                        warning = "",
+                        error = "",
+                    },
+                },
+            })
+        end,
     })
     use({ "LhKipp/nvim-nu", run = ":TSInstall nu" })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
@@ -59,12 +106,68 @@ require("packer").startup(function(use)
         requires = {
             "nvim-lua/plenary.nvim",
         },
+        config = function()
+            require("gitsigns").setup({
+                current_line_blame = true,
+                current_line_blame_opts = {
+                    virt_text = true,
+                    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+                    delay = 1000,
+                    ignore_whitespace = false,
+                },
+                current_line_blame_formatter_opts = {
+                    relative_time = false,
+                },
+            })
+        end,
     })
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        config = function()
+            require("lualine").setup({
+                options = { theme = "onedark" },
+                sections = {
+                    lualine_c = {
+                        "filename",
+                        "lsp_progress",
+                        {
+                            function()
+                                local msg = "No Active Lsp"
+                                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+                                local clients = vim.lsp.get_active_clients()
+                                if next(clients) == nil then
+                                    return msg
+                                end
+                                for _, client in ipairs(clients) do
+                                    local filetypes = client.config.filetypes
+                                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                                        return client.name
+                                    end
+                                end
+                                return msg
+                            end,
+                            icon = " LSP:",
+                            color = { fg = "#ffffff", gui = "bold" },
+                        },
+                    },
+                    lualine_x = { "aerial" },
+                    lualine_y = {
+                        "encoding",
+                        "fileformat",
+                        "filetype",
+                    },
+                },
+            })
+        end,
     })
-    use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+    use({
+        "akinsho/bufferline.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+            require("bufferline").setup({})
+        end,
+    })
 
     use({
         "iamcco/markdown-preview.nvim",
@@ -82,134 +185,28 @@ require("packer").startup(function(use)
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+                sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+                ignore_install = {}, -- List of parsers to ignore installing
+                highlight = {
+                    enable = true, -- false will disable the whole extension
+                    -- disable = { "markdown" }, -- list of language that will be disabled
+                    additional_vim_regex_highlighting = false,
+                },
+            })
+        end,
     })
 end)
 local prequire = require("prequire")
-local lspsage = prequire("lspsaga")
-if lspsage then
-    lspsage.init_lsp_saga()
-end
---require("flutter-tools").setup({}) -- use defaults
---require("telescope").load_extension("flutter")
-
 local telescope = prequire("telescope")
 if telescope then
     telescope.load_extension("aerial")
-end
-local nvimtree = prequire("nvim-tree")
-if nvimtree then
-    nvimtree.setup({
-        diagnostics = {
-            enable = true,
-            icons = {
-                hint = "",
-                info = "",
-                warning = "",
-                error = "",
-            },
-        },
-    })
-end
-local lualine = prequire("lualine")
-if lualine then
-    lualine.setup({
-        options = { theme = "onedark" },
-        sections = {
-            lualine_c = {
-                ...,
-                "filename",
-                "lsp_progress",
-                {
-                    function()
-                        local msg = "No Active Lsp"
-                        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-                        local clients = vim.lsp.get_active_clients()
-                        if next(clients) == nil then
-                            return msg
-                        end
-                        for _, client in ipairs(clients) do
-                            local filetypes = client.config.filetypes
-                            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                                return client.name
-                            end
-                        end
-                        return msg
-                    end,
-                    icon = " LSP:",
-                    color = { fg = "#ffffff", gui = "bold" },
-                },
-            },
-            lualine_x = { "aerial" },
-            lualine_y = {
-                "encoding",
-                "fileformat",
-                "filetype",
-            },
-        },
-    })
-end
-local bufferline = prequire("bufferline")
-if bufferline then
-    bufferline.setup({})
 end
 local floatwindow = prequire("floatwindow")
 if floatwindow then
     floatwindow.setup({
         one = false,
-    })
-end
-local sidebar_nvim = prequire("sidebar-nvim")
-if sidebar_nvim then
-    sidebar_nvim.setup({
-        --open = true
-    })
-end
-local aerial = prequire("aerial")
-if aerial then
-    aerial.setup({
-        filter_kind = {
-            "Class",
-            "Constructor",
-            "Enum",
-            "Function",
-            "Interface",
-            "Namespace",
-            "Package",
-            "Variable",
-            "Module",
-            "Method",
-            "Struct",
-            "Key",
-            "Object",
-            "String",
-        },
-    })
-end
-local treesitter_config = prequire("nvim-treesitter.configs")
-if treesitter_config then
-    treesitter_config.setup({
-        ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-        sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-        ignore_install = {}, -- List of parsers to ignore installing
-        highlight = {
-            enable = true, -- false will disable the whole extension
-            -- disable = { "markdown" }, -- list of language that will be disabled
-            additional_vim_regex_highlighting = false,
-        },
-    })
-end
-local gitsigns = prequire("gitsigns")
-if gitsigns then
-    gitsigns.setup({
-        current_line_blame = true,
-        current_line_blame_opts = {
-            virt_text = true,
-            virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-            delay = 1000,
-            ignore_whitespace = false,
-        },
-        current_line_blame_formatter_opts = {
-            relative_time = false,
-        },
     })
 end
