@@ -28,4 +28,10 @@ vim.api.nvim_set_keymap(
     "<cmd> lua require('functions.relative').change()<cr>",
     { noremap = false, silent = true }
 )
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>sa",
+	":SidebarNvimToggle<CR>",
+    { noremap = false, silent = true }
+)
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })
