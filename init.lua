@@ -6,7 +6,7 @@ opt.mouse = "a"
 --vim.cmd([[filetype off]])
 local fn = vim.fn
 local packer_bootstrap = {}
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({
         "git",
