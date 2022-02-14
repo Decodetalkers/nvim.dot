@@ -6,7 +6,8 @@ opt.mouse = "a"
 --vim.cmd([[filetype off]])
 local fn = vim.fn
 local packer_bootstrap = {}
-local install_path = fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+local data_path = fn.stdpath("data")
+local install_path = data_path .. "/site/pack/packer/opt/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({
         "git",
@@ -38,7 +39,7 @@ if packer_bootstrap then
     opt.relativenumber = true
     opt.undofile = true
     opt.inccommand = "nosplit"
-    opt.undodir = os.getenv("HOME") .. "/.vim/undo"
+    opt.undodir = data_path .. "/undo"
     if nvim_lsp then
         require("cmd")
     end
