@@ -222,6 +222,8 @@ lsp_installer.on_server_ready(function(server)
             root_dir = nvim_lsp.util.root_pattern("deno.json"),
             init_options = {
                 lint = true,
+				importMap = "./import_map.json",
+				unstable = true,
             },
         }
         server:setup(opts)

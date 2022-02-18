@@ -2,7 +2,7 @@
 require("packer").startup(function(use)
     use({
         "tpope/vim-fugitive",
-        "chrisbra/csv.vim",
+        --"chrisbra/csv.vim",
         --"roxma/nvim-yarp",
         --"roxma/vim-hug-neovim-rpc",
         --"liuchengxu/vista.vim",
@@ -42,7 +42,7 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-        "~/git/floatwindow.lua",
+        "~/git/csv-tools.lua",
         "p00f/clangd_extensions.nvim",
     })
     use({
@@ -201,9 +201,14 @@ local telescope = prequire("telescope")
 if telescope then
     telescope.load_extension("aerial")
 end
-local floatwindow = prequire("floatwindow")
-if floatwindow then
-    floatwindow.setup({
-        one = false,
-    })
-end
+--local floatwindow = prequire("floatwindow")
+--if floatwindow then
+--    floatwindow.setup({
+--        one = false,
+--    })
+--end
+require("csvtools").setup({
+	before = 70,
+	after =70,
+	--showoverflow = false
+})
