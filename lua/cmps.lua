@@ -205,6 +205,11 @@ lsp_installer.on_server_ready(function(server)
                         -- Setup your lua path
                         path = runtime_path,
                     },
+                    workspace = {
+                        -- Make the server aware of Neovim runtime files
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+
                     diagnostics = {
                         -- Get the language server to recognize the `vim` global
                         globals = { "vim" },
@@ -217,14 +222,12 @@ lsp_installer.on_server_ready(function(server)
         }
         server:setup(opts)
     elseif server.name == "denols" then
+        local settings = require("deno-tool").read()
+        --local temp = deno_tool.read()
         local opts = {
             on_attach = on_attach,
             root_dir = nvim_lsp.util.root_pattern("deno.json"),
-            init_options = {
-                lint = true,
-				importMap = "./import_map.json",
-				unstable = true,
-            },
+            init_options = settings,
         }
         server:setup(opts)
     elseif server.name == "tsserver" then

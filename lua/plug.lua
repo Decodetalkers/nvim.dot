@@ -43,6 +43,7 @@ require("packer").startup(function(use)
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
         "~/git/csv-tools.lua",
+        "~/git/deno-tool.lua",
         "p00f/clangd_extensions.nvim",
     })
     use({
@@ -208,7 +209,7 @@ end
 --    })
 --end
 require("csvtools").setup({
-	before = 70,
-	after =70,
-	--showoverflow = false
+    before = 70,
+    after = 70,
+    --showoverflow = false
 })
