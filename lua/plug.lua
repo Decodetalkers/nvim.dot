@@ -45,6 +45,7 @@ require("packer").startup(function(use)
         "~/git/csv-tools.lua",
         "~/git/deno-tool.lua",
         "p00f/clangd_extensions.nvim",
+        "p00f/nvim-ts-rainbow",
     })
     use({
         "sidebar-nvim/sidebar.nvim",
