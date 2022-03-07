@@ -46,6 +46,7 @@ require("packer").startup(function(use)
         "~/git/deno-tool.lua",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
+		"Hoffs/omnisharp-extended-lsp.nvim"
     })
     use({
         "sidebar-nvim/sidebar.nvim",
