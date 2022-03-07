@@ -169,7 +169,7 @@ local servers = {
     "vimls",
     --"cssls",
     "lemminx",
-	"groovyls",
+    "groovyls",
     --"graphql",
     --"html",
     "yamlls",
@@ -231,14 +231,14 @@ lsp_installer.on_server_ready(function(server)
             init_options = settings,
         }
         server:setup(opts)
-	elseif server.name  == "omnisharp" then
-		local opts = {
+    elseif server.name == "omnisharp" then
+        local opts = {
             on_attach = on_attach,
-			handlers = {
-				["textDocument/definition"] = require('omnisharp_extended').handler,
-			},
-		}
-		server:setup(opts)
+            handlers = {
+                ["textDocument/definition"] = require("omnisharp_extended").handler,
+            },
+        }
+        server:setup(opts)
     elseif server.name == "tsserver" then
         local opts = {
             on_attach = on_attach,
