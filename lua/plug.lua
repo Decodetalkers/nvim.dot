@@ -44,6 +44,7 @@ require("packer").startup(function(use)
         "simrat39/rust-tools.nvim",
         "~/git/csv-tools.lua",
         "~/git/deno-tool.lua",
+        "~/git/csharpls_extend-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
         --"Hoffs/omnisharp-extended-lsp.nvim",
