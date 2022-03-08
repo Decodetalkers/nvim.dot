@@ -147,11 +147,11 @@ local servers = {
     --"clangd",
     "rust_analyzer",
     "julials",
-    --"csharp_ls",
+    "csharp_ls",
     --"pyright",
     "pylsp",
     "tsserver",
-    "omnisharp",
+    --"omnisharp",
     "fsautocomplete",
     "hls",
     "texlab",
@@ -231,14 +231,14 @@ lsp_installer.on_server_ready(function(server)
             init_options = settings,
         }
         server:setup(opts)
-    elseif server.name == "omnisharp" then
-        local opts = {
-            on_attach = on_attach,
-            handlers = {
-                ["textDocument/definition"] = require("omnisharp_extended").handler,
-            },
-        }
-        server:setup(opts)
+        --elseif server.name == "csharp_ls" then
+        --    local opts = {
+        --        on_attach = on_attach,
+        --        handlers = {
+        --            ["textDocument/definition"] = require("omnisharp_extended").handler,
+        --        },
+        --    }
+        --    server:setup(opts)
     elseif server.name == "tsserver" then
         local opts = {
             on_attach = on_attach,
