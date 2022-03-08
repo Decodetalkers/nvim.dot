@@ -1,30 +1,60 @@
 local File = {
-  ["rust"] = true,
-  ["java"] = true,
-  ["cs"] = true,
-  ["lua"] = false,
-  ["fsharp"] = false,
-  ["kotlin"] = true,
-  ["sh"] = true,
-  ["json"] = true,
-  ["python"] = true,
-  ["vim"] = true,
+    ["rust"] = {
+        tab = true,
+        shift = 4,
+    },
+    ["java"] = {
+        tab = true,
+        shift = 4,
+    },
+    ["cs"] = {
+        tab = true,
+        shift = 4,
+    },
+    ["lua"] = {
+        tab = false,
+        shift = 4,
+    },
+    ["fsharp"] = {
+        tab = false,
+        shift = 2,
+    },
+    ["kotlin"] = {
+        tab = true,
+        shift = 4,
+    },
+    ["sh"] = {
+        tab = true,
+        shift = 4,
+    },
+    ["json"] = {
+        tab = true,
+        shift = 4,
+    },
+    ["python"] = {
+        tab = true,
+        shift = 4,
+    },
+    ["vim"] = {
+        tab = true,
+        shift = 4,
+    },
 }
 File.Settab = function()
-  local file = File[vim.o.filetype]
-  if file ~= nil then
-    if file then
-      vim.opt.tabstop = 4
-      vim.opt.shiftwidth = 4
-      vim.opt.softtabstop = 4
+    local file = File[vim.o.filetype]
+    if file ~= nil then
+        if file.tab then
+            vim.opt.tabstop = file.shift
+            vim.opt.shiftwidth = file.shift
+            vim.opt.softtabstop = file.shift
+        else
+            vim.cmd([[set modeline]])
+            vim.opt.shiftwidth = file.shift
+        end
     else
-      vim.cmd([[set modeline]])
-      vim.opt.shiftwidth = 2
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+        vim.opt.softtabstop = 2
     end
-  else
-    vim.opt.tabstop = 2
-    vim.opt.shiftwidth = 2
-    vim.opt.softtabstop = 2
-  end
 end
 return File
