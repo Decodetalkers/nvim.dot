@@ -8,7 +8,7 @@ local File = {
         shift = 4,
     },
     ["cs"] = {
-        tab = true,
+        tab = false,
         shift = 4,
     },
     ["lua"] = {
