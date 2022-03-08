@@ -48,7 +48,7 @@ File.Settab = function()
             vim.opt.shiftwidth = file.shift
             vim.opt.softtabstop = file.shift
         else
-            vim.cmd([[set modeline]])
+            vim.opt.modeline = true
             vim.opt.shiftwidth = file.shift
         end
     else
