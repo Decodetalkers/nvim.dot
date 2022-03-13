@@ -19,6 +19,10 @@ local File = {
         tab = false,
         shift = 2,
     },
+    ["haskell"] = {
+        tab = false,
+        shift = 2,
+    },
     ["kotlin"] = {
         tab = true,
         shift = 4,

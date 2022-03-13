@@ -5,7 +5,7 @@ vim.cmd([[colorscheme one]])
 vim.cmd([[let g:Hexokinase_highlighters = ['backgroundfull'] ]])
 --vim.cmd([[autocmd BufNewFile,BufWritePre,BufRead *.* exec ":lua require('functions.files').Settab()"]])
 vim.cmd([[
-autocmd BufNewFile,BufWritePre,BufRead *.* lua require('functions.files').Settab()
+autocmd BufNewFile,BufWritePre,BufRead *.* lua require('cmd.files').Settab()
 autocmd! BufNewFile,BufRead *    setlocal nofoldenable
 ]])
 --vim.cmd([[let g:blamer_enabled = 1]])

@@ -131,8 +131,8 @@ require("clangd_extensions").setup({
 --            cmd = { "/home/cht/git/qew-em-el-el-ess-pee/qml-lsp" },
 --            filetypes = { "qml" },
 --            root_dir = function(fname)
---                --return nvim_lsp.util.find_git_ancestor(fname)
---                return nvim_lsp.util.root_pattern("qml.qrc")(fname)
+--                return nvim_lsp.util.find_git_ancestor(fname)
+--                --return nvim_lsp.util.root_pattern("qml.qrc")(fname)
 --            end,
 --            on_attach = on_attach,
 --            settings = {},
