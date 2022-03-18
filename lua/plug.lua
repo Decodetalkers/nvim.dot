@@ -21,7 +21,7 @@ require("packer").startup(function(use)
         "chen244/vim-one", --background
         --"APZelos/blamer.nvim",
         "lukas-reineke/indent-blankline.nvim",
-        "Xuyuanp/scrollbar.nvim",
+        --"Xuyuanp/scrollbar.nvim",
         "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
         "hrsh7th/nvim-cmp", -- Autocompletion plugin
         "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
@@ -42,12 +42,27 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-        "~/git/csv-tools.lua",
         "~/git/deno-tool.lua",
         "~/git/csharpls_extend-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
         --"Hoffs/omnisharp-extended-lsp.nvim",
+    })
+    use({
+        "~/git/csv-tools.lua",
+        config = function()
+            require("csvtools").setup({
+                before = 70,
+                after = 70,
+                --showoverflow = false
+            })
+        end,
+    })
+    use({
+        "petertriho/nvim-scrollbar",
+        config = function()
+            require("scrollbar").setup()
+        end,
     })
     use({
         "sidebar-nvim/sidebar.nvim",
@@ -213,14 +228,3 @@ local telescope = prequire("telescope")
 if telescope then
     telescope.load_extension("aerial")
 end
---local floatwindow = prequire("floatwindow")
---if floatwindow then
---    floatwindow.setup({
---        one = false,
---    })
---end
-require("csvtools").setup({
-    before = 70,
-    after = 70,
-    --showoverflow = false
-})

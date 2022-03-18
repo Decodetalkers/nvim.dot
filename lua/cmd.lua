@@ -10,14 +10,14 @@ autocmd! BufNewFile,BufRead *    setlocal nofoldenable
 ]])
 --vim.cmd([[let g:blamer_enabled = 1]])
 -- for scrollbars
-vim.cmd([[
-augroup ScrollbarInit
-autocmd!
-autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
-autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-autocmd WinLeave,BufLeave,BufWinLeave,FocusLost  * silent! lua require('scrollbar').clear()
-augroup end
-]])
+--vim.cmd([[
+--augroup ScrollbarInit
+--autocmd!
+--autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
+--autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+--autocmd WinLeave,BufLeave,BufWinLeave,FocusLost  * silent! lua require('scrollbar').clear()
+--augroup end
+--]])
 -- for fsharp
 -- vim.cmd([[au FileType glsl set filetype=fsharp]])
 -- vim.cmd([[au BufNewFile,BufRead *.fs  set filetype=fsharp]])
