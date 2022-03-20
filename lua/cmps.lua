@@ -223,12 +223,13 @@ lsp_installer.on_server_ready(function(server)
         }
         server:setup(opts)
     elseif server.name == "denols" then
-        local settings = require("deno-tool").read()
-        --local temp = deno_tool.read()
+        --local settings = require("deno-tool").read()
         local opts = {
             on_attach = on_attach,
             root_dir = nvim_lsp.util.root_pattern("deno.json"),
-            init_options = settings,
+            init_options = { --settings,
+                lint = true,
+            },
         }
         server:setup(opts)
     elseif server.name == "csharp_ls" then

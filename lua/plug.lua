@@ -42,7 +42,7 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-        "~/git/deno-tool.lua",
+        --"~/git/deno-tool.lua",
         "~/git/csharpls_extend-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
