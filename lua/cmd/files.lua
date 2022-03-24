@@ -35,6 +35,10 @@ local File = {
         tab = true,
         shift = 4,
     },
+    ["jsonc"] = {
+        tab = true,
+        shift = 4,
+    },
     ["python"] = {
         tab = true,
         shift = 4,
