@@ -56,8 +56,9 @@ File.Settab = function()
             vim.opt.shiftwidth = file.shift
             vim.opt.softtabstop = file.shift
         else
-            vim.opt.modeline = true
+            --vim.opt.modeline = true
             vim.opt.shiftwidth = file.shift
+	    vim.opt.expandtab = true
         end
     else
         vim.opt.tabstop = 2
