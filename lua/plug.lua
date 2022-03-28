@@ -48,6 +48,54 @@ require("packer").startup(function(use)
         --"Hoffs/omnisharp-extended-lsp.nvim",
     })
     use({
+        "rcarriga/nvim-notify",
+        config = function()
+            vim.notify = require("notify")
+            require("notify").setup({
+                -- Animation style (see below for details)
+                stages = "fade_in_slide_out",
+
+                -- Function called when a new window is opened, use for changing win settings/config
+                on_open = nil,
+
+                -- Function called when a window is closed
+                on_close = nil,
+
+                -- Render function for notifications. See notify-render()
+                render = "default",
+
+                -- Default timeout for notifications
+                timeout = 5000,
+
+                -- Max number of columns for messages
+                max_width = nil,
+                -- Max number of lines for a message
+                max_height = nil,
+
+                -- For stages that change opacity this is treated as the highlight behind the window
+                -- Set this to either a highlight group, an RGB hex value e.g. "#000000" or a function returning an RGB code for dynamic values
+                background_colour = "Normal",
+
+                -- Minimum width for notification windows
+                minimum_width = 50,
+
+                -- Icons for the different levels
+                icons = {
+                    ERROR = "",
+                    WARN = "",
+                    INFO = "",
+                    DEBUG = "",
+                    TRACE = "✎",
+                },
+            })
+            require("telescope").load_extension("notify")
+        end,
+    })
+    use({
+        "nvim-telescope/telescope.nvim",
+        requires = "nvim-lua/plenary.nvim",
+    })
+    use({
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             vim.opt.list = true
@@ -101,6 +149,7 @@ require("packer").startup(function(use)
                     "String",
                 },
             })
+            require("telescope").load_extension("aerial")
         end,
     })
     use({
@@ -203,10 +252,7 @@ require("packer").startup(function(use)
         ft = { "markdown" },
     })
     use({ "rrethy/vim-hexokinase", run = "make hexokinase" })
-    use({
-        "nvim-telescope/telescope.nvim",
-        requires = "nvim-lua/plenary.nvim",
-    })
+
     use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
     use({
         "nvim-treesitter/nvim-treesitter",
@@ -233,8 +279,3 @@ require("packer").startup(function(use)
         end,
     })
 end)
-local prequire = require("prequire")
-local telescope = prequire("telescope")
-if telescope then
-    telescope.load_extension("aerial")
-end
