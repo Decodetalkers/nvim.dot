@@ -203,7 +203,7 @@ require("packer").startup(function(use)
             require("lualine").setup({
                 options = {
                     theme = "onedark",
-                --    globalstatus = true,
+                    --    globalstatus = true,
                 },
                 sections = {
                     lualine_c = {
