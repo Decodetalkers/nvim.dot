@@ -15,7 +15,12 @@ vim.api.nvim_set_keymap("n", "<M-k>", ":lua vim.lsp.diagnostic.goto_prev()<CR>",
 --	{ noremap = false, silent = true }
 --)
 vim.api.nvim_set_keymap("n", "<M-d>", ":AerialToggle<CR>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap("n", "<M-e>", "<cmd> lua require('key.undo').Open()<cr>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>e",
+    "<cmd> lua require('key.undo').Open()<cr>",
+    { noremap = false, silent = true }
+)
 vim.api.nvim_set_keymap("n", "ff", ":bn<cr>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap(
     "n",
@@ -23,5 +28,4 @@ vim.api.nvim_set_keymap(
     "<cmd> lua require('key.relative').change()<cr>",
     { noremap = false, silent = true }
 )
-vim.api.nvim_set_keymap("n", "<leader>sd", ":SidebarNvimToggle<CR>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })

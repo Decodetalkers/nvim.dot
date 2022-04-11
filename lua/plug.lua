@@ -201,7 +201,10 @@ require("packer").startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
         config = function()
             require("lualine").setup({
-                options = { theme = "onedark" },
+                options = {
+                    theme = "onedark",
+                --    globalstatus = true,
+                },
                 sections = {
                     lualine_c = {
                         "filename",
@@ -231,6 +234,7 @@ require("packer").startup(function(use)
                         "encoding",
                         "fileformat",
                         "filetype",
+                        'require("fcitx5-ui").getCurrentIM()',
                     },
                 },
             })
@@ -258,8 +262,17 @@ require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         config = function()
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+            parser_config.fsharp = {
+                install_info = {
+                    url = "https://github.com/baronfel/tree-sitter-fsharp",
+                    files = { "src/parser.c" },
+                    branch = "main",
+                },
+                filetype = "fsharp",
+            }
             require("nvim-treesitter.configs").setup({
-                ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+                ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
                 sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
                 ignore_install = {}, -- List of parsers to ignore installing
                 highlight = {
