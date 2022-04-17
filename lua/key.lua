@@ -27,7 +27,7 @@ vim.api.nvim_set_keymap("n", "<leader>e", "", {
     silent = true,
     callback = function()
         --print("Hello world!")
-        require('key.undo').Open()
+        require("key.undo").Open()
     end,
 })
 vim.api.nvim_set_keymap("n", "ff", ":bn<cr>", { noremap = false, silent = true })
@@ -42,7 +42,7 @@ vim.api.nvim_set_keymap("n", "<M-q>", "", {
     silent = true,
     callback = function()
         --print("Hello world!")
-        require('key.relative').change()
+        require("key.relative").change()
     end,
 })
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })
