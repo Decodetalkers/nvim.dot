@@ -45,26 +45,26 @@ autocmd FileType vue autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_syn
 ]])
 
 -- cmps
-vim.cmd([[
-highlight! CursorLine cterm=bold  guibg=#333333
-highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
-highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
-highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
-highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
-highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
-highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
-highlight! link CmpItemAbbrMatchFuzzy Aqua
-highlight! link CmpItemKindText Fg
-highlight! link CmpItemKindMethod Purple
-highlight! link CmpItemKindFunction Purple
-highlight! link CmpItemKindConstructor Green
-highlight! link CmpItemKindField Aqua
-highlight! link CmpItemKindVariable Blue
-highlight! link CmpItemKindClass Green
-highlight! link CmpItemKindInterface Green
-highlight! link CmpItemKindValue Orange
-highlight! link CmpItemKindKeyword Keyword
-highlight! link CmpItemKindSnippet Red
-highlight! link CmpItemKindFile Orange
-highlight! link CmpItemKindFolder Orange
-]])
+--vim.cmd([[
+--highlight! CursorLine cterm=bold  guibg=#333333
+--highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+--highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+--highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+--highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+--highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+--highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+--highlight! link CmpItemAbbrMatchFuzzy Aqua
+--highlight! link CmpItemKindText Fg
+--highlight! link CmpItemKindMethod Purple
+--highlight! link CmpItemKindFunction Purple
+--highlight! link CmpItemKindConstructor Green
+--highlight! link CmpItemKindField Aqua
+--highlight! link CmpItemKindVariable Blue
+--highlight! link CmpItemKindClass Green
+--highlight! link CmpItemKindInterface Green
+--highlight! link CmpItemKindValue Orange
+--highlight! link CmpItemKindKeyword Keyword
+--highlight! link CmpItemKindSnippet Red
+--highlight! link CmpItemKindFile Orange
+--highlight! link CmpItemKindFolder Orange
+--]])

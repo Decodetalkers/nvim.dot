@@ -6,7 +6,14 @@ vim.api.nvim_set_keymap("n", "<M-r>", ":Lspsaga lsp_finder<CR>", { noremap = fal
 vim.api.nvim_set_keymap("n", "sd", ":Lspsaga show_line_diagnostics<CR>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "df", ":Lspsaga preview_definition<CR>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "fg", ":Telescope<CR>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap("n", "<M-j>", ":lua vim.lsp.diagnostic.goto_next()<CR>", { noremap = false, silent = true })
+--vim.api.nvim_set_keymap("n", "<M-j>", ":lua vim.lsp.diagnostic.goto_next()<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<M-j>", "", {
+    noremap = true,
+    silent = true,
+    callback = function()
+        vim.lsp.diagnostic.goto_next()
+    end,
+})
 vim.api.nvim_set_keymap("n", "<M-k>", ":lua vim.lsp.diagnostic.goto_prev()<CR>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap(
 --	"n",
@@ -15,17 +22,33 @@ vim.api.nvim_set_keymap("n", "<M-k>", ":lua vim.lsp.diagnostic.goto_prev()<CR>",
 --	{ noremap = false, silent = true }
 --)
 vim.api.nvim_set_keymap("n", "<M-d>", ":AerialToggle<CR>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap(
-    "n",
-    "<leader>e",
-    "<cmd> lua require('key.undo').Open()<cr>",
-    { noremap = false, silent = true }
-)
+--vim.api.nvim_set_keymap(
+--    "n",
+--    "<leader>e",
+--    "<cmd> lua require('key.undo').Open()<cr>",
+--    { noremap = false, silent = true }
+--)
+vim.api.nvim_set_keymap("n", "<leader>e", "", {
+    noremap = true,
+    silent = true,
+    callback = function()
+        --print("Hello world!")
+        require('key.undo').Open()
+    end,
+})
 vim.api.nvim_set_keymap("n", "ff", ":bn<cr>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap(
-    "n",
-    "<M-q>",
-    "<cmd> lua require('key.relative').change()<cr>",
-    { noremap = false, silent = true }
-)
+--vim.api.nvim_set_keymap(
+--    "n",
+--    "<M-q>",
+--    "<cmd> lua require('key.relative').change()<cr>",
+--    { noremap = false, silent = true }
+--)
+vim.api.nvim_set_keymap("n", "<M-q>", "", {
+    noremap = true,
+    silent = true,
+    callback = function()
+        --print("Hello world!")
+        require('key.relative').change()
+    end,
+})
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })

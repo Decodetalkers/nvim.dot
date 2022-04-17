@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
 end
 
 local nvim_lsp = require("lspconfig")
-local servers_lsp = { "r_language_server", "gdscript", "cssls", "html" }
+local servers_lsp = { "gdscript", "cssls", "html" }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -143,6 +143,7 @@ require("clangd_extensions").setup({
 --local protocol = require('vim.lsp.protocol')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
+    "r_language_server",
     "sumneko_lua",
     --"clangd",
     "rust_analyzer",
@@ -279,7 +280,6 @@ lsp_installer.on_server_ready(function(server)
 end)
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
-
 -- luasnip
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_vscode").lazy_load()
@@ -336,6 +336,17 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         }),
+        ["<Down>"] = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            elseif has_words_before() then
+                cmp.complete()
+            else
+                fallback()
+            end
+        end,
         ["<Tab>"] = function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -347,6 +358,15 @@ cmp.setup({
                 fallback()
             end
         end,
+        ["<Up>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -371,6 +391,9 @@ cmp.setup({
             })[entry.source.name]
             return vim_item
         end,
+    },
+    view = {
+        entires = "native",
     },
     experimental = {
         ghost_text = true,

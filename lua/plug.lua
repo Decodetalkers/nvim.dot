@@ -203,7 +203,7 @@ require("packer").startup(function(use)
             require("lualine").setup({
                 options = {
                     theme = "onedark",
-                    --    globalstatus = true,
+                    globalstatus = true,
                 },
                 sections = {
                     lualine_c = {
@@ -234,7 +234,6 @@ require("packer").startup(function(use)
                         "encoding",
                         "fileformat",
                         "filetype",
-                        'require("fcitx5-ui").getCurrentIM()',
                     },
                 },
             })
