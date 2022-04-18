@@ -6,8 +6,4 @@ vim.filetype.add({
         vala = "vala",
         qrc = "xml"
     },
-    --filename = {
-    --    ["LICENCE"] = "LICENCE",
-    --}
 })
-
