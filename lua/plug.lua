@@ -132,6 +132,7 @@ require("packer").startup(function(use)
         "stevearc/aerial.nvim",
         config = function()
             require("aerial").setup({
+                --backends = { "lsp", "markdown" },
                 filter_kind = {
                     "Class",
                     "Constructor",

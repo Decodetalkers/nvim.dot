@@ -1,6 +1,7 @@
 vim.cmd([[filetype on]])
 vim.cmd([[colorscheme one]])
-vim.cmd([[let g:Hexokinase_highlighters = ['backgroundfull'] ]])
+vim.g.Hexokinase_highlighters = { "backgroundfull" }
+--vim.cmd([[let g:Hexokinase_highlighters = ['backgroundfull'] ]])
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufWritePre", "BufRead" }, {
     pattern = "*",
     callback = function()
