@@ -18,7 +18,7 @@ require("packer").startup(function(use)
         "kongo2002/fsharp-vim", --hightlight for fsharp
         "peterhoeg/vim-qml",
         --"arrufat/vala.vim",
-        "chen244/vim-one", --background
+        --"chen244/vim-one", --background
         --"APZelos/blamer.nvim",
         --"Xuyuanp/scrollbar.nvim",
         "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
@@ -46,6 +46,31 @@ require("packer").startup(function(use)
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
         --"Hoffs/omnisharp-extended-lsp.nvim",
+    })
+    use({
+        "rebelot/kanagawa.nvim",
+        config = function()
+            -- Default options:
+            require("kanagawa").setup({
+                undercurl = true, -- enable undercurls
+                commentStyle = "italic",
+                functionStyle = "NONE",
+                keywordStyle = "italic",
+                statementStyle = "bold",
+                typeStyle = "NONE",
+                variablebuiltinStyle = "italic",
+                specialReturn = true, -- special highlight for the return keyword
+                specialException = true, -- special highlight for exception handling keywords
+                transparent = false, -- do not set background color
+                dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+                globalStatus = false, -- adjust window separators highlight for laststatus=3
+                colors = {},
+                overrides = {},
+            })
+
+            -- setup must be called before loading
+            vim.cmd("colorscheme kanagawa")
+        end,
     })
     use({
         "rcarriga/nvim-notify",

@@ -158,7 +158,7 @@ local servers = {
     "texlab",
     "jsonls",
     --"dartls",
-    "vala_ls",
+    --"vala_ls",
     --"volar",
     "vuels",
     "kotlin_language_server",
