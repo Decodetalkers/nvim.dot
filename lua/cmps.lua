@@ -240,6 +240,9 @@ lsp_installer.on_server_ready(function(server)
             handlers = {
                 ["textDocument/definition"] = require("csharpls_extended").handler,
             },
+            flags = {
+                allow_incremental_sync = false,
+            },
         }
         server:setup(opts)
     elseif server.name == "tsserver" then

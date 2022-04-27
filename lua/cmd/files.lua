@@ -24,7 +24,11 @@ local File = {
         shift = 2,
     },
     ["kotlin"] = {
-        tab = true,
+        tab = false,
+        shift = 4,
+    },
+    ["xml"] = {
+        tab = false,
         shift = 4,
     },
     ["sh"] = {

@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufWritePre", "BufRead" }, {
     end,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.c", "*.h", "*.cpp", "*.cs", "*.ts" },
+    pattern = { "*.c", "*.h", "*.cpp", "*.cs", "*.ts", "*.kt" },
     callback = function()
         vim.lsp.buf.formatting_sync()
     end,

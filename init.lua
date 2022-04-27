@@ -33,8 +33,12 @@ if packer_bootstrap then
         require("cmps")
         require("mydap")
     end
-    vim.g.foldmethod = "expr"
-    vim.g.foldexpr = "nvim_treesitter#foldexpr()"
+    vim.cmd([[
+        set foldmethod=expr
+        set foldexpr=nvim_treesitter#foldexpr()
+    ]])
+    --vim.g.foldmethod = "expr"
+    --vim.g.foldexpr = "nvim_treesitter#foldexpr()"
     opt.termguicolors = true
     opt.background = "dark"
     opt.cursorline = true

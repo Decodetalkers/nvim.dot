@@ -48,6 +48,13 @@ require("packer").startup(function(use)
         --"Hoffs/omnisharp-extended-lsp.nvim",
     })
     use({
+        "anuvyklack/pretty-fold.nvim",
+        config = function()
+            require("pretty-fold").setup()
+            require("pretty-fold.preview").setup()
+        end,
+    })
+    use({
         "rebelot/kanagawa.nvim",
         config = function()
             -- Default options:
