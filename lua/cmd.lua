@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufWritePre", "BufRead" }, {
     pattern = "*",
     callback = function()
         require("cmd.files").Settab()
-        vim.cmd([[setlocal nofoldenable]])
+        --vim.cmd([[setlocal nofoldenable]])
     end,
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
