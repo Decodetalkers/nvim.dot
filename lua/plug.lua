@@ -1,26 +1,11 @@
 -- every time changed should compiled first
 require("packer").startup(function(use)
     use({
-        "tpope/vim-fugitive",
-        --"chrisbra/csv.vim",
-        --"roxma/nvim-yarp",
-        --"roxma/vim-hug-neovim-rpc",
-        --"liuchengxu/vista.vim",
-        "preservim/tagbar",
-        --"humiaozuzu/dot-vimrc",
-        --"ctrlpvim/ctrlp.vim",
+        "tpope/vim-fugitive", --git blame
         "arkav/lualine-lsp-progress",
-        --"natebosch/vim-lsc",
-        --"ryanoasis/vim-devicons",
-        "mattn/emmet-vim",
         "junegunn/fzf",
-        "maksimr/vim-jsbeautify",
         "kongo2002/fsharp-vim", --hightlight for fsharp
         "peterhoeg/vim-qml",
-        --"arrufat/vala.vim",
-        --"chen244/vim-one", --background
-        --"APZelos/blamer.nvim",
-        --"Xuyuanp/scrollbar.nvim",
         "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
         "hrsh7th/nvim-cmp", -- Autocompletion plugin
         "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
@@ -41,13 +26,12 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-        --"~/git/deno-tool.lua",
         "~/git/csharpls_extend-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
-        --"Hoffs/omnisharp-extended-lsp.nvim",
     })
     use({
+        requires = "anuvyklack/nvim-keymap-amend",
         "anuvyklack/pretty-fold.nvim",
         config = function()
             require("pretty-fold").setup()
@@ -74,7 +58,6 @@ require("packer").startup(function(use)
                 colors = {},
                 overrides = {},
             })
-
             -- setup must be called before loading
             vim.cmd("colorscheme kanagawa")
         end,
@@ -235,7 +218,7 @@ require("packer").startup(function(use)
         config = function()
             require("lualine").setup({
                 options = {
-                    theme = "onedark",
+                    --theme = "onedark",
                     globalstatus = true,
                 },
                 sections = {

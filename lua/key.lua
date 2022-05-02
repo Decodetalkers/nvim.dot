@@ -26,6 +26,9 @@ vim.api.nvim_set_keymap("n", "<M-d>", ":AerialToggle<CR>", { noremap = false, si
 vim.keymap.set("n", "<leader>e", function()
     require("key.undo").Open()
 end)
+vim.keymap.set("n", "<leader>f", function()
+    vim.lsp.buf.formatting_sync()
+end)
 vim.api.nvim_set_keymap("n", "ff", ":bn<cr>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap(
 --    "n",

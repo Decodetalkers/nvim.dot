@@ -241,7 +241,7 @@ lsp_installer.on_server_ready(function(server)
                 ["textDocument/definition"] = require("csharpls_extended").handler,
             },
             flags = {
-                allow_incremental_sync = false,
+                --allow_incremental_sync = false,
             },
         }
         server:setup(opts)

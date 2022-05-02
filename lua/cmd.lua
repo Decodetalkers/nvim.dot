@@ -6,15 +6,13 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufWritePre", "BufRead" }, {
     pattern = "*",
     callback = function()
         require("cmd.files").Settab()
-        --vim.cmd([[setlocal nofoldenable]])
+        vim.cmd([[setlocal nofoldenable]])
     end,
 })
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.c", "*.h", "*.cpp", "*.cs", "*.ts", "*.kt" },
-    callback = function()
-        vim.lsp.buf.formatting_sync()
-    end,
-})
+--vim.api.nvim_create_autocmd("BufWritePre", {
+--    pattern = { "*.c", "*.h", "*.cpp", "*.cs", "*.ts", "*.kt" },
+--    callback = vim.lsp.buf.formatting_sync
+--})
 --vim.highlight.create({"Function","Comment"}, {cterm="italic", gui="italic"}, false)
 vim.cmd([[
 highlight Function cterm=italic gui=italic
