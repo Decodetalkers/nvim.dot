@@ -2,6 +2,7 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
+
     local function buf_set_option(...)
         vim.api.nvim_buf_set_option(bufnr, ...)
     end
@@ -116,6 +117,13 @@ require("clangd_extensions").setup({
         },
     },
 })
+
+require("rust-tools").setup({
+    server = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }
+})
 --local configs = require("lspconfig.configs")
 --
 ---- Check if the config is already defined (useful when reloading this file)
@@ -142,7 +150,7 @@ local servers = {
     "r_language_server",
     "sumneko_lua",
     --"clangd",
-    "rust_analyzer",
+    --"rust_analyzer",
     "julials",
     "csharp_ls",
     --"pyright",
@@ -157,7 +165,7 @@ local servers = {
     --"vala_ls",
     --"volar",
     "vuels",
-    "kotlin_language_server",
+    --"kotlin_language_server",
     "gopls",
     --"jedi_language_server",
     "jdtls",
@@ -256,7 +264,7 @@ for _, lsp in ipairs(servers_lsp) do
     end
     nvim_lsp[lsp].setup(opts)
 end
-require("rust-tools").setup({})
+
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
