@@ -35,17 +35,11 @@ local on_attach = function(client, bufnr)
 end
 
 local nvim_lsp = require("lspconfig")
-local servers_lsp = { "gdscript", "cssls", "html" }
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-for _, lsp in ipairs(servers_lsp) do
-    nvim_lsp[lsp].setup({
-        -- on_attach = my_custom_on_attach,
-        capabilities = capabilities,
-        on_attach = on_attach,
-    })
-end
+
 -- use flutter-tools not darttls
 require("flutter-tools").setup({
     lsp = {
@@ -142,6 +136,8 @@ require("clangd_extensions").setup({
 --nvim_lsp.qml_lsp.setup({})
 --local protocol = require('vim.lsp.protocol')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers_lsp = { "gdscript", "cssls", "html", "hls", "denols" }
+
 local servers = {
     "r_language_server",
     "sumneko_lua",
@@ -154,7 +150,7 @@ local servers = {
     "tsserver",
     --"omnisharp",
     "fsautocomplete",
-    "hls",
+    --"hls",
     "texlab",
     "jsonls",
     --"dartls",
@@ -175,7 +171,7 @@ local servers = {
     --"html",
     "yamlls",
     "ocamllsp",
-    "denols",
+    --"denols",
     "taplo",
 }
 
@@ -192,12 +188,20 @@ for _, name in pairs(servers) do
     end
 end
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
-    if server.name == "sumneko_lua" then
+lsp_installer.setup({})
+for _, lsp in ipairs(servers) do
+    table.insert(servers_lsp, lsp)
+end
+
+for _, lsp in ipairs(servers_lsp) do
+    local opts = {
+        -- on_attach = my_custom_on_attach,
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }
+    if lsp == "sumneko_lua" then
         local runtime_path = vim.split(package.path, ";")
-        local opts = {
+        opts = {
             on_attach = on_attach,
             settings = {
                 Lua = {
@@ -222,10 +226,8 @@ lsp_installer.on_server_ready(function(server)
                 },
             },
         }
-        server:setup(opts)
-    elseif server.name == "denols" then
-        --local settings = require("deno-tool").read()
-        local opts = {
+    elseif lsp == "denols" then
+        opts = {
             on_attach = on_attach,
             root_dir = nvim_lsp.util.root_pattern("deno.json"),
             init_options = { --settings,
@@ -233,9 +235,16 @@ lsp_installer.on_server_ready(function(server)
             },
             single_file_support = true,
         }
-        server:setup(opts)
-    elseif server.name == "csharp_ls" then
-        local opts = {
+    elseif lsp == "tsserver" then
+        opts = {
+            on_attach = on_attach,
+            root_dir = nvim_lsp.util.root_pattern("package.json"),
+            init_options = {
+                lint = true,
+            },
+        }
+    elseif lsp == "csharp_ls" then
+        opts = {
             on_attach = on_attach,
             handlers = {
                 ["textDocument/definition"] = require("csharpls_extended").handler,
@@ -244,44 +253,11 @@ lsp_installer.on_server_ready(function(server)
                 --allow_incremental_sync = false,
             },
         }
-        server:setup(opts)
-    elseif server.name == "tsserver" then
-        local opts = {
-            on_attach = on_attach,
-            root_dir = nvim_lsp.util.root_pattern("package.json"),
-            init_options = {
-                lint = true,
-            },
-        }
-        server:setup(opts)
-    elseif server.name == "rust_analyzer" then
-        local opts = {
-            on_attach = on_attach,
-        }
-        require("rust-tools").setup({
-            -- The "server" property provided in rust-tools setup function are the
-            -- settings rust-tools will provide to lspconfig during init.
-            -- We merge the necessary settings from nvim-lsp-installer (server:get_default_options())
-            -- with the user's own settings (opts).
-            server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
-        })
-        server:attach_buffers()
-        require("rust-tools").start_standalone_if_required()
-    else
-        local opts = {
-            on_attach = on_attach,
-        }
-
-        -- (optional) Customize the options passed to the server
-        -- if server.name == "tsserver" then
-        --     opts.root_dir = function() ... end
-        -- end
-
-        -- This setup() function is exactly the same as lspconfig's setup function.
-        -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-        server:setup(opts)
     end
-end)
+    nvim_lsp[lsp].setup(opts)
+end
+require("rust-tools").setup({})
+
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 -- luasnip
