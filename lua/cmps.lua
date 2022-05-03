@@ -144,6 +144,8 @@ require("rust-tools").setup({
 --nvim_lsp.qml_lsp.setup({})
 --local protocol = require('vim.lsp.protocol')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.setup({})
 local servers_lsp = { "gdscript", "cssls", "html", "hls", "denols" }
 
 local servers = {
@@ -183,8 +185,6 @@ local servers = {
     "taplo",
 }
 
-local lsp_installer = require("nvim-lsp-installer")
-
 for _, name in pairs(servers) do
     local ok, server = lsp_installer.get_server(name)
     -- Check that the server is supported in nvim-lsp-installer
@@ -196,7 +196,7 @@ for _, name in pairs(servers) do
     end
 end
 
-lsp_installer.setup({})
+
 for _, lsp in ipairs(servers) do
     table.insert(servers_lsp, lsp)
 end
@@ -241,7 +241,7 @@ for _, lsp in ipairs(servers_lsp) do
             init_options = { --settings,
                 lint = true,
             },
-            single_file_support = true,
+            --single_file_support = true,
         }
     elseif lsp == "tsserver" then
         opts = {
