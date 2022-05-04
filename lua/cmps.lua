@@ -167,7 +167,7 @@ local servers = {
     --"vala_ls",
     --"volar",
     "vuels",
-    --"kotlin_language_server",
+    "kotlin_language_server",
     "gopls",
     --"jedi_language_server",
     "jdtls",

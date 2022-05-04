@@ -1,7 +1,7 @@
 -- every time changed should compiled first
 require("packer").startup(function(use)
     use({
-        "tpope/vim-fugitive", --git blame
+        --"tpope/vim-fugitive", --git blame
         "arkav/lualine-lsp-progress",
         "junegunn/fzf",
         "kongo2002/fsharp-vim", --hightlight for fsharp
