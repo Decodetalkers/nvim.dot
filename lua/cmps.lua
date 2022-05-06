@@ -122,7 +122,7 @@ require("rust-tools").setup({
     server = {
         capabilities = capabilities,
         on_attach = on_attach,
-    }
+    },
 })
 --local configs = require("lspconfig.configs")
 --
@@ -146,9 +146,11 @@ require("rust-tools").setup({
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.setup({})
-local servers_lsp = { "gdscript", "cssls", "html", "hls", "denols" }
+local servers_lsp = { "gdscript", "hls", "denols" }
 
 local servers = {
+    "html",
+    "cssls",
     "r_language_server",
     "sumneko_lua",
     --"clangd",
@@ -164,7 +166,7 @@ local servers = {
     "texlab",
     "jsonls",
     --"dartls",
-    --"vala_ls",
+    "vala_ls",
     --"volar",
     "vuels",
     "kotlin_language_server",
@@ -195,7 +197,6 @@ for _, name in pairs(servers) do
         end
     end
 end
-
 
 for _, lsp in ipairs(servers) do
     table.insert(servers_lsp, lsp)
@@ -264,7 +265,6 @@ for _, lsp in ipairs(servers_lsp) do
     end
     nvim_lsp[lsp].setup(opts)
 end
-
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"

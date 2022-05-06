@@ -31,6 +31,12 @@ require("packer").startup(function(use)
         "p00f/nvim-ts-rainbow",
     })
     use({
+        "stevearc/dressing.nvim",
+        config = function()
+            require("dressing").setup({})
+        end,
+    })
+    use({
         requires = "anuvyklack/nvim-keymap-amend",
         "anuvyklack/pretty-fold.nvim",
         config = function()
