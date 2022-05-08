@@ -4,6 +4,6 @@ vim.filetype.add({
         conf = "dosini",
         ini = "dosini",
         vala = "vala",
-        qrc = "xml"
+        qrc = "xml",
     },
 })
