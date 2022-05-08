@@ -49,4 +49,3 @@ for _, name in pairs(servers) do
         end
     end
 end
-

@@ -165,8 +165,6 @@ local servers_lsp = {
     "taplo",
 }
 
-
-
 for _, lsp in ipairs(servers_lsp) do
     local opts = {
         -- on_attach = my_custom_on_attach,
