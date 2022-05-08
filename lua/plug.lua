@@ -16,6 +16,7 @@ require("packer").startup(function(use)
         "chen244/friendly-snippets",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-cmdline",
         "williamboman/nvim-lsp-installer",
         "mfussenegger/nvim-dap",
         "folke/lsp-colors.nvim",
@@ -33,7 +34,11 @@ require("packer").startup(function(use)
     use({
         "stevearc/dressing.nvim",
         config = function()
-            require("dressing").setup({})
+            require("dressing").setup({
+                input = {
+                    min_width = { 60, 0.2 },
+                },
+            })
         end,
     })
     use({
