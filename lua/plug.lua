@@ -13,7 +13,7 @@ require("packer").startup(function(use)
         "L3MON4D3/LuaSnip", -- Snippets plugin
         "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
         -- vscode snippets
-        "chen244/friendly-snippets",
+        "rafamadriz/friendly-snippets",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-cmdline",
