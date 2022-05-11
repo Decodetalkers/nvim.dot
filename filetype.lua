@@ -5,5 +5,6 @@ vim.filetype.add({
         ini = "dosini",
         vala = "vala",
         qrc = "xml",
+        tex = "tex",
     },
 })

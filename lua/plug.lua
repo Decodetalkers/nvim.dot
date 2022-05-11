@@ -27,9 +27,11 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-        "~/git/csharpls_extend-lsp.nvim",
+        "chen244/csharpls_extend-lsp.nvim",
+        --"~/git/csharpls_extend-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
+        "leoluz/nvim-dap-go",
     })
     use({
         "stevearc/dressing.nvim",
@@ -140,7 +142,8 @@ require("packer").startup(function(use)
         end,
     })
     use({
-        "~/git/csv-tools.lua",
+        "chen244/csv-tools.lua",
+        --"~/git/csv-tools.lua",
         config = function()
             require("csvtools").setup({
                 before = 70,
