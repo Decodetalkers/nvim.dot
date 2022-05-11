@@ -46,6 +46,13 @@ require("flutter-tools").setup({
         capabilities = capabilities,
         on_attach = on_attach,
     },
+    dap = {
+        adapter = {
+            type = "executable",
+            command = "lldb-vscode",
+            name = "rt_lldb",
+        },
+    },
 }) -- use defaults
 -- clangd start here
 require("clangd_extensions").setup({

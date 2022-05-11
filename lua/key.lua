@@ -39,10 +39,10 @@ vim.api.nvim_set_keymap("n", "ff", ":bn<cr>", { noremap = false, silent = true }
 vim.keymap.set("n", "<M-q>", function()
     require("key.relative").change()
 end)
-vim.keymap.set("n", "<leader>c", function()
-    vim.cmd([[
-    CMake configure
-    LspRestart
-    ]])
+vim.keymap.set("n", "<leader>r", function()
+    if vim.o.filetype == "rust" then
+        require("rust-tools.hover_actions").hover_actions()
+        require("rust-tools.hover_actions").hover_actions()
+    end
 end)
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })
