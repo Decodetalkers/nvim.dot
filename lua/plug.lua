@@ -34,6 +34,19 @@ require("packer").startup(function(use)
         "leoluz/nvim-dap-go",
     })
     use({
+        "Shatur/neovim-cmake",
+        config = function()
+            require("cmake").setup({
+                dap_configuration = {
+                    type = "lldb",
+                    request = "launch",
+                    stopOnEntry = false,
+                    runInTerminal = false,
+                },
+            })
+        end,
+    })
+    use({
         "stevearc/dressing.nvim",
         config = function()
             require("dressing").setup({
