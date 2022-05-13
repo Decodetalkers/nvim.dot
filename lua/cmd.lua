@@ -2,8 +2,10 @@ vim.cmd([[filetype on]])
 --vim.cmd([[colorscheme one]])
 vim.g.Hexokinase_highlighters = { "backgroundfull" }
 --vim.cmd([[let g:Hexokinase_highlighters = ['backgroundfull'] ]])
+local aug = vim.api.nvim_create_augroup("tabs", {})
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufWritePre", "BufRead" }, {
     pattern = "*",
+    group = aug,
     callback = function()
         require("cmd.files").Settab()
         vim.cmd([[setlocal nofoldenable]])
