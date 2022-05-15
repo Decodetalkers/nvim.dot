@@ -46,7 +46,7 @@ if dap then
     end)
     --vim.api.nvim_set_keymap("n", "<F10>", ":lua require'dap'.step_over()<CR>", { noremap = false, silent = true })
     vim.keymap.set("n", "<F10>", function()
-        require("dap").step_over()
+        require("dap").step_over({})
     end)
     --vim.api.nvim_set_keymap("n", "<F11>", ":lua require'dap'.step_into()<CR>", { noremap = false, silent = true })
     --vim.api.nvim_set_keymap("n", "<F12>", ":lua require'dap'.step_into()<CR>", { noremap = false, silent = true })
