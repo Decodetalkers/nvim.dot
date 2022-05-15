@@ -34,6 +34,18 @@ require("packer").startup(function(use)
         "leoluz/nvim-dap-go",
     })
     use({
+        "nvim-neorg/neorg",
+        ft = "norg",
+        config = function()
+            require("neorg").setup({
+                load = {
+                    ["core.defaults"] = {},
+                },
+            })
+        end,
+        requires = "nvim-lua/plenary.nvim",
+    })
+    use({
         "Shatur/neovim-cmake",
         config = function()
             require("cmake").setup({
