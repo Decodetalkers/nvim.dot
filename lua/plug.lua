@@ -305,7 +305,15 @@ require("packer").startup(function(use)
         "akinsho/bufferline.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
-            require("bufferline").setup({})
+            require("bufferline").setup({
+                options = {
+                    diagnostics = "nvim_lsp",
+                    diagnostics_indicator = function(count, level, _, _)
+                        local icon = level:match("error") and " " or " "
+                        return " " .. icon .. count
+                    end,
+                },
+            })
         end,
     })
 
