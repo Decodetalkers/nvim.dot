@@ -27,11 +27,22 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-        "chen244/csharpls_extend-lsp.nvim",
-        --"~/git/csharpls_extend-lsp.nvim",
+        "Decodetalkers/csharpls-extended-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
         "leoluz/nvim-dap-go",
+    })
+    use({
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require("null-ls").setup({
+                sources = {
+                    require("null-ls").builtins.formatting.stylua,
+                    require("null-ls").builtins.diagnostics.eslint,
+                    require("null-ls").builtins.completion.spell,
+                },
+            })
+        end,
     })
     use({
         "nvim-neorg/neorg",
@@ -167,7 +178,7 @@ require("packer").startup(function(use)
         end,
     })
     use({
-        "chen244/csv-tools.lua",
+        "Decodetalkers/csv-tools.lua",
         --"~/git/csv-tools.lua",
         config = function()
             require("csvtools").setup({
