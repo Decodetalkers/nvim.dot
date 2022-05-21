@@ -1,4 +1,3 @@
---ts_utils.get_node_text = vim.treesitter.query.get_node_text
 local ls = require("luasnip")
 local s = ls.snippet
 local sn = ls.snippet_node
@@ -35,6 +34,7 @@ local function get_prop_names(id_node)
 
     return prop_names
 end
+
 ls.add_snippets("typescriptreact", {
     s(
         "tsx",
@@ -50,7 +50,6 @@ ls.add_snippets("typescriptreact", {
 ]],
             {
                 i(1, "export "),
-
                 -- Initialize component name to file name
                 d(2, function(_, snip)
                     return sn(nil, {
