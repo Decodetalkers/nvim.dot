@@ -1,11 +1,10 @@
-local ts_utils = require("nvim-treesitter.ts_utils")
+--ts_utils.get_node_text = vim.treesitter.query.get_node_text
 local ls = require("luasnip")
 local s = ls.snippet
 local sn = ls.snippet_node
 local i = ls.insert_node
 local f = ls.function_node
 local d = ls.dynamic_node
-local p = ls.parent_indexer
 local rep = require("luasnip.extras").rep
 local fmt = require("luasnip.extras.fmt").fmt
 -- Get a list of  the property names given an `interface_declaration`
@@ -29,17 +28,16 @@ local function get_prop_names(id_node)
     for prop_signature in object_type_node:iter_children() do
         if prop_signature:type() == "property_signature" then
             local prop_iden = prop_signature:child(0)
-            local prop_name = ts_utils.get_node_text(prop_iden, 0)[1]
+            local prop_name = vim.treesitter.query.get_node_text(prop_iden, 0)
             prop_names[#prop_names + 1] = prop_name
         end
     end
 
     return prop_names
 end
-
 ls.add_snippets("typescriptreact", {
     s(
-        "c",
+        "tsx",
         fmt(
             [[
 {}interface {}Props {{
@@ -55,7 +53,6 @@ ls.add_snippets("typescriptreact", {
 
                 -- Initialize component name to file name
                 d(2, function(_, snip)
-                    p(snip.env.TM_FILENAME)
                     return sn(nil, {
                         i(1, vim.fn.substitute(snip.env.TM_FILENAME, "\\..*$", "", "g")),
                     })
