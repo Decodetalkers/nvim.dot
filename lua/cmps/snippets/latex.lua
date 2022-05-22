@@ -6,6 +6,8 @@ local d = ls.dynamic_node
 local t = ls.text_node
 local c = ls.choice_node
 local rec_ls
+local fmt = require("luasnip.extras.fmt").fmt
+local rep = require("luasnip.extras").rep
 rec_ls = function()
     return sn(nil, {
         c(1, {
@@ -32,6 +34,20 @@ ls.add_snippets("tex", {
         t({ "", "\\end{itemize}" }),
         i(0),
     }),
+    s(
+        "itemls",
+        fmt(
+            [[
+\begin{{{}}}
+  \item
+\end{{{}}}
+        ]],
+            {
+                i(1, "enumerate"),
+                rep(1),
+            }
+        )
+    ),
     s("dm", {
         t({ "\\[", "\t" }),
         i(1),

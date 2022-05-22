@@ -17,6 +17,7 @@ require("packer").startup(function(use)
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-cmdline",
+        "rcarriga/cmp-dap",
         "williamboman/nvim-lsp-installer",
         "mfussenegger/nvim-dap",
         "folke/lsp-colors.nvim",
@@ -342,15 +343,6 @@ require("packer").startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         config = function()
-            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-            parser_config.fsharp = {
-                install_info = {
-                    url = "https://github.com/baronfel/tree-sitter-fsharp",
-                    files = { "src/parser.c" },
-                    branch = "main",
-                },
-                filetype = "fsharp",
-            }
             require("nvim-treesitter.configs").setup({
                 ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
                 sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
