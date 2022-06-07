@@ -111,6 +111,8 @@ cmp.setup({
                 luasnip = "[Snippet]",
                 buffer = "[Buffer]",
                 path = "[Path]",
+                dap = "[Dap]",
+                emoji = "[Emoji]",
             })[entry.source.name]
             return vim_item
         end,
@@ -130,6 +132,7 @@ cmp.setup({
         { name = "buffer" },
         { name = "path" },
         { name = "dap" },
+        { name = "emoji" },
     },
 })
 require("cmp").setup.cmdline(":", {
