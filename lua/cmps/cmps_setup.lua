@@ -128,13 +128,15 @@ local servers_lsp = {
     "vimls",
     --"cssls",
     "lemminx",
-    "groovyls",
+    --"groovyls",
     --"graphql",
     --"html",
     "yamlls",
     "ocamllsp",
     --"denols",
     "taplo",
+    "zls",
+    "slint_lsp",
 }
 
 for _, lsp in ipairs(servers_lsp) do

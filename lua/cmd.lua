@@ -16,10 +16,10 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufWritePre", "BufRead" }, {
 --    callback = vim.lsp.buf.formatting_sync
 --})
 --vim.highlight.create({"Function","Comment"}, {cterm="italic", gui="italic"}, false)
-vim.cmd([[
-highlight Function cterm=italic gui=italic
-highlight Comment cterm=italic gui=italic
-]])
+--vim.cmd([[
+--highlight Function cterm=italic gui=italic
+--highlight Comment cterm=italic gui=italic
+--]])
 
 vim.cmd([[
 au FileType zsh set filetype=sh

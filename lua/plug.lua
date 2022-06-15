@@ -95,12 +95,12 @@ require("packer").startup(function(use)
             -- Default options:
             require("kanagawa").setup({
                 undercurl = true, -- enable undercurls
-                commentStyle = "italic",
-                functionStyle = "NONE",
-                keywordStyle = "italic",
-                statementStyle = "bold",
-                typeStyle = "NONE",
-                variablebuiltinStyle = "italic",
+                commentStyle = { italic = true },
+                functionStyle = { italic = true },
+                keywordStyle = { italic = true },
+                statementStyle = { bold = true },
+                --typeStyle = "NONE",
+                variablebuiltinStyle = { italic = true },
                 specialReturn = true, -- special highlight for the return keyword
                 specialException = true, -- special highlight for exception handling keywords
                 transparent = false, -- do not set background color
@@ -147,7 +147,7 @@ require("packer").startup(function(use)
 
                 -- For stages that change opacity this is treated as the highlight behind the window
                 -- Set this to either a highlight group, an RGB hex value e.g. "#000000" or a function returning an RGB code for dynamic values
-                background_colour = "Normal",
+                background_colour = "#000000",
 
                 -- Minimum width for notification windows
                 minimum_width = 50,

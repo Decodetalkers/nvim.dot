@@ -8,6 +8,7 @@ vim.filetype.add({
         qrc = "xml",
         tex = "tex",
         mpp = "cpp",
+        slint = "slint",
     },
     filename = {
         grub = "dosini",

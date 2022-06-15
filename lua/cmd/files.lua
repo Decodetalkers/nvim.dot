@@ -55,6 +55,10 @@ local File = {
         tab = true,
         shift = 4,
     },
+    ["zig"] = {
+        tab = false,
+        shift = 4,
+    },
 }
 File.Settab = function()
     local file = File[vim.o.filetype]

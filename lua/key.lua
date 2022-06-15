@@ -45,4 +45,10 @@ vim.keymap.set("n", "<leader>r", function()
         require("rust-tools.hover_actions").hover_actions()
     end
 end)
+local luasnip = require("luasnip")
+vim.keymap.set("n", "<C-n>", function()
+    if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+    end
+end)
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })

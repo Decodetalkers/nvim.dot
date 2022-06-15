@@ -28,13 +28,15 @@ local servers = {
     "vimls",
     --"cssls",
     "lemminx",
-    "groovyls",
+    --"groovyls",
     --"graphql",
     --"html",
     "yamlls",
     "ocamllsp",
     --"denols",
     "taplo",
+    "zls",
+    "slint_lsp",
 }
 require("nvim-lsp-installer").setup({
     ensure_installed = servers,
