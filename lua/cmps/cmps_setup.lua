@@ -137,6 +137,7 @@ local servers_lsp = {
     "taplo",
     "zls",
     "slint_lsp",
+    "teal_ls",
 }
 
 for _, lsp in ipairs(servers_lsp) do
@@ -180,6 +181,11 @@ for _, lsp in ipairs(servers_lsp) do
                 lint = true,
             },
             --single_file_support = true,
+        }
+    elseif lsp == "kotlin_language_server" then
+        opts = {
+            on_attach = on_attach,
+            single_file_support = true,
         }
     elseif lsp == "tsserver" then
         opts = {

@@ -37,6 +37,7 @@ local servers = {
     "taplo",
     "zls",
     "slint_lsp",
+    "teal_ls",
 }
 require("nvim-lsp-installer").setup({
     ensure_installed = servers,

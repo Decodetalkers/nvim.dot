@@ -3,6 +3,10 @@ local File = {
         tab = true,
         shift = 4,
     },
+    ["cpp"] = {
+        tab = true,
+        shift = 4,
+    },
     ["typescript"] = {
         tab = true,
         shift = 2,
