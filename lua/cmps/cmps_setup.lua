@@ -126,7 +126,7 @@ local servers_lsp = {
     "cmake",
     "bashls",
     "vimls",
-    --"cssls",
+    --"cssls
     "lemminx",
     --"groovyls",
     --"graphql",
