@@ -123,7 +123,7 @@ local servers_lsp = {
     "gopls",
     --"jedi_language_server",
     "jdtls",
-    "cmake",
+    --"cmake",
     "bashls",
     "vimls",
     --"cssls
@@ -208,6 +208,28 @@ for _, lsp in ipairs(servers_lsp) do
     end
     nvim_lsp[lsp].setup(opts)
 end
+
+--- testing
+local configs = require("lspconfig.configs")
+
+configs.neocmake = {
+    default_config = {
+        cmd = { "neocmakelsp" },
+        filetypes = {"cmake"},
+        root_dir = function(fname)
+            return nvim_lsp.util.find_git_ancestor(fname)
+        end,
+        single_file_support = true,
+        on_attach = on_attach,
+    }
+}
+nvim_lsp.neocmake.setup({})
+
+--- mime cmake lsp
+
+--
+--
+--
 --local configs = require("lspconfig.configs")
 --
 ---- Check if the config is already defined (useful when reloading this file)

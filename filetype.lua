@@ -1,7 +1,7 @@
 vim.filetype.add({
     extension = {
-        qml = "qml",
-        qmltypes = "qml",
+        qml = "qmljs",
+        qmltypes = "qmljs",
         conf = "dosini",
         service = "dosini",
         ini = "dosini",
@@ -16,6 +16,6 @@ vim.filetype.add({
     filename = {
         grub = "dosini",
         ufw = "dosini",
-        qmldir = "qml",
+        qmldir = "qmljs",
     },
 })

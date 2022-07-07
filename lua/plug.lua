@@ -33,6 +33,7 @@ require("packer").startup(function(use)
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
         "leoluz/nvim-dap-go",
+        "simrat39/symbols-outline.nvim",
     })
     use({
         "nvim-neorg/neorg",
