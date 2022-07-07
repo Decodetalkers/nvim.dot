@@ -5,7 +5,7 @@ require("packer").startup(function(use)
         "arkav/lualine-lsp-progress",
         "junegunn/fzf",
         "kongo2002/fsharp-vim", --hightlight for fsharp
-        "peterhoeg/vim-qml",
+        --"peterhoeg/vim-qml",
         "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
         "hrsh7th/nvim-cmp", -- Autocompletion plugin
         "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
@@ -356,7 +356,7 @@ require("packer").startup(function(use)
 
                 ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
                 sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-                ignore_install = {}, -- List of parsers to ignore installing
+                ignore_install = { "r" }, -- List of parsers to ignore installing
                 highlight = {
                     enable = true, -- false will disable the whole extension
                     -- disable = { "markdown" }, -- list of language that will be disabled
