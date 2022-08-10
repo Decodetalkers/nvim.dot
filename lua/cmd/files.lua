@@ -1,4 +1,12 @@
 local File = {
+    ["cmake"] = {
+        tab = false,
+        shift = 2,
+    },
+    ["qmljs"] = {
+        tab = false,
+        shift = 4
+    },
     ["rust"] = {
         tab = true,
         shift = 4,

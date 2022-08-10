@@ -29,12 +29,14 @@ require("packer").startup(function(use)
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
-        "Decodetalkers/csharpls-extended-lsp.nvim",
+        "~/git/csharpls-extended-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
         "leoluz/nvim-dap-go",
         "simrat39/symbols-outline.nvim",
     })
+    -- Packer
+    use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
     use({
         "nvim-neorg/neorg",
         ft = "norg",
@@ -75,8 +77,13 @@ require("packer").startup(function(use)
         "anuvyklack/pretty-fold.nvim",
         config = function()
             require("pretty-fold").setup()
-            require("pretty-fold.preview").setup({})
         end,
+    })
+    use({ 'anuvyklack/fold-preview.nvim',
+        requires = 'anuvyklack/keymap-amend.nvim',
+        config = function()
+            require('fold-preview').setup()
+        end
     })
     use({
         "rebelot/kanagawa.nvim",
@@ -169,7 +176,7 @@ require("packer").startup(function(use)
         end,
     })
     use({
-        "Decodetalkers/csv-tools.lua",
+        "~/git/csv-tools.lua",
         --"~/git/csv-tools.lua",
         config = function()
             require("csvtools").setup({
@@ -185,12 +192,12 @@ require("packer").startup(function(use)
             require("scrollbar").setup()
         end,
     })
-    use({
-        "sidebar-nvim/sidebar.nvim",
-        config = function()
-            require("sidebar-nvim").setup({})
-        end,
-    })
+    --use({
+    --    "sidebar-nvim/sidebar.nvim",
+    --    config = function()
+    --        require("sidebar-nvim").setup({})
+    --    end,
+    --})
     use({
         "stevearc/aerial.nvim",
         config = function()
@@ -330,11 +337,22 @@ require("packer").startup(function(use)
 
     use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
     use({
-        "nvim-treesitter/nvim-treesitter",
+        'nvim-treesitter/nvim-treesitter-context',
+        config = function()
+            require("treesitter-context").setup({})
+        end
+    })
+    use({
+        "~/git/nvim-treesitter",
         requires = "nvim-treesitter/playground",
         run = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
+                query_linter = {
+                    enable = true,
+                    use_virtual_text = true,
+                    lint_events = { "BufWrite", "CursorHold" },
+                },
                 playground = {
                     enable = true,
                     disable = {},

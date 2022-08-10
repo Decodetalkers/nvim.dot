@@ -101,7 +101,7 @@ local servers_lsp = {
     "denols",
     "html",
     "cssls",
-    "r_language_server",
+    --"r_language_server",
     "sumneko_lua",
     --"clangd",
     --"rust_analyzer",
@@ -170,6 +170,15 @@ for _, lsp in ipairs(servers_lsp) do
                     telemetry = {
                         enable = false,
                     },
+                    format = {
+                        enable = true,
+                        -- Put format options here
+                        -- NOTE: the value should be STRING!!
+                        defaultConfig = {
+                            indent_style = "space",
+                            indent_size = "2",
+                        }
+                    },
                 },
             },
         }
@@ -215,7 +224,7 @@ local configs = require("lspconfig.configs")
 configs.neocmake = {
     default_config = {
         cmd = { "neocmakelsp" },
-        filetypes = {"cmake"},
+        filetypes = { "cmake" },
         root_dir = function(fname)
             return nvim_lsp.util.find_git_ancestor(fname)
         end,
@@ -224,29 +233,16 @@ configs.neocmake = {
     }
 }
 nvim_lsp.neocmake.setup({})
-
---- mime cmake lsp
-
---
---
---
---local configs = require("lspconfig.configs")
---
----- Check if the config is already defined (useful when reloading this file)
---if not configs.qml_lsp then
---    configs.qml_lsp = {
---        default_config = {
---            cmd = { "/home/cht/git/qew-em-el-el-ess-pee/qml-lsp" },
---            filetypes = { "qml" },
---            root_dir = function(fname)
---                return nvim_lsp.util.find_git_ancestor(fname)
---                --return nvim_lsp.util.root_pattern("qml.qrc")(fname)
---            end,
---            on_attach = on_attach,
---            settings = {},
---        },
+--configs.qml_lsp = {
+--    default_config = {
+--        cmd = { "/usr/lib/qt6/bin/qmlls" },
+--        filetypes = {"qmljs"},
+--        root_dir = function(fname)
+--            return nvim_lsp.util.find_git_ancestor(fname)
+--        end,
+--        single_file_support = true,
+--        on_attach = on_attach,
 --    }
---end
+--}
 --nvim_lsp.qml_lsp.setup({})
---local protocol = require('vim.lsp.protocol')
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+--- mime cmake lsp

@@ -1,7 +1,7 @@
 local servers = {
     "html",
     "cssls",
-    "r_language_server",
+    --"r_language_server",
     "sumneko_lua",
     --"clangd",
     --"rust_analyzer",

@@ -1,11 +1,14 @@
-vim.api.nvim_set_keymap("n", "<M-f>", ":NvimTreeToggle<cr>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<M-f>", "<cmd>NvimTreeToggle<cr>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap("n", "<M-f>", ":CocCommand explorer<cr>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>g", ":Gitsigns preview_hunk<cr>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Gitsigns preview_hunk<cr>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap("n", "<M-y>", ":Gitsigns toggle_current_line_blame<cr>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap("n", "<M-r>", ":Lspsaga lsp_finder<CR>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap("n", "sd", ":Lspsaga show_line_diagnostics<CR>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap("n", "df", ":Lspsaga preview_definition<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<M-r>", "<cmd>Lspsaga lsp_finder<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "sd", "<cmd>Lspsaga show_line_diagnostics<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "df", "<cmd>Lspsaga preview_definition<CR>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "fg", ":Telescope<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<leader><space>b", "<cmd>Telescope buffers<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<leader><space>f", "<cmd>Telescope fd<CR>", { noremap = false, silent = true })
+
 --vim.api.nvim_set_keymap("n", "<M-j>", ":lua vim.lsp.diagnostic.goto_next()<CR>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap("n", "<M-k>", ":lua vim.lsp.diagnostic.goto_prev()<CR>", { noremap = false, silent = true })
 
@@ -15,7 +18,7 @@ vim.api.nvim_set_keymap("n", "fg", ":Telescope<CR>", { noremap = false, silent =
 --	':lua require\'lsp_extensions\'.inlay_hints{enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}<CR>',
 --	{ noremap = false, silent = true }
 --)
-vim.api.nvim_set_keymap("n", "<M-d>", ":AerialToggle<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<M-d>", "<cmd>AerialToggle<CR>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap(
 --    "n",
 --    "<leader>e",
@@ -27,9 +30,9 @@ vim.keymap.set("n", "<leader>e", function()
     require("key.undo").Open()
 end)
 vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.formatting_sync()
+    vim.lsp.buf.formatting()
 end)
-vim.api.nvim_set_keymap("n", "ff", ":bn<cr>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "ff", "<cmd>bn<cr>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap(
 --    "n",
 --    "<M-q>",
