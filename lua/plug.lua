@@ -19,7 +19,7 @@ require("packer").startup(function(use)
         "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-emoji",
         "rcarriga/cmp-dap",
-        "williamboman/nvim-lsp-installer",
+        --"williamboman/nvim-lsp-installer",
         "mfussenegger/nvim-dap",
         "folke/lsp-colors.nvim",
         "simnalamburt/vim-mundo",
@@ -34,6 +34,9 @@ require("packer").startup(function(use)
         "p00f/nvim-ts-rainbow",
         "leoluz/nvim-dap-go",
         "simrat39/symbols-outline.nvim",
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+
     })
     -- Packer
     use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })

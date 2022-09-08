@@ -39,6 +39,7 @@ local servers = {
     "slint_lsp",
     "teal_ls",
 }
-require("nvim-lsp-installer").setup({
+require("mason").setup()
+require("mason-lspconfig").setup({
     ensure_installed = servers,
 })

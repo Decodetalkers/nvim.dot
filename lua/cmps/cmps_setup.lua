@@ -181,6 +181,7 @@ for _, lsp in ipairs(servers_lsp) do
                     },
                 },
             },
+            single_file_support = false,
         }
     elseif lsp == "denols" then
         opts = {

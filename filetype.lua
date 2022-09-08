@@ -17,8 +17,10 @@ vim.filetype.add({
         agda = "agda",
         dox = "doxygen",
         pam = "dosini",
+        gyp = "jsonc",
         vert = "glsl",
         frag = "glsl",
+        rkt = "racket",
     },
     filename = {
         environment = "dosini",
@@ -26,5 +28,10 @@ vim.filetype.add({
         ufw = "dosini",
         qmldir = "qmljs",
         [".clang-format"] = "yaml",
+        [".gitignore"] = "gitignore"
     },
+    pattern = {
+        ["environment.*"] = "dosini",
+        ["grub.*"] = "dosini"
+    }
 })

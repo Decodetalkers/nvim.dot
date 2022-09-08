@@ -12,11 +12,15 @@ local File = {
         shift = 4,
     },
     ["cpp"] = {
-        tab = true,
+        tab = false,
         shift = 4,
     },
+    ["javascript"] = {
+        tab = false,
+        shift = 2,
+    },
     ["typescript"] = {
-        tab = true,
+        tab = false,
         shift = 2,
     },
     ["java"] = {
@@ -45,19 +49,19 @@ local File = {
     },
     ["xml"] = {
         tab = false,
-        shift = 4,
+        shift = 2,
     },
     ["sh"] = {
         tab = true,
         shift = 4,
     },
     ["json"] = {
-        tab = true,
-        shift = 4,
+        tab = false,
+        shift = 2,
     },
     ["jsonc"] = {
-        tab = true,
-        shift = 4,
+        tab = false,
+        shift = 2,
     },
     ["python"] = {
         tab = true,

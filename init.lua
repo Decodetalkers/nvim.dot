@@ -46,7 +46,6 @@ if packer_bootstrap then
         require("cmd")
     end
 end
-
 -- for test
 local prequire = require("prequire")
 prequire("settings")
