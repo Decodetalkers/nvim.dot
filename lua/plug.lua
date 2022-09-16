@@ -32,6 +32,7 @@ require("packer").startup(function(use)
         "~/git/csharpls-extended-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
+        "nvim-treesitter/nvim-treesitter-textobjects",
         "leoluz/nvim-dap-go",
         "simrat39/symbols-outline.nvim",
         "williamboman/mason.nvim",
@@ -383,6 +384,43 @@ require("packer").startup(function(use)
                     -- disable = { "markdown" }, -- list of language that will be disabled
                     additional_vim_regex_highlighting = true,
                 },
+                textobjects = {
+                    lsp_interop = {
+                        enable = true,
+                        border = 'none',
+                        peek_definition_code = {
+                            ["<leader>df"] = "@function.outer",
+                            ["<leader>dF"] = "@class.outer",
+                        },
+                    },
+                    select = {
+                        enable = true,
+
+                        -- Automatically jump forward to textobj, similar to targets.vim
+                        lookahead = true,
+
+                        keymaps = {
+                            -- You can use the capture groups defined in textobjects.scm
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["ac"] = "@class.outer",
+                            -- you can optionally set descriptions to the mappings (used in the desc parameter of nvim_buf_set_keymap
+                            ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                        },
+                        -- You can choose the select mode (default is charwise 'v')
+                        selection_modes = {
+                            ['@parameter.outer'] = 'v', -- charwise
+                            ['@function.outer'] = 'V', -- linewise
+                            ['@class.outer'] = '<c-v>', -- blockwise
+                        },
+                        -- If you set this to `true` (default is `false`) then any textobject is
+                        -- extended to include preceding xor succeeding whitespace. Succeeding
+                        -- whitespace has priority in order to act similarly to eg the built-in
+                        -- `ap`.
+                        include_surrounding_whitespace = true,
+                    },
+                },
+
                 rainbow = {
                     enable = true,
                     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for

@@ -1,23 +1,23 @@
 {
-	"deno": {
-		"prefix": "deno",
-		"body": [
-			"{",
-			"    \"compilerOptions\": {",
-			"    \"allowJs\": true,",
-			"    \"lib\": [",
-			"        \"dom\",",
-			"        \"dom.iterable\",",
-			"        \"dom.asynciterable\",",
-			"        \"deno.ns\",",
-			"        \"deno.unstable\"",
-			"    ],",
-			"    \"jsx\": \"react\"",
-			"    },",
-			"    \"lint\": {},",
-			"    \"format\": {",
-			"    }",
-			"}"
-		]
-	}
+  "deno": {
+    "prefix": "deno",
+    "body": [
+      "{",
+      "    \"compilerOptions\": {",
+      "    \"allowJs\": true,",
+      "    \"lib\": [",
+      "        \"dom\",",
+      "        \"dom.iterable\",",
+      "        \"dom.asynciterable\",",
+      "        \"deno.ns\",",
+      "        \"deno.unstable\"",
+      "    ],",
+      "    \"jsx\": \"react\"",
+      "    },",
+      "    \"lint\": {},",
+      "    \"format\": {",
+      "    }",
+      "}"
+    ]
+  }
 }

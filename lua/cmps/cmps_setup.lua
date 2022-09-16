@@ -218,21 +218,28 @@ for _, lsp in ipairs(servers_lsp) do
     end
     nvim_lsp[lsp].setup(opts)
 end
-
+local prequire = require("prequire")
+local settings = prequire("settings")
 --- testing
 local configs = require("lspconfig.configs")
 
-configs.neocmake = {
-    default_config = {
-        cmd = { "neocmakelsp" },
-        filetypes = { "cmake" },
-        root_dir = function(fname)
-            return nvim_lsp.util.find_git_ancestor(fname)
-        end,
-        single_file_support = true,
-        on_attach = on_attach,
+if settings and settings.lsp and settings.lsp.neocmake then
+    configs.neocmake = settings.lsp.neocmake
+else
+    configs.neocmake = {
+        default_config = {
+            cmd = { "neocmakelsp" , "--stdio" },
+            filetypes = { "cmake" },
+            root_dir = function(fname)
+                return nvim_lsp.util.find_git_ancestor(fname)
+            end,
+            single_file_support = true,
+            on_attach = on_attach,
+        }
     }
-}
+end
+
+
 nvim_lsp.neocmake.setup({})
 --configs.qml_lsp = {
 --    default_config = {
