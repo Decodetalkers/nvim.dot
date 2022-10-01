@@ -3,7 +3,7 @@ opt.number = true
 opt.wrap = true
 opt.mouse = "a"
 vim.g.do_filetype_lua = 1
-vim.g.did_load_filetypes = 0
+--vim.g.did_load_filetypes = 0
 --opt.guifont = "DroidSansMono_Nerd_Font:h11"
 --vim.cmd([[filetype off]])
 local fn = vim.fn
