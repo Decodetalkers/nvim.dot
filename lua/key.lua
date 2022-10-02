@@ -30,7 +30,7 @@ vim.keymap.set("n", "<leader>e", function()
     require("key.undo").Open()
 end)
 vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format { async = true }
+    vim.lsp.buf.format({ async = true })
 end)
 vim.api.nvim_set_keymap("n", "ff", "<cmd>bn<cr>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap(

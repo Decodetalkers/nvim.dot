@@ -28,10 +28,10 @@ vim.filetype.add({
         ufw = "dosini",
         qmldir = "qmljs",
         [".clang-format"] = "yaml",
-        [".gitignore"] = "gitignore"
+        [".gitignore"] = "gitignore",
     },
     pattern = {
         ["environment.*"] = "dosini",
-        ["grub.*"] = "dosini"
-    }
+        ["grub.*"] = "dosini",
+    },
 })

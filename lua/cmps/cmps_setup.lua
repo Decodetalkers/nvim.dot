@@ -96,9 +96,9 @@ require("rust-tools").setup({
     },
     tools = {
         inlay_hints = {
-            auto = false
-        }
-    }
+            auto = false,
+        },
+    },
 })
 local servers_lsp = {
     "gdscript",
@@ -176,7 +176,7 @@ for _, lsp in ipairs(servers_lsp) do
                     },
                 },
             },
-        --    --single_file_support = false,
+            --    --single_file_support = false,
         }
     elseif lsp == "denols" then
         opts = {
@@ -205,27 +205,27 @@ for _, lsp in ipairs(servers_lsp) do
             settings = {
                 typescript = {
                     inlayHints = {
-                        includeInlayParameterNameHints = 'all',
+                        includeInlayParameterNameHints = "all",
                         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
                         includeInlayFunctionParameterTypeHints = true,
                         includeInlayVariableTypeHints = true,
                         includeInlayPropertyDeclarationTypeHints = true,
                         includeInlayFunctionLikeReturnTypeHints = true,
                         includeInlayEnumMemberValueHints = true,
-                    }
+                    },
                 },
                 javascript = {
                     inlayHints = {
-                        includeInlayParameterNameHints = 'all',
+                        includeInlayParameterNameHints = "all",
                         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
                         includeInlayFunctionParameterTypeHints = true,
                         includeInlayVariableTypeHints = true,
                         includeInlayPropertyDeclarationTypeHints = true,
                         includeInlayFunctionLikeReturnTypeHints = true,
                         includeInlayEnumMemberValueHints = true,
-                    }
-                }
-            }
+                    },
+                },
+            },
         }
     elseif lsp == "csharp_ls" then
         opts = {
@@ -258,10 +258,9 @@ else
             end,
             single_file_support = true,
             on_attach = on_attach,
-        }
+        },
     }
 end
-
 
 nvim_lsp.neocmake.setup({})
 configs.qml_lsp = {
@@ -274,7 +273,7 @@ configs.qml_lsp = {
         end,
         single_file_support = true,
         on_attach = on_attach,
-    }
+    },
 }
 nvim_lsp.qml_lsp.setup({})
 --- mime cmake lsp

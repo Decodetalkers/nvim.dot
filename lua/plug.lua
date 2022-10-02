@@ -40,23 +40,23 @@ require("packer").startup(function(use)
     })
     use({
         "lvimuser/lsp-inlayhints.nvim",
-        config = function ()
+        config = function()
             require("lsp-inlayhints").setup()
-        end
+        end,
     })
     use({
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
-            require("todo-comments").setup {
+            require("todo-comments").setup({
                 -- your configuration comes here
                 -- or leave it empty to use the default settings
                 -- refer to the configuration section below
-            }
-        end
+            })
+        end,
     })
     -- Packer
-    use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
+    use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
     use({
         "nvim-neorg/neorg",
         ft = "norg",
@@ -86,11 +86,12 @@ require("packer").startup(function(use)
             require("pretty-fold").setup({})
         end,
     })
-    use({ 'anuvyklack/fold-preview.nvim',
-        requires = 'anuvyklack/keymap-amend.nvim',
+    use({
+        "anuvyklack/fold-preview.nvim",
+        requires = "anuvyklack/keymap-amend.nvim",
         config = function()
-            require('fold-preview').setup()
-        end
+            require("fold-preview").setup()
+        end,
     })
     use({
         "rebelot/kanagawa.nvim",
@@ -235,8 +236,8 @@ require("packer").startup(function(use)
         config = function()
             require("lspsaga").init_lsp_saga({
                 symbol_in_winbar = {
-                    in_custom = true
-                }
+                    in_custom = true,
+                },
             })
         end,
     })
@@ -285,34 +286,46 @@ require("packer").startup(function(use)
                     end
 
                     -- Navigation
-                    map('n', ']c', function()
-                        if vim.wo.diff then return ']c' end
-                        vim.schedule(function() gs.next_hunk() end)
-                        return '<Ignore>'
+                    map("n", "]c", function()
+                        if vim.wo.diff then
+                            return "]c"
+                        end
+                        vim.schedule(function()
+                            gs.next_hunk()
+                        end)
+                        return "<Ignore>"
                     end, { expr = true })
 
-                    map('n', '[c', function()
-                        if vim.wo.diff then return '[c' end
-                        vim.schedule(function() gs.prev_hunk() end)
-                        return '<Ignore>'
+                    map("n", "[c", function()
+                        if vim.wo.diff then
+                            return "[c"
+                        end
+                        vim.schedule(function()
+                            gs.prev_hunk()
+                        end)
+                        return "<Ignore>"
                     end, { expr = true })
 
                     -- Actions
-                    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-                    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-                    map('n', '<leader>hS', gs.stage_buffer)
-                    map('n', '<leader>hu', gs.undo_stage_hunk)
-                    map('n', '<leader>hR', gs.reset_buffer)
-                    map('n', '<leader>hp', gs.preview_hunk)
-                    map('n', '<leader>hb', function() gs.blame_line { full = true } end)
-                    map('n', '<leader>tb', gs.toggle_current_line_blame)
-                    map('n', '<leader>hd', gs.diffthis)
-                    map('n', '<leader>hD', function() gs.diffthis('~') end)
-                    map('n', '<leader>td', gs.toggle_deleted)
+                    map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+                    map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+                    map("n", "<leader>hS", gs.stage_buffer)
+                    map("n", "<leader>hu", gs.undo_stage_hunk)
+                    map("n", "<leader>hR", gs.reset_buffer)
+                    map("n", "<leader>hp", gs.preview_hunk)
+                    map("n", "<leader>hb", function()
+                        gs.blame_line({ full = true })
+                    end)
+                    map("n", "<leader>tb", gs.toggle_current_line_blame)
+                    map("n", "<leader>hd", gs.diffthis)
+                    map("n", "<leader>hD", function()
+                        gs.diffthis("~")
+                    end)
+                    map("n", "<leader>td", gs.toggle_deleted)
 
                     -- Text object
-                    map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-                end
+                    map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+                end,
             })
         end,
     })
@@ -386,10 +399,10 @@ require("packer").startup(function(use)
 
     use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
     use({
-        'nvim-treesitter/nvim-treesitter-context',
+        "nvim-treesitter/nvim-treesitter-context",
         config = function()
             require("treesitter-context").setup({})
-        end
+        end,
     })
     use({
         "~/git/nvim-treesitter",
@@ -432,7 +445,7 @@ require("packer").startup(function(use)
                 textobjects = {
                     lsp_interop = {
                         enable = true,
-                        border = 'none',
+                        border = "none",
                         peek_definition_code = {
                             ["<leader>df"] = "@function.outer",
                             ["<leader>dF"] = "@class.outer",
@@ -454,9 +467,9 @@ require("packer").startup(function(use)
                         },
                         -- You can choose the select mode (default is charwise 'v')
                         selection_modes = {
-                            ['@parameter.outer'] = 'v', -- charwise
-                            ['@function.outer'] = 'V', -- linewise
-                            ['@class.outer'] = '<c-v>', -- blockwise
+                            ["@parameter.outer"] = "v", -- charwise
+                            ["@function.outer"] = "V", -- linewise
+                            ["@class.outer"] = "<c-v>", -- blockwise
                         },
                         -- If you set this to `true` (default is `false`) then any textobject is
                         -- extended to include preceding xor succeeding whitespace. Succeeding
