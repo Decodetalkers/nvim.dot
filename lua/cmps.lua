@@ -13,7 +13,7 @@ local has_words_before = function()
 end
 -- nvim-cmp setup
 local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
+if not cmp_status_ok or cmp == nil then
     return
 end
 local kind_icons = {

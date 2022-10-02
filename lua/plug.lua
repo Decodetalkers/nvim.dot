@@ -37,7 +37,23 @@ require("packer").startup(function(use)
         "simrat39/symbols-outline.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-
+    })
+    use({
+        "lvimuser/lsp-inlayhints.nvim",
+        config = function ()
+            require("lsp-inlayhints").setup()
+        end
+    })
+    use({
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+            require("todo-comments").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
     })
     -- Packer
     use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
@@ -54,19 +70,6 @@ require("packer").startup(function(use)
         requires = "nvim-lua/plenary.nvim",
     })
     use({
-        "Shatur/neovim-cmake",
-        config = function()
-            require("cmake").setup({
-                dap_configuration = {
-                    type = "lldb",
-                    request = "launch",
-                    stopOnEntry = false,
-                    runInTerminal = false,
-                },
-            })
-        end,
-    })
-    use({
         "stevearc/dressing.nvim",
         config = function()
             require("dressing").setup({
@@ -80,7 +83,7 @@ require("packer").startup(function(use)
         requires = "anuvyklack/nvim-keymap-amend",
         "anuvyklack/pretty-fold.nvim",
         config = function()
-            require("pretty-fold").setup()
+            require("pretty-fold").setup({})
         end,
     })
     use({ 'anuvyklack/fold-preview.nvim',
@@ -228,9 +231,13 @@ require("packer").startup(function(use)
         end,
     })
     use({
-        "tami5/lspsaga.nvim",
+        "glepnir/lspsaga.nvim",
         config = function()
-            require("lspsaga").init_lsp_saga()
+            require("lspsaga").init_lsp_saga({
+                symbol_in_winbar = {
+                    in_custom = true
+                }
+            })
         end,
     })
     use({
@@ -268,6 +275,44 @@ require("packer").startup(function(use)
                 current_line_blame_formatter_opts = {
                     relative_time = false,
                 },
+                on_attach = function(bufnr)
+                    local gs = package.loaded.gitsigns
+
+                    local function map(mode, l, r, opts)
+                        opts = opts or {}
+                        opts.buffer = bufnr
+                        vim.keymap.set(mode, l, r, opts)
+                    end
+
+                    -- Navigation
+                    map('n', ']c', function()
+                        if vim.wo.diff then return ']c' end
+                        vim.schedule(function() gs.next_hunk() end)
+                        return '<Ignore>'
+                    end, { expr = true })
+
+                    map('n', '[c', function()
+                        if vim.wo.diff then return '[c' end
+                        vim.schedule(function() gs.prev_hunk() end)
+                        return '<Ignore>'
+                    end, { expr = true })
+
+                    -- Actions
+                    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+                    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+                    map('n', '<leader>hS', gs.stage_buffer)
+                    map('n', '<leader>hu', gs.undo_stage_hunk)
+                    map('n', '<leader>hR', gs.reset_buffer)
+                    map('n', '<leader>hp', gs.preview_hunk)
+                    map('n', '<leader>hb', function() gs.blame_line { full = true } end)
+                    map('n', '<leader>tb', gs.toggle_current_line_blame)
+                    map('n', '<leader>hd', gs.diffthis)
+                    map('n', '<leader>hD', function() gs.diffthis('~') end)
+                    map('n', '<leader>td', gs.toggle_deleted)
+
+                    -- Text object
+                    map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+                end
             })
         end,
     })

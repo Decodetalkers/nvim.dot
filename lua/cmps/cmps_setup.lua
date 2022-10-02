@@ -29,7 +29,7 @@ require("clangd_extensions").setup({
     extensions = {
         -- defaults:
         -- Automatically set inlay hints (type hints)
-        autoSetHints = true,
+        autoSetHints = false,
         -- Whether to show hover actions inside the hover window
         -- This overrides the default hover handler
         hover_with_actions = true,
@@ -94,6 +94,11 @@ require("rust-tools").setup({
         capabilities = capabilities,
         on_attach = on_attach,
     },
+    tools = {
+        inlay_hints = {
+            auto = false
+        }
+    }
 })
 local servers_lsp = {
     "gdscript",
@@ -147,16 +152,15 @@ for _, lsp in ipairs(servers_lsp) do
         on_attach = on_attach,
     }
     if lsp == "sumneko_lua" then
-        local runtime_path = vim.split(package.path, ";")
         opts = {
             on_attach = on_attach,
+            capabilities = capabilities,
             settings = {
                 Lua = {
                     runtime = {
                         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
                         version = "LuaJIT",
                         -- Setup your lua path
-                        path = runtime_path,
                     },
                     workspace = {
                         -- Make the server aware of Neovim runtime files
@@ -170,22 +174,14 @@ for _, lsp in ipairs(servers_lsp) do
                     telemetry = {
                         enable = false,
                     },
-                    format = {
-                        enable = true,
-                        -- Put format options here
-                        -- NOTE: the value should be STRING!!
-                        defaultConfig = {
-                            indent_style = "space",
-                            indent_size = "2",
-                        }
-                    },
                 },
             },
-            single_file_support = false,
+        --    --single_file_support = false,
         }
     elseif lsp == "denols" then
         opts = {
             on_attach = on_attach,
+            capabilities = capabilities,
             root_dir = nvim_lsp.util.root_pattern("deno.json"),
             init_options = { --settings,
                 lint = true,
@@ -195,19 +191,46 @@ for _, lsp in ipairs(servers_lsp) do
     elseif lsp == "kotlin_language_server" then
         opts = {
             on_attach = on_attach,
+            capabilities = capabilities,
             single_file_support = true,
         }
     elseif lsp == "tsserver" then
         opts = {
             on_attach = on_attach,
+            capabilities = capabilities,
             root_dir = nvim_lsp.util.root_pattern("package.json"),
             init_options = {
                 lint = true,
             },
+            settings = {
+                typescript = {
+                    inlayHints = {
+                        includeInlayParameterNameHints = 'all',
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                    }
+                },
+                javascript = {
+                    inlayHints = {
+                        includeInlayParameterNameHints = 'all',
+                        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                        includeInlayFunctionParameterTypeHints = true,
+                        includeInlayVariableTypeHints = true,
+                        includeInlayPropertyDeclarationTypeHints = true,
+                        includeInlayFunctionLikeReturnTypeHints = true,
+                        includeInlayEnumMemberValueHints = true,
+                    }
+                }
+            }
         }
     elseif lsp == "csharp_ls" then
         opts = {
             on_attach = on_attach,
+            capabilities = capabilities,
             handlers = {
                 ["textDocument/definition"] = require("csharpls_extended").handler,
             },
@@ -228,7 +251,7 @@ if settings and settings.lsp and settings.lsp.neocmake then
 else
     configs.neocmake = {
         default_config = {
-            cmd = { "neocmakelsp" , "--stdio" },
+            cmd = { "neocmakelsp", "--stdio" },
             filetypes = { "cmake" },
             root_dir = function(fname)
                 return nvim_lsp.util.find_git_ancestor(fname)
@@ -241,16 +264,17 @@ end
 
 
 nvim_lsp.neocmake.setup({})
---configs.qml_lsp = {
---    default_config = {
---        cmd = { "/usr/lib/qt6/bin/qmlls" },
---        filetypes = {"qmljs"},
---        root_dir = function(fname)
---            return nvim_lsp.util.find_git_ancestor(fname)
---        end,
---        single_file_support = true,
---        on_attach = on_attach,
---    }
---}
---nvim_lsp.qml_lsp.setup({})
+configs.qml_lsp = {
+    default_config = {
+        --cmd = { "/usr/lib/qt6/bin/qmlls" },
+        cmd = { "/usr/lib/qt6/bin/qmlls" },
+        filetypes = { "qmljs" },
+        root_dir = function(fname)
+            return nvim_lsp.util.find_git_ancestor(fname)
+        end,
+        single_file_support = true,
+        on_attach = on_attach,
+    }
+}
+nvim_lsp.qml_lsp.setup({})
 --- mime cmake lsp
