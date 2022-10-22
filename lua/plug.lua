@@ -6,7 +6,7 @@ require("packer").startup(function(use)
         "junegunn/fzf",
         "kongo2002/fsharp-vim", --hightlight for fsharp
         --"peterhoeg/vim-qml",
-        "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
+        "~/git/nvim-lspconfig", -- Collection of configurations for built-in LSP client
         "hrsh7th/nvim-cmp", -- Autocompletion plugin
         "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
         -- cmp's luasnip and luasnip engine
@@ -79,6 +79,15 @@ require("packer").startup(function(use)
             })
         end,
     })
+    --use({
+    --    "gpanders/editorconfig.nvim",
+    --    config = function()
+    --        require('editorconfig').properties.foo = function(bufnr, val)
+    --            vim.b[bufnr].foo = val
+    --        end
+    --    end
+
+    --})
     use({
         requires = "anuvyklack/nvim-keymap-amend",
         "anuvyklack/pretty-fold.nvim",
@@ -92,6 +101,12 @@ require("packer").startup(function(use)
         config = function()
             require("fold-preview").setup()
         end,
+    })
+    use({
+        "folke/tokyonight.nvim",
+        config = function()
+            vim.cmd("colorscheme tokyonight-night")
+        end
     })
     use({
         "rebelot/kanagawa.nvim",
@@ -114,7 +129,7 @@ require("packer").startup(function(use)
                 overrides = {},
             })
             -- setup must be called before loading
-            vim.cmd("colorscheme kanagawa")
+            --vim.cmd("colorscheme kanagawa")
         end,
     })
     use({
@@ -242,7 +257,11 @@ require("packer").startup(function(use)
         end,
     })
     use({
-        "kyazdani42/nvim-tree.lua",
+        "nvim-tree/nvim-tree.lua",
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+        tag = 'nightly', -- optional, updated every week. (see issue #1193)
         config = function()
             require("nvim-tree").setup({
                 diagnostics = {

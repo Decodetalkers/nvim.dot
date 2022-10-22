@@ -2,9 +2,7 @@ local on_attach = require("cmps.cmp_onattach")
 
 local nvim_lsp = require("lspconfig")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require("flutter-tools").setup({
     lsp = {
@@ -245,24 +243,15 @@ local prequire = require("prequire")
 local settings = prequire("settings")
 --- testing
 local configs = require("lspconfig.configs")
-
+local opts = {
+    capabilities = capabilities,
+    on_attach = on_attach
+}
 if settings and settings.lsp and settings.lsp.neocmake then
-    configs.neocmake = settings.lsp.neocmake
-else
-    configs.neocmake = {
-        default_config = {
-            cmd = { "neocmakelsp", "--stdio" },
-            filetypes = { "cmake" },
-            root_dir = function(fname)
-                return nvim_lsp.util.find_git_ancestor(fname)
-            end,
-            single_file_support = true,
-            on_attach = on_attach,
-        },
-    }
+    opts = settings.lsp.neocmake
 end
 
-nvim_lsp.neocmake.setup({})
+nvim_lsp.neocmake.setup(opts)
 configs.qml_lsp = {
     default_config = {
         --cmd = { "/usr/lib/qt6/bin/qmlls" },

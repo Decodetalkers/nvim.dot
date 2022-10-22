@@ -3,6 +3,10 @@ local File = {
         tab = false,
         shift = 2,
     },
+    ["slint"] = {
+        tab = false,
+        shift = 4,
+    },
     ["qmljs"] = {
         tab = false,
         shift = 4,
@@ -14,6 +18,10 @@ local File = {
     ["cpp"] = {
         tab = false,
         shift = 4,
+    },
+    ["c"] = {
+        tab = true,
+        shift = 2,
     },
     ["javascript"] = {
         tab = false,
@@ -37,7 +45,7 @@ local File = {
     },
     ["fsharp"] = {
         tab = false,
-        shift = 2,
+        shift = 4,
     },
     ["haskell"] = {
         tab = false,
