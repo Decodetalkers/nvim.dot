@@ -10,7 +10,8 @@ return function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-    require("aerial").on_attach(client, bufnr)
+    --require("aerial").on_attach(client, bufnr)
+    --require("nvim-navic").attach(client, bufnr)
     require("lsp-inlayhints").on_attach(client, bufnr, false)
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
