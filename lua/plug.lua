@@ -244,6 +244,7 @@ require("packer").startup(function(use)
                 },
             })
             require("telescope").load_extension("aerial")
+            require("plug.winbar")
         end,
     })
     use({
