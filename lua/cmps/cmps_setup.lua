@@ -1,5 +1,9 @@
 local on_attach = require("cmps.cmp_onattach")
 
+local prequire = require("prequire")
+-- for lsp developing and lspsettings
+local persettings = prequire("settings")
+
 local nvim_lsp = require("lspconfig")
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -91,6 +95,14 @@ require("rust-tools").setup({
     server = {
         capabilities = capabilities,
         on_attach = on_attach,
+        -- project settings for rust_analyzer , include features
+        settings = (function()
+            if persettings and persettings.lspsettings and persettings.lspsettings.rust then
+                return persettings.lspsettings.rust
+            else
+                return nil
+            end
+        end)()
     },
     tools = {
         inlay_hints = {
@@ -239,16 +251,16 @@ for _, lsp in ipairs(servers_lsp) do
     end
     nvim_lsp[lsp].setup(opts)
 end
-local prequire = require("prequire")
-local settings = prequire("settings")
+
+
 --- testing
 local configs = require("lspconfig.configs")
 local opts = {
     capabilities = capabilities,
     on_attach = on_attach
 }
-if settings and settings.lsp and settings.lsp.neocmake then
-    opts = settings.lsp.neocmake
+if persettings and persettings.lsp and persettings.lsp.neocmake then
+    opts = persettings.lsp.neocmake
 end
 
 nvim_lsp.neocmake.setup(opts)
