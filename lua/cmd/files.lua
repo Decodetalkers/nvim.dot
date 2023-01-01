@@ -3,6 +3,10 @@ local File = {
         tab = false,
         shift = 2,
     },
+    ["nu"] = {
+        tab = false,
+        shift = 2,
+    },
     ["slint"] = {
         tab = false,
         shift = 4,
@@ -84,6 +88,17 @@ local File = {
         shift = 4,
     },
 }
+
+local prequire = require("prequire")
+local persettings = prequire("settings")
+
+-- in settings.lua
+if persettings ~= nil and persettings.files ~= nil then
+    for key, value in pairs(persettings.files) do
+        File[key] = value
+    end
+end
+
 File.Settab = function()
     local file = File[vim.o.filetype]
     if file ~= nil then

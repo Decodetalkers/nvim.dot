@@ -11,4 +11,7 @@ if settings and settings.treesitter then
     if settings.treesitter.meson then
         parser_config.meson = settings.treesitter.meson
     end
+    if settings.treesitter.pkgconfig then
+        parser_config.pkgconfig = settings.treesitter.pkgconfig
+    end
 end

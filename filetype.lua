@@ -21,6 +21,7 @@ vim.filetype.add({
         vert = "glsl",
         frag = "glsl",
         rkt = "racket",
+        pc = "PKGBUILD",
     },
     filename = {
         environment = "dosini",
@@ -33,5 +34,6 @@ vim.filetype.add({
     pattern = {
         ["environment.*"] = "dosini",
         ["grub.*"] = "dosini",
+        ["fstab.*"] = "fstab"
     },
 })
