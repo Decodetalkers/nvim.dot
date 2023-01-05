@@ -277,7 +277,14 @@ require("packer").startup(function(use)
             })
         end,
     })
-    use({ "LhKipp/nvim-nu", run = ":TSInstall nu" })
+    use({ "LhKipp/nvim-nu",
+        run = ":TSInstall nu",
+        config = function()
+            require 'nu'.setup {
+                use_lsp_features = false,
+            }
+        end
+    })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({
         "lewis6991/gitsigns.nvim",
