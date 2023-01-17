@@ -34,7 +34,7 @@ require("packer").startup(function(use)
         "p00f/nvim-ts-rainbow",
         "leoluz/nvim-dap-go",
         "simrat39/symbols-outline.nvim",
-        "williamboman/mason.nvim",
+        "~/git/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     })
 
@@ -244,15 +244,19 @@ require("packer").startup(function(use)
                 },
             })
             require("telescope").load_extension("aerial")
-            require("plug.winbar")
+            --require("plug.winbar")
         end,
     })
     use({
         "glepnir/lspsaga.nvim",
         config = function()
-            require("lspsaga").init_lsp_saga({
+            require("lspsaga").setup({
                 symbol_in_winbar = {
-                    in_custom = true,
+                    enable = true,
+                    separator = ' ',
+                    hide_keyword = true,
+                    show_file = true,
+                    folder_level = 2,
                 },
             })
         end,

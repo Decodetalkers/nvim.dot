@@ -89,15 +89,15 @@ local File = {
     },
 }
 
-local prequire = require("prequire")
-local persettings = prequire("settings")
+--local prequire = require("prequire")
+--local persettings = prequire("settings")
 
 -- in settings.lua
-if persettings ~= nil and persettings.files ~= nil then
-    for key, value in pairs(persettings.files) do
-        File[key] = value
-    end
-end
+--if persettings ~= nil and persettings.files ~= nil then
+--    for key, value in pairs(persettings.files) do
+--        File[key] = value
+--    end
+--end
 
 File.Settab = function()
     local file = File[vim.o.filetype]

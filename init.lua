@@ -36,6 +36,8 @@ if packer_bootstrap then
     end
     vim.opt.foldmethod = "expr"
     vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+    opt.foldenable = false
     opt.termguicolors = true
     opt.background = "dark"
     opt.cursorline = true
