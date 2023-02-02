@@ -34,7 +34,7 @@ require("packer").startup(function(use)
         "p00f/nvim-ts-rainbow",
         "leoluz/nvim-dap-go",
         "simrat39/symbols-outline.nvim",
-        "~/git/mason.nvim",
+        "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     })
 

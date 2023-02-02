@@ -8,6 +8,13 @@ local nvim_lsp = require("lspconfig")
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+local function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
+local not_package_json = not file_exists("package.json")
+
 require("flutter-tools").setup({
     lsp = {
         capabilities = capabilities,
@@ -196,7 +203,7 @@ for _, lsp in ipairs(servers_lsp) do
             init_options = { --settings,
                 lint = true,
             },
-            --single_file_support = true,
+            single_file_support = not_package_json,
         }
     elseif lsp == "kotlin_language_server" then
         opts = {
@@ -212,6 +219,7 @@ for _, lsp in ipairs(servers_lsp) do
             init_options = {
                 lint = true,
             },
+            single_file_support = false,
             settings = {
                 typescript = {
                     inlayHints = {
@@ -267,7 +275,7 @@ nvim_lsp.neocmake.setup(opts)
 configs.qml_lsp = {
     default_config = {
         --cmd = { "/usr/lib/qt6/bin/qmlls" },
-        cmd = { "/usr/lib/qt6/bin/qmlls" },
+        cmd = { "/usr/bin/qmlls6" },
         filetypes = { "qmljs" },
         root_dir = function(fname)
             return nvim_lsp.util.find_git_ancestor(fname)

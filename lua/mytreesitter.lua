@@ -14,4 +14,7 @@ if settings and settings.treesitter then
     if settings.treesitter.pkgconfig then
         parser_config.pkgconfig = settings.treesitter.pkgconfig
     end
+    if settings.treesitter.qmldir then
+        parser_config.qmldir = settings.treesitter.qmldir
+    end
 end

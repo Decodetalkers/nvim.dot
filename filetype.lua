@@ -27,7 +27,7 @@ vim.filetype.add({
         environment = "dosini",
         grub = "dosini",
         ufw = "dosini",
-        qmldir = "qmljs",
+        qmldir = "qmldir",
         [".clang-format"] = "yaml",
         [".gitignore"] = "gitignore",
     },
