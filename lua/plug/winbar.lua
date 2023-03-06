@@ -1,4 +1,4 @@
-local aerial = require('aerial')
+local aerial = require("aerial")
 
 -- Format the list representing the symbol path
 -- Grab it from https://github.com/stevearc/aerial.nvim/blob/master/lua/lualine/components/aerial.lua
@@ -33,7 +33,7 @@ local function winbar_get()
     local line_no = "%10([%l/%L%)]"
     local pct_thru_file = "%5p%%"
     local symbols = aerial.get_location(true)
-    local symbol_path = format_symbols(symbols, nil, ' > ', true)
+    local symbol_path = format_symbols(symbols, nil, " > ", true)
     return string.format(
         "%s%s%s  %s%s%s%s",
         mode,
@@ -46,7 +46,6 @@ local function winbar_get()
         line_no,
         pct_thru_file
     )
-
 end
 
 vim.opt.winbar = winbar_get()
@@ -58,6 +57,6 @@ vim.api.nvim_create_autocmd({ "CursorMoved" }, {
     pattern = "*",
     group = winbar_aug,
     callback = function()
-        pcall(vim.api.nvim_set_option_value, 'winbar', winbar_get(), { scope = 'local' })
-    end
+        pcall(vim.api.nvim_set_option_value, "winbar", winbar_get(), { scope = "local" })
+    end,
 })

@@ -3,8 +3,13 @@ vim.cmd([[filetype on]])
 vim.g.Hexokinase_highlighters = { "backgroundfull" }
 
 local function file_exists(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
+    local f = io.open(name, "r")
+    if f ~= nil then
+        io.close(f)
+        return true
+    else
+        return false
+    end
 end
 
 --vim.cmd([[let g:Hexokinase_highlighters = ['backgroundfull'] ]])
@@ -14,7 +19,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufWritePre", "BufRead" }, {
     group = aug,
     callback = function()
         -- check if .editorconfig exist
-        if not file_exists('.editorconfig') then
+        if not file_exists(".editorconfig") then
             require("cmd.files").Settab()
         end
     end,

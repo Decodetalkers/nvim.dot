@@ -6,7 +6,7 @@ require("packer").startup(function(use)
         "junegunn/fzf",
         "kongo2002/fsharp-vim", --hightlight for fsharp
         --"peterhoeg/vim-qml",
-        "~/git/nvim-lspconfig", -- Collection of configurations for built-in LSP client
+        "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
         "hrsh7th/nvim-cmp", -- Autocompletion plugin
         "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
         -- cmp's luasnip and luasnip engine
@@ -106,7 +106,7 @@ require("packer").startup(function(use)
         "folke/tokyonight.nvim",
         config = function()
             vim.cmd("colorscheme tokyonight-night")
-        end
+        end,
     })
     use({
         "rebelot/kanagawa.nvim",
@@ -126,7 +126,7 @@ require("packer").startup(function(use)
                 dimInactive = false, -- dim inactive window `:h hl-NormalNC`
                 globalStatus = false, -- adjust window separators highlight for laststatus=3
                 colors = {},
-                overrides = {},
+                --overrides = {},
             })
             -- setup must be called before loading
             --vim.cmd("colorscheme kanagawa")
@@ -253,7 +253,7 @@ require("packer").startup(function(use)
             require("lspsaga").setup({
                 symbol_in_winbar = {
                     enable = true,
-                    separator = ' ',
+                    separator = " ",
                     hide_keyword = true,
                     show_file = true,
                     folder_level = 2,
@@ -264,9 +264,9 @@ require("packer").startup(function(use)
     use({
         "nvim-tree/nvim-tree.lua",
         requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+            "nvim-tree/nvim-web-devicons", -- optional, for file icons
         },
-        tag = 'nightly', -- optional, updated every week. (see issue #1193)
+        tag = "nightly", -- optional, updated every week. (see issue #1193)
         config = function()
             require("nvim-tree").setup({
                 diagnostics = {
@@ -281,13 +281,14 @@ require("packer").startup(function(use)
             })
         end,
     })
-    use({ "LhKipp/nvim-nu",
+    use({
+        "LhKipp/nvim-nu",
         run = ":TSInstall nu",
         config = function()
-            require 'nu'.setup {
+            require("nu").setup({
                 use_lsp_features = false,
-            }
-        end
+            })
+        end,
     })
     use({ "wbthomason/packer.nvim", event = "VimEnter" })
     use({

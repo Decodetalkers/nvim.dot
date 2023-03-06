@@ -1,5 +1,6 @@
 vim.filetype.add({
     extension = {
+        njk = "html",
         qml = "qmljs",
         qmltypes = "qmljs",
         qmlproject = "qmljs",
@@ -32,8 +33,9 @@ vim.filetype.add({
         [".gitignore"] = "gitignore",
     },
     pattern = {
+        ["*.go"] = "go",
         ["environment.*"] = "dosini",
         ["grub.*"] = "dosini",
-        ["fstab.*"] = "fstab"
+        ["fstab.*"] = "fstab",
     },
 })

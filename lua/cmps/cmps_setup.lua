@@ -6,11 +6,16 @@ local persettings = prequire("settings")
 
 local nvim_lsp = require("lspconfig")
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local function file_exists(name)
-   local f=io.open(name,"r")
-   if f~=nil then io.close(f) return true else return false end
+    local f = io.open(name, "r")
+    if f ~= nil then
+        io.close(f)
+        return true
+    else
+        return false
+    end
 end
 
 local not_package_json = not file_exists("package.json")
@@ -109,7 +114,7 @@ require("rust-tools").setup({
             else
                 return nil
             end
-        end)()
+        end)(),
     },
     tools = {
         inlay_hints = {
@@ -124,13 +129,14 @@ local servers_lsp = {
     "html",
     "cssls",
     --"r_language_server",
-    "sumneko_lua",
+    "lua_ls",
     --"clangd",
     --"rust_analyzer",
     "julials",
     "csharp_ls",
     --"pyright",
     "pylsp",
+    --"ruff_lsp",
     "tsserver",
     --"omnisharp",
     "fsautocomplete",
@@ -168,7 +174,7 @@ for _, lsp in ipairs(servers_lsp) do
         capabilities = capabilities,
         on_attach = on_attach,
     }
-    if lsp == "sumneko_lua" then
+    if lsp == "lua_ls" then
         opts = {
             on_attach = on_attach,
             capabilities = capabilities,
@@ -193,7 +199,6 @@ for _, lsp in ipairs(servers_lsp) do
                     },
                 },
             },
-            --    --single_file_support = false,
         }
     elseif lsp == "denols" then
         opts = {
@@ -260,29 +265,35 @@ for _, lsp in ipairs(servers_lsp) do
     nvim_lsp[lsp].setup(opts)
 end
 
-
 --- testing
 local configs = require("lspconfig.configs")
 local opts = {
     capabilities = capabilities,
-    on_attach = on_attach
+    on_attach = on_attach,
 }
 if persettings and persettings.lsp and persettings.lsp.neocmake then
     opts = persettings.lsp.neocmake
 end
 
 nvim_lsp.neocmake.setup(opts)
-configs.qml_lsp = {
-    default_config = {
-        --cmd = { "/usr/lib/qt6/bin/qmlls" },
-        cmd = { "/usr/bin/qmlls6" },
-        filetypes = { "qmljs" },
-        root_dir = function(fname)
-            return nvim_lsp.util.find_git_ancestor(fname)
-        end,
-        single_file_support = true,
-        on_attach = on_attach,
-    },
-}
-nvim_lsp.qml_lsp.setup({})
+
 --- mime cmake lsp
+
+if persettings and persettings.lsp and persettings.lsp.neoqml then
+    configs.neoqml = persettings.lsp.neoqml
+    nvim_lsp.neoqml.setup({})
+else
+    configs.qml_lsp = {
+        default_config = {
+            --cmd = { "/usr/lib/qt6/bin/qmlls" },
+            cmd = { "/usr/bin/qmlls6" },
+            filetypes = { "qmljs" },
+            root_dir = function(fname)
+                return nvim_lsp.util.find_git_ancestor(fname)
+            end,
+            single_file_support = true,
+            on_attach = on_attach,
+        },
+    }
+    nvim_lsp.qml_lsp.setup({})
+end

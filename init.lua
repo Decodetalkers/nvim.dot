@@ -51,5 +51,3 @@ if packer_bootstrap then
 end
 -- for test
 require("mytreesitter")
-
-
