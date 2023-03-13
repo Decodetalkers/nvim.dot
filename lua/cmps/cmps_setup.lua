@@ -85,7 +85,6 @@ require("clangd_extensions").setup({
                 statement = "",
                 ["template argument"] = "",
             },
-
             kind_icons = {
                 Compound = "",
                 Recovery = "",
@@ -95,7 +94,6 @@ require("clangd_extensions").setup({
                 TemplateTemplateParm = "",
                 TemplateParamObject = "",
             },
-
             highlights = {
                 detail = "Comment",
             },
@@ -189,7 +187,6 @@ for _, lsp in ipairs(servers_lsp) do
                         -- Make the server aware of Neovim runtime files
                         library = vim.api.nvim_get_runtime_file("", true),
                     },
-
                     diagnostics = {
                         -- Get the language server to recognize the `vim` global
                         globals = { "vim" },
@@ -268,7 +265,13 @@ end
 --- testing
 local configs = require("lspconfig.configs")
 local opts = {
-    capabilities = capabilities,
+    capabilities = {
+        workspace = {
+            didChangeWatchedFiles = {
+                dynamicRegistration = true,
+            },
+        },
+    },
     on_attach = on_attach,
 }
 if persettings and persettings.lsp and persettings.lsp.neocmake then
