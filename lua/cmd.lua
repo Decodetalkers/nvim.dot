@@ -33,7 +33,3 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufWritePre", "BufRead" }, {
 --highlight Function cterm=italic gui=italic
 --highlight Comment cterm=italic gui=italic
 --]])
-
-vim.cmd([[
-au FileType zsh set filetype=sh
-]])

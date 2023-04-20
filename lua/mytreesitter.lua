@@ -17,4 +17,10 @@ if settings and settings.treesitter then
     if settings.treesitter.qmldir then
         parser_config.qmldir = settings.treesitter.qmldir
     end
+    if settings.treesitter.groovy then
+        parser_config.groovy = settings.treesitter.groovy
+    end
+    if settings.treesitter.plantuml then
+        parser_config.plantuml = settings.treesitter.plantuml
+    end
 end

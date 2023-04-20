@@ -23,6 +23,9 @@ vim.filetype.add({
         frag = "glsl",
         rkt = "racket",
         pc = "PKGBUILD",
+        gdextension = "toml",
+        uml = "plantuml",
+        theme = "dosini"
     },
     filename = {
         environment = "dosini",
@@ -33,9 +36,7 @@ vim.filetype.add({
         [".gitignore"] = "gitignore",
     },
     pattern = {
-        ["*.go"] = "go",
         ["environment.*"] = "dosini",
-        ["grub.*"] = "dosini",
         ["fstab.*"] = "fstab",
     },
 })

@@ -4,13 +4,13 @@ require("packer").startup(function(use)
         --"tpope/vim-fugitive", --git blame
         "arkav/lualine-lsp-progress",
         "junegunn/fzf",
-        "kongo2002/fsharp-vim", --hightlight for fsharp
+        "kongo2002/fsharp-vim",     --hightlight for fsharp
         --"peterhoeg/vim-qml",
-        "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
-        "hrsh7th/nvim-cmp", -- Autocompletion plugin
-        "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+        "neovim/nvim-lspconfig",    -- Collection of configurations for built-in LSP client
+        "hrsh7th/nvim-cmp",         -- Autocompletion plugin
+        "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
         -- cmp's luasnip and luasnip engine
-        "L3MON4D3/LuaSnip", -- Snippets plugin
+        "L3MON4D3/LuaSnip",         -- Snippets plugin
         "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
         -- vscode snippets
         "rafamadriz/friendly-snippets",
@@ -25,14 +25,14 @@ require("packer").startup(function(use)
         "simnalamburt/vim-mundo",
         --"rbong/vim-flog",
         "kyazdani42/nvim-web-devicons", --icons for Nvim tree
-        "aklt/plantuml-syntax",
+        --"aklt/plantuml-syntax",
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
         "simrat39/rust-tools.nvim",
         "~/git/csharpls-extended-lsp.nvim",
         "p00f/clangd_extensions.nvim",
         "p00f/nvim-ts-rainbow",
-        "leoluz/nvim-dap-go",
+        --"leoluz/nvim-dap-go",
         "simrat39/symbols-outline.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -120,11 +120,11 @@ require("packer").startup(function(use)
                 statementStyle = { bold = true },
                 --typeStyle = "NONE",
                 variablebuiltinStyle = { italic = true },
-                specialReturn = true, -- special highlight for the return keyword
+                specialReturn = true,    -- special highlight for the return keyword
                 specialException = true, -- special highlight for exception handling keywords
-                transparent = false, -- do not set background color
-                dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-                globalStatus = false, -- adjust window separators highlight for laststatus=3
+                transparent = false,     -- do not set background color
+                dimInactive = false,     -- dim inactive window `:h hl-NormalNC`
+                globalStatus = false,    -- adjust window separators highlight for laststatus=3
                 colors = {},
                 --overrides = {},
             })
@@ -146,31 +146,23 @@ require("packer").startup(function(use)
             require("notify").setup({
                 -- Animation style (see below for details)
                 stages = "fade_in_slide_out",
-
                 -- Function called when a new window is opened, use for changing win settings/config
                 on_open = nil,
-
                 -- Function called when a window is closed
                 on_close = nil,
-
                 -- Render function for notifications. See notify-render()
                 render = "default",
-
                 -- Default timeout for notifications
                 timeout = 5000,
-
                 -- Max number of columns for messages
                 max_width = nil,
                 -- Max number of lines for a message
                 max_height = nil,
-
                 -- For stages that change opacity this is treated as the highlight behind the window
                 -- Set this to either a highlight group, an RGB hex value e.g. "#000000" or a function returning an RGB code for dynamic values
                 background_colour = "#000000",
-
                 -- Minimum width for notification windows
                 minimum_width = 50,
-
                 -- Icons for the different levels
                 icons = {
                     ERROR = "",
@@ -266,7 +258,7 @@ require("packer").startup(function(use)
         requires = {
             "nvim-tree/nvim-web-devicons", -- optional, for file icons
         },
-        tag = "nightly", -- optional, updated every week. (see issue #1193)
+        tag = "nightly",                   -- optional, updated every week. (see issue #1193)
         config = function()
             require("nvim-tree").setup({
                 diagnostics = {
@@ -450,7 +442,7 @@ require("packer").startup(function(use)
                 playground = {
                     enable = true,
                     disable = {},
-                    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+                    updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
                     persist_queries = false, -- Whether the query persists across vim sessions
                     keybindings = {
                         toggle_query_editor = "o",
@@ -465,16 +457,14 @@ require("packer").startup(function(use)
                         show_help = "?",
                     },
                 },
-
                 ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-                sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+                sync_install = false,     -- install languages synchronously (only applied to `ensure_installed`)
                 ignore_install = { "r" }, -- List of parsers to ignore installing
                 highlight = {
-                    enable = true, -- false will disable the whole extension
+                    enable = true,        -- false will disable the whole extension
                     -- disable = { "markdown" }, -- list of language that will be disabled
                     additional_vim_regex_highlighting = true,
                 },
-
                 rainbow = {
                     enable = true,
                     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for

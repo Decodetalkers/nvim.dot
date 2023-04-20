@@ -2,7 +2,6 @@ local prequire = require("prequire")
 local dap = prequire("dap")
 local TabOpened = { opened = true }
 if dap then
-    require("dap-go").setup()
     dap.adapters.lldb = {
         type = "executable",
         command = "/usr/bin/lldb-vscode", -- adjust as needed
