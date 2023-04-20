@@ -4,13 +4,13 @@ require("packer").startup(function(use)
         --"tpope/vim-fugitive", --git blame
         "arkav/lualine-lsp-progress",
         "junegunn/fzf",
-        "kongo2002/fsharp-vim",     --hightlight for fsharp
+        "kongo2002/fsharp-vim", --hightlight for fsharp
         --"peterhoeg/vim-qml",
-        "neovim/nvim-lspconfig",    -- Collection of configurations for built-in LSP client
-        "hrsh7th/nvim-cmp",         -- Autocompletion plugin
-        "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
+        "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
+        "hrsh7th/nvim-cmp", -- Autocompletion plugin
+        "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
         -- cmp's luasnip and luasnip engine
-        "L3MON4D3/LuaSnip",         -- Snippets plugin
+        "L3MON4D3/LuaSnip", -- Snippets plugin
         "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
         -- vscode snippets
         "rafamadriz/friendly-snippets",
@@ -24,7 +24,7 @@ require("packer").startup(function(use)
         "folke/lsp-colors.nvim",
         "simnalamburt/vim-mundo",
         --"rbong/vim-flog",
-        "kyazdani42/nvim-web-devicons", --icons for Nvim tree
+        "nvim-tree/nvim-web-devicons", --icons for Nvim tree
         --"aklt/plantuml-syntax",
         "tyru/open-browser.vim",
         "weirongxu/plantuml-previewer.vim",
@@ -120,11 +120,11 @@ require("packer").startup(function(use)
                 statementStyle = { bold = true },
                 --typeStyle = "NONE",
                 variablebuiltinStyle = { italic = true },
-                specialReturn = true,    -- special highlight for the return keyword
+                specialReturn = true, -- special highlight for the return keyword
                 specialException = true, -- special highlight for exception handling keywords
-                transparent = false,     -- do not set background color
-                dimInactive = false,     -- dim inactive window `:h hl-NormalNC`
-                globalStatus = false,    -- adjust window separators highlight for laststatus=3
+                transparent = false, -- do not set background color
+                dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+                globalStatus = false, -- adjust window separators highlight for laststatus=3
                 colors = {},
                 --overrides = {},
             })
@@ -134,7 +134,7 @@ require("packer").startup(function(use)
     })
     use({
         "goolord/alpha-nvim",
-        requires = { "kyazdani42/nvim-web-devicons" },
+        requires = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("alpha").setup(require("alpha.themes.startify").config)
         end,
@@ -258,7 +258,6 @@ require("packer").startup(function(use)
         requires = {
             "nvim-tree/nvim-web-devicons", -- optional, for file icons
         },
-        tag = "nightly",                   -- optional, updated every week. (see issue #1193)
         config = function()
             require("nvim-tree").setup({
                 diagnostics = {
@@ -355,7 +354,7 @@ require("packer").startup(function(use)
     })
     use({
         "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
         config = function()
             require("lualine").setup({
                 options = {
@@ -398,7 +397,7 @@ require("packer").startup(function(use)
     })
     use({
         "akinsho/bufferline.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
+        requires = "nvim-tree/nvim-web-devicons",
         config = function()
             require("bufferline").setup({
                 options = {
@@ -442,7 +441,7 @@ require("packer").startup(function(use)
                 playground = {
                     enable = true,
                     disable = {},
-                    updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
+                    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
                     persist_queries = false, -- Whether the query persists across vim sessions
                     keybindings = {
                         toggle_query_editor = "o",
@@ -458,10 +457,10 @@ require("packer").startup(function(use)
                     },
                 },
                 ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-                sync_install = false,     -- install languages synchronously (only applied to `ensure_installed`)
+                sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
                 ignore_install = { "r" }, -- List of parsers to ignore installing
                 highlight = {
-                    enable = true,        -- false will disable the whole extension
+                    enable = true, -- false will disable the whole extension
                     -- disable = { "markdown" }, -- list of language that will be disabled
                     additional_vim_regex_highlighting = true,
                 },

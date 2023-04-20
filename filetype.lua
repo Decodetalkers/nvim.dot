@@ -25,7 +25,7 @@ vim.filetype.add({
         pc = "PKGBUILD",
         gdextension = "toml",
         uml = "plantuml",
-        theme = "dosini"
+        theme = "dosini",
     },
     filename = {
         environment = "dosini",

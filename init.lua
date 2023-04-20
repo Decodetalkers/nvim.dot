@@ -48,6 +48,6 @@ if packer_bootstrap then
     if nvim_lsp then
         require("cmd")
     end
+    -- for test
+    require("mytreesitter")
 end
--- for test
-require("mytreesitter")
