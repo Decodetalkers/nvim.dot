@@ -121,7 +121,9 @@ cmp.setup({
         entires = "native",
     },
     experimental = {
-        ghost_text = true,
+        ghost_text = {
+            hl_group = false
+        },
     },
     enabled = function()
         return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
