@@ -122,7 +122,7 @@ cmp.setup({
     },
     experimental = {
         ghost_text = {
-            hl_group = false
+            hl_group = false,
         },
     },
     enabled = function()

@@ -4,7 +4,7 @@ vim.filetype.add({
         qml = "qmljs",
         qmltypes = "qmljs",
         qmlproject = "qmljs",
-        conf = "dosini",
+        --conf = "dosini",
         service = "dosini",
         ini = "dosini",
         timer = "dosini",

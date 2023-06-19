@@ -13,7 +13,7 @@ local File = {
     },
     ["qmljs"] = {
         tab = false,
-        shift = 4,
+        shift = 2,
     },
     ["rust"] = {
         tab = true,

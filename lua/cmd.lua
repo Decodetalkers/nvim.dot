@@ -1,6 +1,4 @@
 vim.cmd([[filetype on]])
---vim.cmd([[colorscheme one]])
-vim.g.Hexokinase_highlighters = { "backgroundfull" }
 
 local function file_exists(name)
     local f = io.open(name, "r")
