@@ -36,6 +36,7 @@ require("packer").startup(function(use)
         "simrat39/symbols-outline.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "nfnty/vim-nftables",
     })
 
     use({

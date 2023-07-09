@@ -35,7 +35,7 @@ require("lazy").setup({
     "simrat39/symbols-outline.nvim",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-
+    "nfnty/vim-nftables",
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",

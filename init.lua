@@ -39,7 +39,6 @@ else
     end
 end
 
-
 if packer_bootstrap then
     opt.foldenable = false
     opt.termguicolors = true
