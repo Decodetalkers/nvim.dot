@@ -264,7 +264,7 @@ require("lazy").setup({
                 symbol_in_winbar = {
                     enable = true,
                     separator = " ",
-                    hide_keyword = true,
+                    --hide_keyword = true,
                     show_file = true,
                     folder_level = 2,
                 },
@@ -273,6 +273,7 @@ require("lazy").setup({
     },
     {
         "nvim-tree/nvim-tree.lua",
+        lazy = false,
         dependencies = {
             "nvim-tree/nvim-web-devicons", -- optional, for file icons
         },
@@ -305,6 +306,7 @@ require("lazy").setup({
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
+        lazy = false,
         config = function()
             require("gitsigns").setup({
                 current_line_blame = true,
@@ -475,20 +477,20 @@ require("lazy").setup({
                 },
                 ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
                 sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-                ignore_install = { "r" }, -- List of parsers to ignore installing
+                ignore_install = { "r", "po" }, -- List of parsers to ignore installing
                 highlight = {
                     enable = true, -- false will disable the whole extension
                     -- disable = { "markdown" }, -- list of language that will be disabled
                     additional_vim_regex_highlighting = true,
                 },
-                rainbow = {
-                    enable = true,
-                    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-                    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-                    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-                    -- colors = {}, -- table of hex strings
-                    -- termcolors = {} -- table of colour name strings
-                },
+                --rainbow = {
+                --    enable = true,
+                --    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+                --    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+                --    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+                --    -- colors = {}, -- table of hex strings
+                --    -- termcolors = {} -- table of colour name strings
+                --},
             })
         end,
     },

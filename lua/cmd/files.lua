@@ -13,6 +13,10 @@ local File = {
     },
     ["qmljs"] = {
         tab = false,
+        shift = 4,
+    },
+    ["dart"] = {
+        tab = false,
         shift = 2,
     },
     ["rust"] = {
@@ -61,7 +65,7 @@ local File = {
     },
     ["xml"] = {
         tab = false,
-        shift = 2,
+        shift = 4,
     },
     ["sh"] = {
         tab = true,

@@ -8,7 +8,6 @@ vim.filetype.add({
         service = "dosini",
         ini = "dosini",
         timer = "dosini",
-        vala = "vala",
         vapi = "vala",
         qrc = "xml",
         tex = "tex",

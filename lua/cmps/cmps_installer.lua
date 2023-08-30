@@ -32,7 +32,7 @@ local servers = {
     --"graphql",
     --"html",
     "yamlls",
-    "ocamllsp",
+    --"ocamllsp",
     --"denols",
     "taplo",
     "zls",
