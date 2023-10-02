@@ -3,13 +3,13 @@ require("lazy").setup({
     --"tpope/vim-fugitive", --git blame
     "arkav/lualine-lsp-progress",
     "junegunn/fzf",
-    "kongo2002/fsharp-vim", --hightlight for fsharp
+    "kongo2002/fsharp-vim",     --hightlight for fsharp
     --"peterhoeg/vim-qml",
-    "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
-    "hrsh7th/nvim-cmp", -- Autocompletion plugin
-    "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+    "neovim/nvim-lspconfig",    -- Collection of configurations for built-in LSP client
+    "hrsh7th/nvim-cmp",         -- Autocompletion plugin
+    "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
     -- cmp's luasnip and luasnip engine
-    "L3MON4D3/LuaSnip", -- Snippets plugin
+    "L3MON4D3/LuaSnip",         -- Snippets plugin
     "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
     -- vscode snippets
     "rafamadriz/friendly-snippets",
@@ -37,6 +37,10 @@ require("lazy").setup({
     "williamboman/mason-lspconfig.nvim",
     "nfnty/vim-nftables",
     {
+        "kaarmu/typst.vim",
+        ft = { 'typst' }
+    },
+    {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         dependencies = {
@@ -63,7 +67,7 @@ require("lazy").setup({
         end,
     },
     -- Packer
-    { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+    { "sindrets/diffview.nvim",                dependencies = { "nvim-lua/plenary.nvim" } },
     {
         "nvim-neorg/neorg",
         ft = "norg",
@@ -120,11 +124,11 @@ require("lazy").setup({
                 statementStyle = { bold = true },
                 --typeStyle = "NONE",
                 variablebuiltinStyle = { italic = true },
-                specialReturn = true, -- special highlight for the return keyword
+                specialReturn = true,    -- special highlight for the return keyword
                 specialException = true, -- special highlight for exception handling keywords
-                transparent = false, -- do not set background color
-                dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-                globalStatus = false, -- adjust window separators highlight for laststatus=3
+                transparent = false,     -- do not set background color
+                dimInactive = false,     -- dim inactive window `:h hl-NormalNC`
+                globalStatus = false,    -- adjust window separators highlight for laststatus=3
                 colors = {},
                 --overrides = {},
             })
@@ -185,8 +189,8 @@ require("lazy").setup({
             vim.opt.list = true
             vim.opt.listchars:append("space:⋅")
             --vim.opt.listchars:append("eol:↴")
-            require("indent_blankline").setup({
-                space_char_blankline = " ",
+            require("ibl").setup({
+                --indent = { ["tab_char"] = "|" },
             })
         end,
     },
@@ -211,8 +215,8 @@ require("lazy").setup({
                     diagnostic = true,
                     gitsigns = false, -- Requires gitsigns
                     handle = true,
-                    search = false, -- Requires hlslens
-                    ale = false, -- Requires ALE
+                    search = false,   -- Requires hlslens
+                    ale = false,      -- Requires ALE
                 },
                 marks = {
                     Search = { color = colors.orange },
@@ -300,6 +304,7 @@ require("lazy").setup({
             })
         end,
     },
+
     --{ "wbthomason/packer.nvim", event = "VimEnter" },
     {
         "lewis6991/gitsigns.nvim",
@@ -438,7 +443,7 @@ require("lazy").setup({
         end,
         ft = { "markdown" },
     },
-    { "rrethy/vim-hexokinase", build = "make hexokinase", lazy = false },
+    { "rrethy/vim-hexokinase",      build = "make hexokinase",                 lazy = false },
     { "akinsho/flutter-tools.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
     {
         "nvim-treesitter/nvim-treesitter-context",
@@ -460,7 +465,7 @@ require("lazy").setup({
                 playground = {
                     enable = true,
                     disable = {},
-                    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+                    updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
                     persist_queries = false, -- Whether the query persists across vim sessions
                     keybindings = {
                         toggle_query_editor = "o",
@@ -475,11 +480,11 @@ require("lazy").setup({
                         show_help = "?",
                     },
                 },
-                ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-                sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+                ensure_installed = "all",       -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+                sync_install = false,           -- install languages synchronously (only applied to `ensure_installed`)
                 ignore_install = { "r", "po" }, -- List of parsers to ignore installing
                 highlight = {
-                    enable = true, -- false will disable the whole extension
+                    enable = true,              -- false will disable the whole extension
                     -- disable = { "markdown" }, -- list of language that will be disabled
                     additional_vim_regex_highlighting = true,
                 },

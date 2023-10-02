@@ -164,6 +164,7 @@ local servers_lsp = {
     "zls",
     "slint_lsp",
     "teal_ls",
+    "typst_lsp",
 }
 
 for _, lsp in ipairs(servers_lsp) do
