@@ -28,7 +28,7 @@ local servers = {
     "vimls",
     --"cssls",
     "lemminx",
-    --"groovyls",
+    "gradle_ls",
     --"graphql",
     --"html",
     "yamlls",

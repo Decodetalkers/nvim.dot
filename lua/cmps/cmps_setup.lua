@@ -129,6 +129,7 @@ local servers_lsp = {
     --"r_language_server",
     "lua_ls",
     "clangd",
+    "gradle_ls",
     --"rust_analyzer",
     "julials",
     "csharp_ls",

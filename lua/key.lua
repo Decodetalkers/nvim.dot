@@ -2,7 +2,7 @@ vim.api.nvim_set_keymap("n", "<M-f>", "<cmd>NvimTreeToggle<cr>", { noremap = fal
 --vim.api.nvim_set_keymap("n", "<M-f>", ":CocCommand explorer<cr>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Gitsigns preview_hunk<cr>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap("n", "<M-y>", ":Gitsigns toggle_current_line_blame<cr>", { noremap = false, silent = true })
-vim.api.nvim_set_keymap("n", "<M-r>", "<cmd>Lspsaga lsp_finder<CR>", { noremap = false, silent = true })
+vim.api.nvim_set_keymap("n", "<M-r>", "<cmd>Lspsaga finder<CR>", { noremap = false, silent = true })
 
 --vim.api.nvim_set_keymap("n", "df", "<cmd>Lspsaga peek_definition<CR>", { noremap = false, silent = true })
 vim.api.nvim_set_keymap("n", "fg", "<cmd>Telescope<CR>", { noremap = false, silent = true })
@@ -55,6 +55,6 @@ vim.keymap.set("n", "<C-n>", function()
     end
 end)
 vim.keymap.set("n", "sd", "<cmd>Lspsaga show_line_diagnostics<CR>")
-vim.keymap.set("n", "df", "<cmd>Lspsaga lsp_finder<CR>")
+vim.keymap.set("n", "df", "<cmd>Lspsaga finder<CR>")
 --vim.api.nvim_set_keymap("n", "sd", "<cmd>Lspsaga show_line_diagnostics<CR>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })
