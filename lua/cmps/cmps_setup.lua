@@ -166,6 +166,7 @@ local servers_lsp = {
     "slint_lsp",
     "teal_ls",
     "typst_lsp",
+    "nushell",
 }
 
 for _, lsp in ipairs(servers_lsp) do
