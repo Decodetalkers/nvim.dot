@@ -285,6 +285,9 @@ require("lazy").setup({
                     show_file = true,
                     folder_level = 2,
                 },
+                lightbulb = {
+                    enable = false,
+                },
             })
         end,
     },

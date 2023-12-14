@@ -34,7 +34,7 @@ vim.filetype.add({
         qmldir = "qmldir",
         [".clang-format"] = "yaml",
         [".gitignore"] = "gitignore",
-        ["deno.lock"] = "json"
+        ["deno.lock"] = "json",
     },
     pattern = {
         ["environment.*"] = "dosini",
