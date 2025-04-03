@@ -56,7 +56,7 @@ vim.keymap.set("n", "<C-n>", function()
         luasnip.expand_or_jump()
     end
 end)
-vim.keymap.set("n", "sd", "<cmd>Lspsaga show_line_diagnostics<CR>")
+vim.keymap.set("n", "sd", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 vim.keymap.set("n", "df", "<cmd>Lspsaga finder<CR>")
 --vim.api.nvim_set_keymap("n", "sd", "<cmd>Lspsaga show_line_diagnostics<CR>", { noremap = false, silent = true })
 --vim.api.nvim_set_keymap("n", "<C-]>", "<Plug>(coc-definition)", { noremap = false, silent = true })

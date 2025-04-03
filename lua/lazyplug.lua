@@ -1,7 +1,7 @@
 -- every time changed should compiled first
 require("lazy").setup({
     --"tpope/vim-fugitive", --git blame
-    "arkav/lualine-lsp-progress",
+    { dir = "~/git/lualine-lsp-progress" },
     "junegunn/fzf",
     "kongo2002/fsharp-vim", --hightight for fsharp
     --"peterhoeg/vim-qml",

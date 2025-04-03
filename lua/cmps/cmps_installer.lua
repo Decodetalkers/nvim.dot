@@ -39,6 +39,7 @@ local servers = {
     "teal_ls",
     "typos_lsp",
     "dockerls",
+    "ruby_lsp",
 }
 require("mason").setup()
 require("mason-lspconfig").setup({
