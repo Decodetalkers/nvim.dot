@@ -268,7 +268,7 @@ local function virtual_text_document_deno(params)
     local client = clients[1]
     local method = "deno/virtualTextDocument"
     local req_params = { textDocument = { uri = actual_path } }
-    local response = client.request_sync(method, req_params, 2000, 0)
+    local response = client:request_sync(method, req_params, 2000, 0)
     if not response or type(response.result) ~= "string" then
         return
     end
