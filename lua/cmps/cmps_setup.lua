@@ -194,7 +194,8 @@ for _, lsp in ipairs(servers_lsp) do
             },
         }
     end
-    nvim_lsp[lsp].setup(opts)
+    vim.lsp.config(lsp, opts)
+    vim.lsp.enable(lsp)
 end
 
 --- testing
@@ -213,6 +214,10 @@ local opts = {
                 },
             },
         },
+
+    },
+    init_options = {
+        use_snippets = false
     },
     on_attach = on_attach,
 }
@@ -220,7 +225,8 @@ if persettings and persettings.lsp and persettings.lsp.neocmake then
     opts = persettings.lsp.neocmake
 end
 
-nvim_lsp.neocmake.setup(opts)
+vim.lsp.config("neocmake", opts)
+vim.lsp.enable("neocmake")
 
 local opts_kt = {
     capabilities = capabilities,
@@ -252,7 +258,8 @@ local opts_kt = {
 if persettings and persettings.lsp and persettings.lsp.kotlin_language_server then
     opts_kt = persettings.lsp.kotlin_language_server
 end
-nvim_lsp.kotlin_language_server.setup(opts_kt)
+vim.lsp.config("kotlin_language_server", opts_kt)
+vim.lsp.enable("kotlin_language_server")
 
 require("csharpls_extended").buf_read_cmd_bind()
 
