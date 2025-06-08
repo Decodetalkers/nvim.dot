@@ -4,8 +4,6 @@ local prequire = require("prequire")
 -- for lsp developing and lspsettings
 local persettings = prequire("settings")
 
-local nvim_lsp = require("lspconfig")
-
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local function file_exists(name)
@@ -18,7 +16,7 @@ local function file_exists(name)
     end
 end
 
-local not_package_json = not file_exists("package.json")
+local contain_package_json = file_exists("package.json")
 
 require("flutter-tools").setup({
     flutter_path = "/usr/bin/flutter",
@@ -65,6 +63,7 @@ local servers_lsp = {
     --"volar",
     "vuels",
     "gopls",
+    "kotlin_lsp",
     --"jedi_language_server",
     "jdtls",
     --"cmake",
@@ -146,21 +145,21 @@ for _, lsp in ipairs(servers_lsp) do
         opts = {
             on_attach = on_attach,
             capabilities = capabilities,
-            root_dir = nvim_lsp.util.root_pattern("deno.json"),
+            root_markers = { "deno.json" },
             init_options = { --settings,
                 lint = true,
             },
-            single_file_support = not_package_json,
+            workspace_required = contain_package_json,
         }
     elseif lsp == "ts_ls" then
         opts = {
             on_attach = on_attach,
             capabilities = capabilities,
-            root_dir = nvim_lsp.util.root_pattern("package.json"),
+            root_markers = { "package.json" },
             init_options = {
                 lint = true,
             },
-            single_file_support = false,
+            workspace_required = true,
             settings = {
                 typescript = {
                     inlayHints = {
@@ -228,38 +227,38 @@ end
 vim.lsp.config("neocmake", opts)
 vim.lsp.enable("neocmake")
 
-local opts_kt = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        kotlin = {
-            inlayHints = {
-                typeHints = true,
-                chainedHints = true
-            },
-            snippetsEnabled = true,
-            formatting = {
-                ktfmt = {
-                    style = "google",
-                    indent = 2,
-                    continuationIndent = 4
-                }
-            },
-            completion = {
-                snippets = {
-                    enabled = true
-                }
-            }
-        }
-    }
-}
---- mime cmake lsp
-
-if persettings and persettings.lsp and persettings.lsp.kotlin_language_server then
-    opts_kt = persettings.lsp.kotlin_language_server
-end
-vim.lsp.config("kotlin_language_server", opts_kt)
-vim.lsp.enable("kotlin_language_server")
+--local opts_kt = {
+--    capabilities = capabilities,
+--    on_attach = on_attach,
+--    settings = {
+--        kotlin = {
+--            inlayHints = {
+--                typeHints = true,
+--                chainedHints = true
+--            },
+--            snippetsEnabled = true,
+--            formatting = {
+--                ktfmt = {
+--                    style = "google",
+--                    indent = 2,
+--                    continuationIndent = 4
+--                }
+--            },
+--            completion = {
+--                snippets = {
+--                    enabled = true
+--                }
+--            }
+--        }
+--    }
+--}
+----- mime cmake lsp
+--
+--if persettings and persettings.lsp and persettings.lsp.kotlin_language_server then
+--    opts_kt = persettings.lsp.kotlin_language_server
+--end
+--vim.lsp.config("kotlin_language_server", opts_kt)
+--vim.lsp.enable("kotlin_language_server")
 
 require("csharpls_extended").buf_read_cmd_bind()
 
