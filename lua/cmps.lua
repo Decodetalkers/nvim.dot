@@ -144,9 +144,9 @@ cmp.setup({
             return vim_item
         end,
     },
-    view = {
-        entires = "native",
-    },
+    --view = {
+    --    entries = "native",
+    --},
     experimental = {
         ghost_text = {
             hl_group = false,
