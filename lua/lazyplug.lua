@@ -102,7 +102,7 @@ require("lazy").setup({
         "mfussenegger/nvim-lint",
         config = function()
             require("lint").linters_by_ft = {
-                python = { "mypy" },
+                --python = { "mypy" },
             }
             vim.api.nvim_create_autocmd({ "BufWritePost" }, {
                 callback = function()
@@ -113,7 +113,7 @@ require("lazy").setup({
     },
     {
         dependencies = { "anuvyklack/nvim-keymap-amend" },
-        "anuvyklack/pretty-fold.nvim",
+        dir = "~/git/pretty-fold.nvim",
         config = function()
             require("pretty-fold").setup({})
         end,

@@ -37,7 +37,6 @@ require("flutter-tools").setup({
 local servers_lsp = {
     "gdscript",
     "hls",
-    "denols",
     "mesonlsp",
     "html",
     "cssls",
@@ -61,7 +60,8 @@ local servers_lsp = {
     "vala_ls",
     "ruby_lsp",
     --"volar",
-    "vuels",
+    "vue_ls",
+    "vtsls",
     "gopls",
     "kotlin_lsp",
     --"jedi_language_server",
@@ -75,8 +75,8 @@ local servers_lsp = {
     --"graphql",
     --"html",
     "yamlls",
-    "ocamllsp",
-    --"denols",
+    --"ocamllsp",
+    "denols",
     "taplo",
     "zls",
     "slint_lsp",
@@ -142,16 +142,28 @@ for _, lsp in ipairs(servers_lsp) do
             },
         }
     elseif lsp == "denols" then
+        if contain_package_json then
+            vim.lsp.enable(lsp, false)
+            goto continue
+        end
         opts = {
             on_attach = on_attach,
             capabilities = capabilities,
-            root_markers = { "deno.json" },
             init_options = { --settings,
                 lint = true,
             },
             workspace_required = contain_package_json,
         }
+    elseif lsp == "vtsls" then
+        if not contain_package_json then
+            vim.lsp.enable(lsp, false)
+            goto continue
+        end
     elseif lsp == "ts_ls" then
+        if not contain_package_json then
+            vim.lsp.enable(lsp, false)
+            goto continue
+        end
         opts = {
             on_attach = on_attach,
             capabilities = capabilities,
@@ -195,6 +207,7 @@ for _, lsp in ipairs(servers_lsp) do
     end
     vim.lsp.config(lsp, opts)
     vim.lsp.enable(lsp)
+    ::continue::
 end
 
 --- testing
