@@ -216,17 +216,17 @@ require("lazy").setup({
             })
         end,
     },
-    {
-        dir = "~/git/csv-tools.lua",
-        --"~/git/csv-tools.lua",
-        config = function()
-            require("csvtools").setup({
-                before = 70,
-                after = 70,
-                --showoverflow = false
-            })
-        end,
-    },
+    --{
+    --    dir = "~/git/csv-tools.lua",
+    --    --"~/git/csv-tools.lua",
+    --    config = function()
+    --        require("csvtools").setup({
+    --            before = 70,
+    --            after = 70,
+    --            --showoverflow = false
+    --        })
+    --    end,
+    --},
     {
         dir = "~/git/lala_log",
     },
