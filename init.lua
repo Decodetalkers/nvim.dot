@@ -51,7 +51,7 @@ if lazy_bootstrap then
         require("cmd")
     end
     -- for test
-    require("mytreesitter")
+    --require("mytreesitter")
 end
 
 -- Save the original `window/showMessage` handler

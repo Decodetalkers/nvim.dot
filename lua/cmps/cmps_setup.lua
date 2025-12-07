@@ -48,7 +48,8 @@ local servers_lsp = {
     "julials",
     "csharp_ls",
     --"pyright",
-    "pylsp",
+    "zuban",
+    --"pylsp",
     --"ruff_lsp",
     "ts_ls",
     --"omnisharp",
@@ -61,7 +62,7 @@ local servers_lsp = {
     "ruby_lsp",
     --"volar",
     "vue_ls",
-    "vtsls",
+    --"vtsls",
     "gopls",
     "kotlin_lsp",
     --"jedi_language_server",
@@ -84,6 +85,7 @@ local servers_lsp = {
     "tinymist",
     "nushell",
     "dockerls",
+    "qmlls"
     --"typos_lsp"
 }
 
@@ -152,6 +154,11 @@ for _, lsp in ipairs(servers_lsp) do
             init_options = { --settings,
                 lint = true,
             },
+            settings = {
+                deno = {
+                    unstable = true,
+                }
+            },
             workspace_required = contain_package_json,
         }
     elseif lsp == "vtsls" then
@@ -159,6 +166,10 @@ for _, lsp in ipairs(servers_lsp) do
             vim.lsp.enable(lsp, false)
             goto continue
         end
+    elseif lsp == "qmlls" then
+        opts = {
+            cmd = { "qmlls6" }
+        }
     elseif lsp == "ts_ls" then
         if not contain_package_json then
             vim.lsp.enable(lsp, false)
