@@ -48,7 +48,8 @@ local servers_lsp = {
     "julials",
     "csharp_ls",
     --"pyright",
-    "zuban",
+    --"zuban",
+    "ty",
     --"pylsp",
     --"ruff_lsp",
     "ts_ls",
@@ -100,7 +101,7 @@ for _, lsp in ipairs(servers_lsp) do
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-            cmd = { "clangd", "--experimental-modules-support" },
+            cmd = { "clangd" },
         }
     elseif lsp == "rust_analyzer" then
         opts = {
