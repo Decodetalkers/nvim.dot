@@ -516,6 +516,7 @@ require("lazy").setup({
                 "typescript",
                 "gdscript",
                 "meson",
+                "tsx",
             })
         end,
     },
