@@ -86,7 +86,7 @@ local servers_lsp = {
     "tinymist",
     "nushell",
     "dockerls",
-    "qmlls"
+    "qmlls",
     --"typos_lsp"
 }
 
@@ -112,9 +112,9 @@ for _, lsp in ipairs(servers_lsp) do
                     return persettings.lspsettings.rust
                 else
                     return {
-                        ['rust-analyzer'] = {
+                        ["rust-analyzer"] = {
                             --checkOnSave = false
-                        }
+                        },
                     }
                 end
             end)(),
@@ -158,7 +158,7 @@ for _, lsp in ipairs(servers_lsp) do
             settings = {
                 deno = {
                     unstable = true,
-                }
+                },
             },
             workspace_required = contain_package_json,
         }
@@ -169,7 +169,7 @@ for _, lsp in ipairs(servers_lsp) do
         end
     elseif lsp == "qmlls" then
         opts = {
-            cmd = { "qmlls6" }
+            cmd = { "qmlls6" },
         }
     elseif lsp == "ts_ls" then
         if not contain_package_json then
@@ -203,10 +203,10 @@ for _, lsp in ipairs(servers_lsp) do
             capabilities = capabilities,
             on_attach = on_attach,
             settings = {
-                ['rust-analyzer'] = {
-                    checkOnSave = false
-                }
-            }
+                ["rust-analyzer"] = {
+                    checkOnSave = false,
+                },
+            },
         }
     elseif lsp == "csharp_ls" then
         opts = {
@@ -238,10 +238,9 @@ local opts = {
                 },
             },
         },
-
     },
     init_options = {
-        use_snippets = false
+        use_snippets = false,
     },
     on_attach = on_attach,
 }

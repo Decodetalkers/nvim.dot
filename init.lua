@@ -66,15 +66,15 @@ vim.lsp.handlers["window/showMessage"] = function(err, result, ctx, config)
     -- Map LSP message types to Neovim's log levels
     local log_level = {
         [1] = vim.log.levels.ERROR, -- LSP `Error`
-        [2] = vim.log.levels.WARN,  -- LSP `Warning`
-        [3] = vim.log.levels.INFO,  -- LSP `Info`
-        [4] = vim.log.levels.DEBUG  -- LSP `Log`
+        [2] = vim.log.levels.WARN, -- LSP `Warning`
+        [3] = vim.log.levels.INFO, -- LSP `Info`
+        [4] = vim.log.levels.DEBUG, -- LSP `Log`
     }
 
     if message_type == 1 then
         vim.notify(message, log_level[message_type], {
             title = "Error", -- Custom notification title
-            timeout = 3000,  -- Notification duration (milliseconds)
+            timeout = 3000, -- Notification duration (milliseconds)
         })
         return
     end

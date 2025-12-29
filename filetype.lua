@@ -26,7 +26,7 @@ vim.filetype.add({
         uml = "plantuml",
         theme = "dosini",
         typst = "typst",
-        bazel = "starlark"
+        bazel = "starlark",
     },
     filename = {
         environment = "dosini",

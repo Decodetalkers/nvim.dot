@@ -486,12 +486,36 @@ require("lazy").setup({
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        --dependencies = { "nvim-treesitter/playground" },
         branch = "main",
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter").setup({
-                install_dir = vim.fn.stdpath('data') .. '/site',
+            local nvim_treesitter = require("nvim-treesitter")
+            nvim_treesitter.setup({
+                install_dir = vim.fn.stdpath("data") .. "/site",
+            })
+            nvim_treesitter.install({
+                "rust",
+                "c",
+                "cpp",
+                "nu",
+                "markdown",
+                "markdown-inline",
+                "kotlin",
+                "zig",
+                "c_sharp",
+                "fsharp",
+                "go",
+                "gomod",
+                "gosum",
+                "python",
+                "haskell",
+                "qmljs",
+                "toml",
+                "yaml",
+                "javascript",
+                "typescript",
+                "gdscript",
+                "meson",
             })
         end,
     },
