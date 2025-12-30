@@ -517,6 +517,7 @@ require("lazy").setup({
                 "gdscript",
                 "meson",
                 "tsx",
+                "bash",
             })
         end,
     },
