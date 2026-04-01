@@ -36,6 +36,7 @@ vim.filetype.add({
         [".clang-format"] = "yaml",
         [".gitignore"] = "gitignore",
         ["deno.lock"] = "json",
+        ["Podfile"] = "ruby"
     },
     pattern = {
         ["environment.*"] = "dosini",

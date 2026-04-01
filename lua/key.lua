@@ -44,12 +44,7 @@ vim.api.nvim_set_keymap("n", "ff", "<cmd>bn<cr>", { noremap = false, silent = tr
 vim.keymap.set("n", "<M-q>", function()
     require("key.relative").change()
 end)
-vim.keymap.set("n", "<leader>r", function()
-    if vim.o.filetype == "rust" then
-        require("rust-tools.hover_actions").hover_actions()
-        require("rust-tools.hover_actions").hover_actions()
-    end
-end)
+
 local luasnip = require("luasnip")
 vim.keymap.set("n", "<C-n>", function()
     if luasnip.expand_or_jumpable() then

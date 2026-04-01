@@ -499,7 +499,7 @@ require("lazy").setup({
                 "cpp",
                 "nu",
                 "markdown",
-                "markdown-inline",
+                "markdown_inline",
                 "kotlin",
                 "zig",
                 "c_sharp",
@@ -518,6 +518,7 @@ require("lazy").setup({
                 "meson",
                 "tsx",
                 "bash",
+                "julia",
             })
         end,
     },
