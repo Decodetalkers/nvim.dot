@@ -40,7 +40,7 @@ local servers = {
     "typos_lsp",
     "dockerls",
     "ruby_lsp",
-    "wgsl_analyzer"
+    "wgsl_analyzer",
 }
 require("mason").setup()
 require("mason-lspconfig").setup({

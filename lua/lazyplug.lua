@@ -485,9 +485,11 @@ require("lazy").setup({
         },
     },
     {
-        "nvim-treesitter/nvim-treesitter",
+        "neovim-treesitter/nvim-treesitter",
         branch = "main",
         build = ":TSUpdate",
+        lazy = false,
+        dependencies = { "neovim-treesitter/treesitter-parser-registry" },
         config = function()
             local nvim_treesitter = require("nvim-treesitter")
             nvim_treesitter.setup({
@@ -519,6 +521,7 @@ require("lazy").setup({
                 "tsx",
                 "bash",
                 "julia",
+                "nginx",
             })
         end,
     },

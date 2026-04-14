@@ -39,6 +39,10 @@ local File = {
         tab = false,
         shift = 2,
     },
+    ["typescriptreact"] = {
+        tab = false,
+        shift = 2,
+    },
     ["java"] = {
         tab = true,
         shift = 4,

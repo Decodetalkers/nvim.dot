@@ -87,7 +87,7 @@ local servers_lsp = {
     "nushell",
     "dockerls",
     "qmlls",
-    "wgsl_analyzer"
+    "wgsl_analyzer",
     --"typos_lsp"
 }
 
@@ -214,7 +214,7 @@ for _, lsp in ipairs(servers_lsp) do
             on_attach = on_attach,
             capabilities = capabilities,
             cmd = function(dispatchers, config)
-                return vim.lsp.rpc.start({ 'csharp-ls', '--features', 'metadata-uris' }, dispatchers, {
+                return vim.lsp.rpc.start({ "csharp-ls", "--features", "metadata-uris" }, dispatchers, {
                     -- csharp-ls attempt to locate sln, slnx or csproj files from cwd, so set cwd to root directory.
                     -- If cmd_cwd is provided, use it instead.
                     cwd = config.cmd_cwd or config.root_dir,
@@ -249,8 +249,7 @@ local opts = {
             },
         },
     },
-    init_options = {
-    },
+    init_options = {},
     on_attach = on_attach,
 }
 if persettings and persettings.lsp and persettings.lsp.neocmake then
