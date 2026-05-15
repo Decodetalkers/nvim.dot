@@ -169,8 +169,13 @@ for _, lsp in ipairs(servers_lsp) do
             goto continue
         end
     elseif lsp == "qmlls" then
+        local cmd = { "qmlls6" }
+        if file_exists("build") then
+            table.insert(cmd, "-I")
+            table.insert(cmd, "./build")
+        end
         opts = {
-            cmd = { "qmlls6" },
+            cmd = cmd,
         }
     elseif lsp == "ts_ls" then
         if not contain_package_json then

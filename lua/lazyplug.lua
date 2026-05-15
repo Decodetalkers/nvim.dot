@@ -3,13 +3,13 @@ require("lazy").setup({
     --"tpope/vim-fugitive", --git blame
     { dir = "~/git/lualine-lsp-progress" },
     "junegunn/fzf",
-    "kongo2002/fsharp-vim", --hightight for fsharp
+    "kongo2002/fsharp-vim",     --hightight for fsharp
     --"peterhoeg/vim-qml",
-    "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
-    "hrsh7th/nvim-cmp", -- Autocompletion plugin
-    "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+    "neovim/nvim-lspconfig",    -- Collection of configurations for built-in LSP client
+    "hrsh7th/nvim-cmp",         -- Autocompletion plugin
+    "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
     -- cmp's luasnip and luasnip engine
-    "L3MON4D3/LuaSnip", -- Snippets plugin
+    "L3MON4D3/LuaSnip",         -- Snippets plugin
     "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
     -- vscode snippets
     "rafamadriz/friendly-snippets",
@@ -75,7 +75,7 @@ require("lazy").setup({
         end,
     },
     -- Packer
-    { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+    { "sindrets/diffview.nvim",         dependencies = { "nvim-lua/plenary.nvim" } },
     --{
     --    "nvim-neorg/neorg",
     --    ft = "norg",
@@ -145,11 +145,11 @@ require("lazy").setup({
                 statementStyle = { bold = true },
                 --typeStyle = "NONE",
                 variablebuiltinStyle = { italic = true },
-                specialReturn = true, -- special highlight for the return keyword
+                specialReturn = true,    -- special highlight for the return keyword
                 specialException = true, -- special highlight for exception handling keywords
-                transparent = false, -- do not set background color
-                dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-                globalStatus = false, -- adjust window separators highlight for laststatus=3
+                transparent = false,     -- do not set background color
+                dimInactive = false,     -- dim inactive window `:h hl-NormalNC`
+                globalStatus = false,    -- adjust window separators highlight for laststatus=3
                 colors = {},
                 --overrides = {},
             })
@@ -240,8 +240,8 @@ require("lazy").setup({
                     diagnostic = true,
                     gitsigns = false, -- Requires gitsigns
                     handle = true,
-                    search = false, -- Requires hlslens
-                    ale = false, -- Requires ALE
+                    search = false,   -- Requires hlslens
+                    ale = false,      -- Requires ALE
                 },
                 marks = {
                     Search = { color = colors.orange },
@@ -485,44 +485,19 @@ require("lazy").setup({
         },
     },
     {
-        "neovim-treesitter/nvim-treesitter",
-        branch = "main",
-        build = ":TSUpdate",
+        "romus204/tree-sitter-manager.nvim",
         lazy = false,
-        dependencies = { "neovim-treesitter/treesitter-parser-registry" },
         config = function()
-            local nvim_treesitter = require("nvim-treesitter")
-            nvim_treesitter.setup({
-                install_dir = vim.fn.stdpath("data") .. "/site",
+            require("tree-sitter-manager").setup({
+                -- Default Options
+                -- ensure_installed = {}, -- list of parsers to install at the start of a neovim session
+                -- border = nil, -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
+                -- auto_install = false, -- if enabled, install missing parsers when editing a new file
+                -- highlight = true, -- treesitter highlighting is enabled by default
+                -- languages = {}, -- override or add new parser sources
+                -- parser_dir = vim.fn.stdpath("data") .. "/site/parser",
+                -- query_dir = vim.fn.stdpath("data") .. "/site/queries",
             })
-            nvim_treesitter.install({
-                "rust",
-                "c",
-                "cpp",
-                "nu",
-                "markdown",
-                "markdown_inline",
-                "kotlin",
-                "zig",
-                "c_sharp",
-                "fsharp",
-                "go",
-                "gomod",
-                "gosum",
-                "python",
-                "haskell",
-                "qmljs",
-                "toml",
-                "yaml",
-                "javascript",
-                "typescript",
-                "gdscript",
-                "meson",
-                "tsx",
-                "bash",
-                "julia",
-                "nginx",
-            })
-        end,
+        end
     },
 })
