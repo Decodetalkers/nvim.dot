@@ -485,10 +485,26 @@ require("lazy").setup({
         },
     },
     {
-        "romus204/tree-sitter-manager.nvim",
+        dir = "~/git/tree-sitter-manager.nvim",
         lazy = false,
         config = function()
             require("tree-sitter-manager").setup({
+                ensure_installed = {
+                    "cpp",
+                    "c",
+                    "ecma",
+                    "meson",
+                    "rust",
+                    "python",
+                    "cmake",
+                    "qmljs",
+                    "qmldir",
+                    "jsx",
+                    "typescript",
+                    "xml",
+                    "nu",
+                    "agda"
+                }
                 -- Default Options
                 -- ensure_installed = {}, -- list of parsers to install at the start of a neovim session
                 -- border = nil, -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
