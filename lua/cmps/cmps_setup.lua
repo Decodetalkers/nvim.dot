@@ -16,6 +16,7 @@ local function file_exists(name)
     end
 end
 
+local contain_deno_lock = file_exists("deno.lock")
 local contain_package_json = file_exists("package.json")
 
 require("flutter-tools").setup({
@@ -47,6 +48,7 @@ local servers_lsp = {
     "rust_analyzer",
     "julials",
     "csharp_ls",
+    "svelte",
     --"pyright",
     --"zuban",
     "ty",
@@ -97,12 +99,23 @@ for _, lsp in ipairs(servers_lsp) do
         capabilities = capabilities,
         on_attach = on_attach,
     }
+    if lsp == "lemminx" then
+        opts = {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+                xml = {
+                    catalogs = { "/etc/xml/catalog" }
+                }
+            }
+        }
+    end
     if lsp == "clangd" then
         opts = {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-            cmd = { "clangd" },
+            cmd = { "clangd", "--experimental-modules-support" },
         }
     elseif lsp == "rust_analyzer" then
         opts = {
@@ -146,7 +159,7 @@ for _, lsp in ipairs(servers_lsp) do
             },
         }
     elseif lsp == "denols" then
-        if contain_package_json then
+        if not contain_deno_lock and contain_package_json then
             vim.lsp.enable(lsp, false)
             goto continue
         end
@@ -161,10 +174,14 @@ for _, lsp in ipairs(servers_lsp) do
                     unstable = true,
                 },
             },
-            workspace_required = contain_package_json,
+            workspace_required = contain_deno_lock,
+            root_dir = function(bufnr, on_dir)
+                local deno_lock_root = vim.fs.root(bufnr, {})
+                on_dir(deno_lock_root)
+            end
         }
     elseif lsp == "vtsls" then
-        if not contain_package_json then
+        if contain_deno_lock or not contain_package_json then
             vim.lsp.enable(lsp, false)
             goto continue
         end
@@ -178,7 +195,7 @@ for _, lsp in ipairs(servers_lsp) do
             cmd = cmd,
         }
     elseif lsp == "ts_ls" then
-        if not contain_package_json then
+        if contain_deno_lock or not contain_package_json then
             vim.lsp.enable(lsp, false)
             goto continue
         end
@@ -252,9 +269,14 @@ local opts = {
                     snippetSupport = true,
                 },
             },
+            onTypeFormatting = {
+                dynamicRegistration = true,
+            }
         },
     },
-    init_options = {},
+    init_options = {
+        semantic_token = false,
+    },
     on_attach = on_attach,
 }
 if persettings and persettings.lsp and persettings.lsp.neocmake then

@@ -489,6 +489,7 @@ require("lazy").setup({
         lazy = false,
         config = function()
             require("tree-sitter-manager").setup({
+                border = "rounded",
                 ensure_installed = {
                     "cpp",
                     "c",
