@@ -176,8 +176,8 @@ for _, lsp in ipairs(servers_lsp) do
             },
             workspace_required = contain_deno_lock,
             root_dir = function(bufnr, on_dir)
-                local deno_lock_root = vim.fs.root(bufnr, {})
-                on_dir(deno_lock_root)
+                local project_root = vim.fs.root(bufnr, { "deno.lock", "package.json", ".git" })
+                on_dir(project_root)
             end
         }
     elseif lsp == "vtsls" then
