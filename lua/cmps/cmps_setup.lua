@@ -90,6 +90,7 @@ local servers_lsp = {
     "dockerls",
     "qmlls",
     "wgsl_analyzer",
+    "asm_lsp",
     --"typos_lsp"
 }
 

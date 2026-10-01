@@ -4,6 +4,10 @@ opt.wrap = true
 opt.mouse = "a"
 vim.g.do_filetype_lua = 1
 
+if os.getenv("SSH_TTY") then
+    vim.g.clipboard = 'osc52'
+end
+
 local fn = vim.fn
 local lazy_bootstrap = {}
 local data_path = fn.stdpath("data")
